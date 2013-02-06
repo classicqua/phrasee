@@ -1,11 +1,21 @@
-<h2>Sign up</h2>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.error_notification %>
-  <%= display_base_errors resource %>
-  <%= f.input :name, :autofocus => true %>
-  <%= f.input :email, :required => true %>
-  <%= f.input :password, :required => true %>
-  <%= f.input :password_confirmation, :required => true %>
-  <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
-<% end %>
-<%= render "devise/shared/links" %>
+<div class="container">
+  
+  <%= image_tag('signup/signup_step1.jpg', { alt:"step1" } ) %>
+  
+  <!-- page header -->
+  <div class="page-header">
+	<h2>新規会員登録（無料）</h2>
+  </div> 
+  
+  <!-- フォーム -->
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+	<%= f.error_notification %>
+	<%= display_base_errors resource %>
+	<%= f.input :name, :autofocus => true %>
+	<%= f.input :email, :required => true %>
+	<%= f.input :password, :required => true %>
+	<%= f.input :password_confirmation, :required => true %>
+	<%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>
