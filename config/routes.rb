@@ -1,4 +1,7 @@
 Phrasee::Application.routes.draw do
+  resources :phrases
+
+
   authenticated :user do
     root :to => 'home#index'
   end
