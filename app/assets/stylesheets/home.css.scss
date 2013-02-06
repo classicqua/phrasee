@@ -3,12 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .ph_category {
+  font-size: 33px;
 }
 
-.ph_category_wrapper {
-  size: small;
-}
 
 .ph_category_link {
   color: #8B4513;
+}
+
+.ph_phrase_item {
+  font-size: 20px;
+  padding: 3px 0;
+}
+.ph_last_item {
+  margin: 9px 0;
 }
