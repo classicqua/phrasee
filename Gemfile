@@ -1,6 +1,19 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.11'
-gem 'sqlite3'
+
+group :development do
+  gem 'annotate', '2.5.0'
+end
+
+group :development, :test do
+  gem 'sqlite3', '1.3.7'
+  gem 'guard-rspec', '1.2.1'
+  gem 'guard-spork', '1.2.0' 
+  gem 'spork', '0.9.2'
+  gem 'pry-rails'
+  gem 'pry-doc'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -24,3 +37,11 @@ gem "figaro", ">= 0.5.3"
 gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
+
+gem 'bcrypt-ruby', '>= 3.0.1'
+gem 'faker', '>= 1.0.1'
+gem 'will_paginate', '>= 3.0.3'
+gem 'bootstrap-will_paginate', '>= 0.0.6'
+group :production do
+  gem 'pg'
+end
