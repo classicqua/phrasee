@@ -2,34 +2,37 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Phrasee" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Phrasee" %>">
+    <meta charset="UTF-8">
+    <title><%= content_for?(:title) ? yield(:title) : "Phrasee!" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Demo0202" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
+
+    <!-- header -->
     <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
+      <%= render 'layouts/navigation' %>
     </header>
-    <div id="main" role="main">
-      <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+
+    
+    <!-- body -->
+    <div id="main" role="main" class="container body_container">
+
+      <!-- notice/alert -->
+      <%= render 'layouts/messages' %>
+
+      <!-- 各ページコンテンツ -->
+      <%= yield %>
+    </div>
+
+    <!-- footer -->
+    <footer id="footer">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

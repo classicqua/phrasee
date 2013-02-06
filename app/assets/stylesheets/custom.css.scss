@@ -1,0 +1,96 @@
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push {
+        height: 380px;
+      }
+      #footer {
+        height: 430px;
+        background-color: #f5f5f5;
+        margin-top: 50px;
+        padding-top: 20px;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      //@media (max-width: 767px) {
+      @media (max-width: 480px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+          
+          /* 2/1追加 */
+          padding-top: 10px;
+          padding-bottom: 210px;
+        }
+      }
+
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      .container {
+        width: auto;
+        max-width: 800px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+      
+      /*-------------------------------------------------- */
+      /***** only for Phrasee *****/
+      
+      .body_container {
+        padding-top: 20px;
+      }
+
+      .phrase_container {
+        //font-family: 'Courier New', Courier, monospace;
+        //font: normal normal normal 12px/16px "Helvetica Neue",Arial,sans-serif!important;
+
+        //background-color: #FFFFFF;
+
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important;
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important;
+        -ms-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important;
+        -o-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important;
+        border-radius: 5px!important;
+      }
+
+      // 会員登録、ログイン、アカウント設定etc.のform
+      .basic_form_container {
+
+      }
+
+      #footer_copy_right {
+        text-align: center; 
+        padding-top: 5px;
+      }
+      
+      .footer_centerize {
+        text-align: center; 
+      }
+      
+      #otoiawase_link {
+        padding-top:15px;
+      }
