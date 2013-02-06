@@ -1,0 +1,29 @@
+ja:
+  simple_form:
+    "yes": 'はい'
+    "no": 'いいえ'
+    required:
+      text: '必須'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "設定内容を見直してください。"
+    # Labels and hints examples
+    labels:
+      defaults:
+        name: 'ユーザー名'
+        password: 'パスワード'
+        email: 'メールアドレス'
+        remember_me: 'ログイン状態を保持'
+        password_confirmation: 'パスワード再入力（確認用）'
+#      user:
+#        new:       
+#          email: 'メールアドレス.' #ログイン用
+#        edit:
+#          email: 'メールアドレス'
+#    hints: # エラーメッセージ
+#      defaults:
+#        username: 'User name to sign in.'
+#        password: 'No special characters, please.'
