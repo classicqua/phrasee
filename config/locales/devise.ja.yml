@@ -41,6 +41,8 @@ ja:
       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
 #      timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'アカウントがアクティベートされていません。'
+## 2013.2.6 追加
+      not_found_in_database: "メールアドレスまたはパスワードが違います。"
 #      inactive: 'Your account was not activated yet.'
     sessions:
       signed_in: 'ログインしました。'
