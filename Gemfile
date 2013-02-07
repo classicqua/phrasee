@@ -12,6 +12,8 @@ group :development, :test do
   gem 'spork', '0.9.2'
   gem 'pry-rails'
   gem 'pry-doc'
+  gem 'faker', '>= 1.0.1'
+  gem 'faker-japanese'
 end
 
 group :assets do
@@ -39,7 +41,6 @@ gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 
 gem 'bcrypt-ruby', '>= 3.0.1'
-gem 'faker', '>= 1.0.1'
 gem 'will_paginate', '>= 3.0.3'
 gem 'bootstrap-will_paginate', '>= 0.0.6'
 group :production do
