@@ -68,21 +68,13 @@ Phrasee::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"  
-=begin #元々あったやつ
     config.action_mailer.smtp_settings = {
       :address   => "smtp.mandrillapp.com",
-      :port      => 25,
+      #:port      => 25,
+      :port      => 587,
       :user_name => ENV["MANDRILL_USERNAME"],
       :password  => ENV["MANDRILL_API_KEY"]
     }
-=end
-    config.action_mailer.smtp_settings = {
-      :address   => "smtp.mandrillapp.com",
-      :port      => 587,
-      :user_name => ENV["bossp0424-temp@yahoo.co.jp"],
-      :password  => ENV["D1ho47YAJCeoQyzUTfNWkA"]
-    }
-
 
 
   # Log the query plan for queries taking more than this (works
