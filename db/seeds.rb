@@ -1,3 +1,5 @@
+#coding: utf-8
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -17,3 +19,18 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.confirm!
 user.add_role :admin
+
+# フレーズカテゴリー
+Category.create([
+  { category_name: 'あいさつ' }, 
+  { category_name: '空港' },
+  { category_name: 'レストラン' },
+  { category_name: 'ホテル' },
+  { category_name: 'お買い物' },
+  { category_name: '映画' },
+  { category_name: '本' },
+  { category_name: '音楽' },
+  { category_name: 'ビジネス' },
+  { category_name: 'コンピュータ' },
+  { category_name: 'その他' }
+  ])
