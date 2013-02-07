@@ -38,8 +38,8 @@ namespace :db do
 =end
     1.times do
       User.all(:limit => 6).each do |user|
-        #cid = rand( Category.count )
-        cid = rand( 1..Category.count )
+        #cid = rand( 1..Category.count )
+        cid = rand( 1..11)
 
         name = Faker::Japanese::Name.name
         user.phrases.create!(
