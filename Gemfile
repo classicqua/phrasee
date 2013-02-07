@@ -5,6 +5,9 @@ group :development do
   gem 'annotate', '2.5.0'
 end
 
+  gem 'faker', '>= 1.0.1'
+  gem 'faker-japanese'
+  
 group :development, :test do
   gem 'sqlite3', '1.3.7'
   gem 'guard-rspec', '1.2.1'
@@ -12,8 +15,7 @@ group :development, :test do
   gem 'spork', '0.9.2'
   gem 'pry-rails'
   gem 'pry-doc'
-  gem 'faker', '>= 1.0.1'
-  gem 'faker-japanese'
+
 end
 
 group :assets do
