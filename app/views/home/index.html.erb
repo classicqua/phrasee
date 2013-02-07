@@ -2,7 +2,7 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h1>Home</h1>
+    <h1>みんなでつくる英語フレーズ集『 Phrasee 』。</h1>
   </div>
 
 
@@ -11,22 +11,22 @@
 
       <!-- phrases box  -->
       <div class="span6 ph_phrase_box well">
-        <h1 class="ph_category"><%= link_to "新着", "#", { class:"ph_category_link" } %></h1>
+        <h1 class="ph_category"><%= link_to "新着", phrases_path, { class:"ph_category_link" } %></h1>
         <% if @phrases.nil? %>
-          新着フレーズはありません。@phrases
+          新着フレーズはありません。
         <% else %>
           <ul class="ph_phrases_list unstyled">
             <% @phrases.each do |phrase| %>
               <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase_path(phrase.id) %></li>
             <% end %>
-              <li class="ph_phrase_item ph_last_item"><%= link_to "新着の英語フレーズをすべて見る", "#" %></li>
+              <li class="ph_phrase_item ph_last_item"><%= link_to "新着の英語フレーズをすべて見る", phrases_path %></li>
           </ul>
         <% end %>
       </div>
 
       <!-- phrases box  -->
       <div class="span6 ph_phrase_box well">
-        <h1 class="ph_category"><%= link_to @categories.first.category_name, "#", { class:"ph_category_link" } %></h1>
+        <h1 class="ph_category"><%= link_to @categories.first.category_name, category_path(@categories.first.id), { class:"ph_category_link" } %></h1>
         <ul class="ph_phrases_list unstyled">
           <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
           <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>

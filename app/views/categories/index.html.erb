@@ -1,0 +1,14 @@
+<% provide(:title, "カテゴリ一覧") %>
+
+  <!-- page header -->
+  <div class="page-header">
+    <h1>カテゴリ一覧</h1>
+  </div>
+
+<ul class="ph_caetgories_list">
+  <%#= render @categories %>
+
+  <% @categories.each do |category| %>
+    <li class="ph_phrase_item"><%= link_to category.category_name, category_path(category.id) %></li>
+  <% end %>
+</ul>

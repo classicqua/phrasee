@@ -1,4 +1,9 @@
 Phrasee::Application.routes.draw do
+
+  resources :categories, only: [:index, :show]
+#  get "category/index"
+#  get "category/show"
+
   resources :phrases
 
   authenticated :user do

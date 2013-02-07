@@ -1,0 +1,12 @@
+<% provide(:title, @category.category_name) %>
+
+  <!-- page header -->
+  <div class="page-header">
+    <h1><%= @category.category_name %></h1>
+  </div>
+
+<ul class="ph_caetgories_list">
+  <% @phrases.each do |phrase| %>
+    <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase_path(phrase.id) %></li>
+  <% end %>
+</ul>

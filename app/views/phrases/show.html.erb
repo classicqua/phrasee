@@ -6,11 +6,11 @@
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
     <li>
-      <a href="#">トップ</a>
+      <%= link_to 'トップ', root_path %>
       <span class="divider">/</span>
     </li>
     <li>
-      <a href="#"><%= @phrase.category.category_name %></a>
+      <%= link_to @phrase.category.category_name, category_path(@phrase.category.id) %>
       <span class="divider">/</span>
     </li>
     <li class="active"><%= @phrase.japanese %></li>

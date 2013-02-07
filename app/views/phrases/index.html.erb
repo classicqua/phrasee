@@ -1,21 +1,29 @@
-<h1>Listing phrases</h1>
+<% provide(:title, "新着フレーズ") %>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <!-- page header -->
+  <div class="page-header">
+    <h1>新着フレーズ</h1>
+  </div>
 
-<% @phrases.each do |phrase| %>
-  <tr>
-    <td><%= link_to 'Show', phrase %></td>
-    <td><%= link_to 'Edit', edit_phrase_path(phrase) %></td>
-    <td><%= link_to 'Destroy', phrase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% if @phrases.nil? %>
+  新着のフレーズはありません。
+<% else %>
+  <ul class="ph_phrases_newcomer unstyled">
+    <% @phrases.each do |phrase| %>
+      <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase %></li>
+    <% end %>
+  </ul>
 <% end %>
-</table>
+
+
+<%# if admin? %>
+  <%#= link_to 'Edit', edit_phrase_path(phrase) %>
+  <%#= link_to 'Destroy', phrase, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%# end %>
+
+
+<%= will_paginate @phrases, :previous_label => '前へ', :next_label => '次へ' %>
 
 <br />
 
-<%= link_to 'New Phrase', new_phrase_path %>
+<%= link_to 'フレーズをのせる', new_phrase_path %>

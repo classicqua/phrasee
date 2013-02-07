@@ -49,7 +49,10 @@
 
             <li class="divider-vertical"></li>
             <li>
-              <button class="btn btn-success" type="button">フレーズをのせる</button>
+              <form class="navbar-form" action=<%= new_phrase_path %>>
+                <%#  <button class="btn btn-success" type="button">フレーズをのせる</button> %>
+                <input type="submit" class="btn btn-success" type="button" value="フレーズをのせる">
+              </form>
             </li>
           </ul>
         </div>
