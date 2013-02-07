@@ -13,3 +13,4 @@ ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
 ROLES: [admin, user, VIP]
+PH_LIMIT_INDEX_PHRASE_NUM: 5 # 一覧表示するフレーズ数のリミット
