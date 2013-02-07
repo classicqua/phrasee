@@ -16,11 +16,19 @@ namespace :db do
                    password_confirmation: password)
     end
 
-# ダミー
-Category.create!([{ category_name: 'あいさつ' }, { category_name: '空港' }, { category_name: 'レストラン' }, { category_name: 'ホテル' }, 
-  { category_name: 'お買い物' }, { category_name: '映画' }, { category_name: '本' }, { category_name: '音楽' }, 
-  { category_name: 'ビジネス' }, { category_name: 'コンピュータ' }, { category_name: 'その他' } ]) if Category.nil?
-
+    # ダミー
+    Category.create!([
+      { category_name: 'あいさつ' }, 
+      { category_name: '空港' }, 
+      { category_name: 'レストラン' }, 
+      { category_name: 'ホテル' }, 
+      { category_name: 'お買い物' }, 
+      { category_name: '映画' }, 
+      { category_name: '本' }, 
+      { category_name: '音楽' }, 
+      { category_name: 'ビジネス' }, 
+      { category_name: 'コンピュータ' }, 
+      { category_name: 'その他' } ]) if Category.count == 0
 
 =begin
     20.times do
