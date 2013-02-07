@@ -1,3 +1,4 @@
+# encoding: UTF-8
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
@@ -23,12 +24,14 @@ namespace :db do
 =end
     1.times do
       User.all(:limit => 6).each do |user|
+        cid = rand( Category.count )
         name = Faker::Japanese::Name.name
         user.phrases.create!(
           :japanese => "#{name.yomi}",
           :english => Faker::Lorem.sentence(1),
           :source => "ココは引用文",
           :story => "#{name}が語るストーリー。",
+          :category_id => cid,
           :launch_flg => true)
       end
     end
