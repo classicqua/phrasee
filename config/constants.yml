@@ -1,0 +1,21 @@
+# 共通
+defaults: &defaults
+  PH_LIMIT_INDEX_PHRASE_NUM: 5 # 一覧表示するフレーズ数のリミット
+
+# example)
+#  hoge_number:
+#    min: 1
+#    max: 99
+  
+
+# 開発環境用
+development:
+  <<: *defaults
+
+# テスト環境用
+test:
+  <<: *defaults
+
+# 本番環境用
+production:
+  <<: *defaults

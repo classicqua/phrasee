@@ -5,8 +5,12 @@ group :development do
   gem 'annotate', '2.5.0'
 end
 
-  gem 'faker', '>= 1.0.1'
-  gem 'faker-japanese'
+# 定数管理
+gem 'settingslogic'
+
+# ダミーデータ
+gem 'faker', '>= 1.0.1'
+gem 'faker-japanese'
   
 group :development, :test do
   gem 'sqlite3', '1.3.7'
