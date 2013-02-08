@@ -1,4 +1,7 @@
+#coding: utf-8
 class PhrasesController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+
   # GET /phrases
   # GET /phrases.json
   def index
@@ -27,6 +30,14 @@ class PhrasesController < ApplicationController
   # GET /phrases/new.json
   def new
     @phrase = Phrase.new
+    @categories = Category.all
+
+    # カテゴリー並び順：「その他」が最後に来るように並べ替え
+    tmp = Array.new(0)
+    @categories.each do |category|
+      tmp.push(category) if category.category_name == "その他" && category.id.to_i < Category.count
+    end
+    @categories[tmp.first.id-1], @categories[Category.count-1] = @categories[Category.count-1], @categories[tmp.first.id-1]  unless tmp == []
 
     respond_to do |format|
       format.html # new.html.erb

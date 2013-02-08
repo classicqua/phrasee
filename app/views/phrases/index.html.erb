@@ -10,20 +10,19 @@
 <% else %>
   <ul class="ph_phrases_newcomer unstyled">
     <% @phrases.each do |phrase| %>
-      <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase %></li>
+      <li class="ph_phrase_item">
+        <%= link_to phrase.japanese, phrase %> <small class="muted "><%= phrase.updated_at.to_s %></small>
+      </li>
     <% end %>
   </ul>
-<% end %>
 
+  <%= render 'shared/pagination', object: @phrases %>
+<% end %>
 
 <%# if admin? %>
   <%#= link_to 'Edit', edit_phrase_path(phrase) %>
   <%#= link_to 'Destroy', phrase, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%# end %>
 
-
-<%= will_paginate @phrases, :previous_label => '前へ', :next_label => '次へ' %>
-
-<br />
 
 <%= link_to 'フレーズをのせる', new_phrase_path %>

@@ -1,8 +1,10 @@
-<h3>Users</h3>
-<ul class="phrases_list">
+<h3>会員一覧</h3>
+<ul class="phrases_list unstyled">
   <% @users.each do |user| %>
     <li class="phrase">
-      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
+      <%= link_to user.name, user %>
     </li>
   <% end %>
 </ul>
+
+<%= will_paginate @users, :previous_label => '前へ', :next_label => '次へ' %>

@@ -1,5 +1,41 @@
-<h1>New phrase</h1>
+<% provide(:title, "新着フレーズ") %>
 
-<%= render 'form' %>
+  <!-- page header -->
+  <div class="page-header">
+    <h1>フレーズ投稿</h1>
+    使える言い回しや好きな映画のセリフなど、あなたが知っているフレーズを教えてください。
+  </div>
 
-<%= link_to 'Back', phrases_path %>
+  <%= simple_form_for(@phrase) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs well ">
+      <label class="">日本語フレーズ</label>
+      <input type="text" class="input-xxlarge" placeholder="">
+
+      <label>英語フレーズ</label>
+      <input type="text" class="input-xxlarge" placeholder="Keep it short and simple.">
+
+      <label>出典<small>（映画や本のタイトルなど、引用元・参考情報があれば記入してください）</small></label>
+      <input type="text" class="input-xxlarge" placeholder="例）映画『○○』より">
+
+      <label>エピソード<small>（このフレーズを知ったときの状況や、自分で使ってみた結果など）</small></label>
+      <textarea rows="3" class="input-xxlarge" placeholder="例）カナダを旅行中にレストランで・・・"></textarea>
+
+      <label>カテゴリー</label>
+      <% @categories.each do |category| %>
+          <label class="radio">
+          <%= f.radio_button :category, category.id, { class:"", id:"category#{category.id}" } %>
+          <%= category.category_name %>
+          </label>
+          <%# 「その他」には自由記入欄を付ける %>
+          <%= f.text_field :category, { class:"input-medium", placeholder:"ジャンル名" } if category.category_name == "その他"  %>
+      <% end %>
+  </div>
+
+    <!--<div class="form-actions">-->
+      <%= f.button :submit, { class:"btn" } %>
+    <!--</div>-->
+  <% end %>
+
+<%#= render 'form' %>
