@@ -2,11 +2,12 @@ class ServiceController < ApplicationController
 
   # ガイド ： Phraseeとは？
   def guide
-    
+
   end
 
   # ヘルプ
   def help
+
   end
 
   # 利用規約
