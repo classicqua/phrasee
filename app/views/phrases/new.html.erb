@@ -29,7 +29,7 @@
           <%= category.category_name %>
           </label>
           <%# 「その他」には自由記入欄を付ける %>
-          <%= f.text_field :category, { class:"input-medium", placeholder:"ジャンル名" } if category.category_name == "その他"  %>
+          <%= f.text_field :category, { class:"input-medium disabled", placeholder:"ジャンル名" } if category.category_name == "その他"  %>
       <% end %>
   </div>
 
