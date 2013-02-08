@@ -23,14 +23,16 @@
       <textarea rows="3" class="input-xxlarge" placeholder="例）カナダを旅行中にレストランで・・・"></textarea>
 
       <label>カテゴリー</label>
-      <% @categories.each do |category| %>
+      <div class="control-group">
+        <% @categories.each do |category| %>      
           <label class="radio">
           <%= f.radio_button :category, category.id, { class:"", id:"category#{category.id}" } %>
           <%= category.category_name %>
           </label>
           <%# 「その他」には自由記入欄を付ける %>
-          <%= f.text_field :category, { class:"input-medium disabled", placeholder:"ジャンル名" } if category.category_name == "その他"  %>
-      <% end %>
+          <%= f.text_field :category, { class:"input-large input-enabled", placeholder:"その他のカテゴリー名" } if category.category_name == "その他"  %>
+        <% end %>
+      </div>
   </div>
 
     <!--<div class="form-actions">-->
