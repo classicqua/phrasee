@@ -1,8 +1,10 @@
+<% provide(:title, 'アカウント設定') %>
+
 <div class="container">
 
   <!-- page header -->
   <div class="page-header">
-    <h2>アカウント編集 <%= resource_name.to_s.humanize %></h2>
+    <h2>アカウント設定</h2>
   </div>
 
   <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
@@ -15,8 +17,9 @@
     <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
     <%= f.button :submit, 'Update', :class => 'btn-primary' %>
   <% end %>
-  <h3>Cancel my account</h3>
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-  <%= link_to "Back", :back %>
+
+  <br><br>
+
+  <p><%= link_to "退会はこちらから", resignation_path %></p>
 
 </div>

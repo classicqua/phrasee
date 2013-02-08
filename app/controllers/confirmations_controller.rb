@@ -1,6 +1,5 @@
 class ConfirmationsController < Devise::ConfirmationsController
 
-
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
       @confirmation_token = params[:confirmation_token];

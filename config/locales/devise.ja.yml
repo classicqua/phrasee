@@ -28,6 +28,8 @@ ja:
 
   devise:
     failure:
+      already_authenticated: "すでにログイン済みです。"
+#     already_authenticated: "You are already signed in."
       unauthenticated: 'ログインしてください。'
 #      unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: '本登録を行ってください。'
@@ -41,9 +43,9 @@ ja:
       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
 #      timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'アカウントがアクティベートされていません。'
+#      inactive: 'Your account was not activated yet.'
 ## 2013.2.6 追加
       not_found_in_database: "メールアドレスまたはパスワードが違います。"
-#      inactive: 'Your account was not activated yet.'
     sessions:
       signed_in: 'ログインしました。'
 #      signed_in: 'Signed in successfully.'
@@ -57,9 +59,13 @@ ja:
     confirmations:
       send_instructions: '登録方法を数分以内にメールでご連絡します。'
 #      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+## 2013.2.8 追加
+      pre_confirmed: '本人確認が完了しました！ 続けて、アカウント設定をしてください。'
       confirmed: 'アカウントを登録しました。'
 #      confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
+      signed_up_but_unconfirmed: 'ご本人確認用のメールを送りました。メール本文に記載されたURLをクリックして、認証を完了してください。※メールが届かない場合、迷惑メール扱いになっていないかご確認ください。'
+#      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
       signed_up: 'アカウント登録を受け付けました。確認のメールをお送りします。'
 #      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
       updated: 'アカウントを更新しました。'

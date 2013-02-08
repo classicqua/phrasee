@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207101556) do
+ActiveRecord::Schema.define(:version => 20130208081630) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(:version => 20130207101556) do
     t.string   "source"
     t.text     "story"
     t.boolean  "launch_flg"
+  end
+
+  create_table "resignations", :force => true do |t|
+    t.text     "reason"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|
