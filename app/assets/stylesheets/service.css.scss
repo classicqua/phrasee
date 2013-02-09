@@ -5,20 +5,27 @@
   @include well-box;
 }
 
-
 .service_body {
-  //text-align: center;
-  vertical-align:top;
-  text-align:left;
+  //vertical-align:top;
   width:98%;
 }
 
 /* 利用ガイド */
-.catchy_image {
+.container_center {
   text-align: center;
-  @include well-box(#fefefe);
+  max-width: 1000px;
 }
 
-.service_thumbnail {
-  text-align: center;
+.can_do_things {
+  margin-bottom: 35px;
+}
+.description_title {
+  @include well-cancel-color;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .thumbnail {
+      //max-width: 310px;
+  }
 }
