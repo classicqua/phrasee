@@ -26,7 +26,7 @@ Phrasee::Application.routes.draw do
   # サービス運営
   match '/guide',       to: 'service#guide', via: :get
   match '/help',        to: 'service#help', via: :get
-  match '/terms',       to: 'service#contact', via: :get
+  match '/terms',       to: 'service#terms', via: :get
   match '/disclaimer',  to: 'service#disclaimer', via: :get
   match '/privacy',     to: 'service#privacy', via: :get
   match '/about',       to: 'service#about', via: :get

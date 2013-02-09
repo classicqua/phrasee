@@ -1,3 +1,4 @@
+#coding: utf-8
 class ServiceController < ApplicationController
 
   # ガイド ： Phraseeとは？
@@ -12,12 +13,13 @@ class ServiceController < ApplicationController
 
   # 利用規約
   def terms
-    
+    #@lines = File.readlines("_disclaimers.txt")
+    @lines = Constants.MENSEKI
   end
 
   # 免責事項
   def disclaimer
-    
+    @lines = Constants.MENSEKI
   end
 
   # プライバシーポリシー

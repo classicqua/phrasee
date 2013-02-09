@@ -1,5 +1,6 @@
 @import "custom";
 
+
 .show_phrase_container {
   @include well-box(none);
 }
@@ -7,3 +8,19 @@
 .index_phrase_container {
   @include well-box(#eee);
 }
+
+/* Large desktop */
+@media (min-width: 1200px) {  }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {  }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  h1 {
+      font-size: 28px;
+  }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {  }

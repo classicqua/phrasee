@@ -1,5 +1,11 @@
 @import "custom";
 
+/* 共通 */ 
+.main_content_container {
+  @include well-box;
+}
+
+
 .service_body {
   //text-align: center;
   vertical-align:top;
@@ -7,6 +13,7 @@
   width:98%;
 }
 
+/* 利用ガイド */
 .catchy_image {
   text-align: center;
   @include well-box(#fefefe);
