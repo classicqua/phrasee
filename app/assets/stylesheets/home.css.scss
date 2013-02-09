@@ -4,10 +4,13 @@
 
 @import "custom";
 
-.ph_phrase_box {
-  margin: 10px 0px;
-  @include well-box;
+.ph_phrase_box { 
+  /* 以下いずれかをコメントインして使う */
+  @include well-box; // wellの背景色を変える（デフォルト白）＋立体っぽく表示
+  //@include well-cancel-color; // 背景色を白に＋枠線取り去る
+  /***/
 
+  //margin: 10px 0px;
 }
 
 .ph_category {
@@ -15,7 +18,7 @@
 }
 
 .ph_category_link {
-  color: #8B4513;
+  @include category-name-color;
 }
 
 .ph_phrase_item {

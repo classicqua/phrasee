@@ -1,3 +1,5 @@
-// Place all the styles related to the category controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "custom";
+
+.ph_category_name {
+  @include category-name-color;
+}

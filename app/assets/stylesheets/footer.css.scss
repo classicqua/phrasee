@@ -1,0 +1,128 @@
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+        //background-color: #eee; // 今風の薄いグレーの背景色
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push {
+        height: 380px;
+      }
+
+
+      /** footer **/
+
+      // 2013.2.9追加
+      @mixin footer-adjust-row {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+      }
+      @mixin footer-layout-adjust-column {
+          padding-top: 10px;
+          padding-bottom: 200px;
+      }
+
+      // 固定値。レスポンシブ対応は別途（このcssファイル下部に記載）。
+      #footer {
+        height: auto;
+        background-color: #f5f5f5;
+        margin-top: 50px;
+        padding-top: 20px;
+
+        .container {
+          padding-top: 10px;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        #footer_copy_right {
+          text-align: center; 
+          padding-top: 5px;
+        }
+        
+        .footer_centerize {
+          text-align: center; 
+        }
+        
+        #otoiawase_link {
+          padding-top:15px;
+        } 
+      }
+
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+
+      //@media (max-width: 767px) {
+      //@media (max-width: 480px) {
+      //  #footer {
+      //    @include footer-adjust-row;
+      //    @include footer-layout-adjust-column; // 2013.2.1追加
+      //  }
+      //}
+
+      /* -------------------------------------------------- */
+      /* レスポンシ・ブレイアウト */ // 2013.2.9追加
+      /* -------------------------------------------------- */
+
+      /* Large desktop */
+      @media (min-width: 1200px) {
+        #footer {
+
+        }    
+      }
+       
+      /* Portrait tablet to landscape and desktop */
+      @media (min-width: 768px) and (max-width: 979px) {
+        .container {
+          width: auto;
+          max-width: 920px;
+          padding: 0 10px;
+        }
+        #footer {
+
+        }     
+      }
+       
+      /* Landscape phone to portrait tablet */
+      @media (max-width: 767px) {
+        #footer {
+          @include footer-adjust-row;
+          @include footer-layout-adjust-column; // 2013.2.1追加
+        }
+      }
+       
+      /* Landscape phones and down */
+      @media (max-width: 480px) {
+
+      }
+
+
+      /* Custom page CSS */
+      /* -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      //.container {
+        //width: auto;
+        //max-width: 800px;
+      //}
+      .container .credit {
+        margin: 20px 0;
+      }
+      
+      /*-------------------------------------------------- */

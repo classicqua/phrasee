@@ -1,7 +1,9 @@
+<% provide(:title, 'ログイン') %>
+
 <div class="container">
   <!-- page header -->
   <div class="page-header">
-    <h2>ログイン</h2>
+    <h3>ログイン</h3>
   </div>
 
   <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
