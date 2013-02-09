@@ -24,8 +24,11 @@ Phrasee::Application.routes.draw do
   resources :categories, only: [:index, :show]
 
   # サービス運営
-  match '/guide',   to: 'service#guide', via: :get
-  match '/help',    to: 'service#help', via: :get
-  match '/about',   to: 'service#about', via: :get
-  match '/contact', to: 'service#contact', via: :get
+  match '/guide',       to: 'service#guide', via: :get
+  match '/help',        to: 'service#help', via: :get
+  match '/terms',       to: 'service#contact', via: :get
+  match '/disclaimer',  to: 'service#disclaimer', via: :get
+  match '/privacy',     to: 'service#privacy', via: :get
+  match '/about',       to: 'service#about', via: :get
+  match '/contact',     to: 'service#contact', via: :get
 end

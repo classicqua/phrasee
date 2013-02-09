@@ -29,23 +29,24 @@
     <div class="row-fluid footer_centerize">
       <div class="span12">
         <ol class="breadcrumb">
-          <li class="active">トップページ
+          <li>
+            <%= link_to "トップページ", root_path %>
             <span class="divider">|</span>
           </li>
           <li>
-            <a href="#">ヘルプ</a>
+            <%= link_to "ヘルプ", help_path %>
             <span class="divider">|</span>
           </li>
           <li>
-            <a href="#">利用規約</a>
+            <%= link_to "利用規約", terms_path %>
             <span class="divider">|</span>
           </li>
           <li>
-            <a href="#">免責事項</a>
+            <%= link_to "免責事項", disclaimer_path %>
             <span class="divider">|</span>
           </li>
           <li>
-            <a href="#">プライバシーポリシー</a> 
+            <%= link_to "プライバシーポリシー", privacy_path %>
           </li>
         </ol>
       </div>
