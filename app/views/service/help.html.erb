@@ -2,50 +2,84 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h3>ヘルプ</h3>
+    <h3>ヘルプ <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_294_coffe_cup.png', { alt:"coffee-icon" } ) %></h3>
   </div>
 
   <div class="container">
-    <legend>FAQ</legend>
-    <dl>
-      <dt>Phraseeって何？</dt>
-      <dd><%= link_to "Phraseeとは？", guide_path %>をご覧ください。</dd>
-    </dl>
+    <section id="faq">
+      <legend>FAQ</legend>
+      <dl>
+        <dt>Phraseeって何？</dt>
+        <dd><%= link_to "Phraseeとは？", guide_path %>をご覧ください。</dd>
+      </dl>
 
-    <dl>
-      <dt>お金かかるの？</dt>
-      <dd>無料でご利用いただけます。<span>（インターネット接続自体にかかる費用はご利用者様の負担となります。）</span></dd>
-    </dl>
+      <dl>
+        <dt>お金かかるの？</dt>
+        <dd>無料でご利用いただけます。<span>（インターネット接続自体にかかる費用はご利用者様の負担となります。）</span></dd>
+      </dl>
+    </section>
 
-    <legend>使い方</legend>
-    <dl>
-      <dt>フレーズをのせる（投稿する）方法</dt>
-      <dd>
-        <ol>
-          <li><%= link_to 'ログイン画面', new_user_session_path %>からログインする</li>
-          <li>
-            <label class="button">
-              画面右上端の <a class="btn btn-success" href=<%= new_phrase_path %> >フレーズをのせる</a> ボタンをクリックする
-            </label>
-          </li>
-          <li>日本語と英語のフレーズおよびそれにまつわるエピソードなどを書く。</li>
-          <li>投稿する。</li>
-          <li>コーヒーを飲んで一服する。</li>
-        </ol>
-      </dd>
-    </dl>
+    <section id="howtouse_basic">
+      <legend>基本的な使い方</legend>
+      <dl>
+        <dt>フレーズをのせる（投稿する）方法</dt>
+        <dd>
+          <ol>
+            <li>あらかじめ<%= link_to 'ログイン画面', new_user_session_path %>からログインしておく</li>
+            <li>
+                画面右上端の <a class="btn btn-success btn-mini" href=<%= new_phrase_path %> >フレーズをのせる</a> ボタンをクリックする
+            </li>
+            <li>日本語と英語のフレーズおよびそれにまつわるエピソードなどを書いて投稿する。</li>
+          </ol>
+        </dd>
+      </dl>
 
-    <dl>
-      <dt>フレーズをさがす方法</dt>
-      <dd>
-      </dd>
-    </dl>
+      <dl>
+        <dt>フレーズをさがす（検索する）方法</dt>
+        <dd>
+          <ol>
+            <li>画面上端の検索ボックスに調べたい語句を入力する</li>
+            <li>検索ボックス横の虫メガネボタンを押す</li>
+          </ol>
+        </dd>
+      </dl>
 
-    <dl>
-      <dt>フレーズをあつめる（記録する）方法</dt>
-      <dd>
-      </dd>
-    </dl>
+      <dl>
+        <dt>フレーズをメモる（記録する）方法</dt>
+        <dd>
+          <ol>
+            <li>あらかじめ<%= link_to 'ログイン画面', new_user_session_path %>からログインしておく</li>
+            <li>各フレーズのページにいく</li>
+            <li><button class="btn btn-mini"><i class="icon icon-star-empty"></i>お気に入りに追加</button> ボタンを押す</li>
+          </ol>
+        </dd>
+      </dl>
+    </section>
+
+    <section id="howtouse_develop">
+      <legend>一歩進んだ使い方</legend>
+      <dl>
+        <dt>投稿したフレーズを編集（修正）する方法</dt>
+        <dd>
+          <ol>
+            <li>あらかじめ<%= link_to 'ログイン画面', new_user_session_path %>からログインしておく</li>
+            <li>修正したいフレーズのページにいく</li>
+            <li><button class="btn btn-mini">編集する</button> ボタンを押す</li>
+          </ol>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>投稿したフレーズを削除する方法</dt>
+        <dd>
+          <ol>
+            <li>あらかじめ<%= link_to 'ログイン画面', new_user_session_path %>からログインしておく</li>
+            <li>削除したいフレーズのページにいく</li>
+            <li><button class="btn btn-mini btn-danger">削除する</button> ボタンを押す</li>
+          </ol>
+        </dd>
+      </dl>
+    </section>
 
   </div>
 </div>

@@ -28,26 +28,22 @@
     </div>
     <div class="row-fluid footer_centerize">
       <div class="span12">
-        <ol class="breadcrumb">
+        <%# <ol class="breadcrumb"> %>
+        <ol class="inline">
           <li>
-            <%= link_to "トップページ", root_path %>
-            <span class="divider">|</span>
+            <%= link_to root_path do %><i class="icon-home"></i>&nbsp;トップページ<% end %>
           </li>
           <li>
             <%= link_to "Phraseeとは？", guide_path %>
-            <span class="divider">|</span>
           </li>
           <li>
             <%= link_to "ヘルプ", help_path %>
-            <span class="divider">|</span>
           </li>
           <li>
             <%= link_to "利用規約", terms_path %>
-            <span class="divider">|</span>
           </li>
           <li>
             <%= link_to "免責事項", disclaimer_path %>
-            <span class="divider">|</span>
           </li>
           <li>
             <%= link_to "プライバシーポリシー", privacy_path %>

@@ -19,6 +19,6 @@
     	<%= f.input :password_confirmation, :required => true %>
     	<%= f.button :submit, 'ご本人確認メール送信', :class => 'btn' %>
     <% end %>
-    <%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" if resource.errors.any?  %>
   </div>
 </div>

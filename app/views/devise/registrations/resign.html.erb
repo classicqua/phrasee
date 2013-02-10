@@ -1,0 +1,30 @@
+<% provide(:title, '退会') %>
+
+<div class="">
+  <h3>本当に退会しますか？</h3>
+
+  <div class="alert">
+    <strong>注意!</strong> 退会するとこれまでに登録した情報は削除されます。（元に戻すことはできません）
+  </div>
+
+  <!-- フォーム -->
+  <%= simple_form_for(@resignation, :as => resource_name, 
+    :url => registration_path(resource_name), 
+    :html => { 
+      :method => :delete, 
+      :class => 'form-vertical', 
+      :data => { :confirm => "Are you sure?" } }
+    ) do |f| %>
+
+    <%# 退会理由 %>
+    <div class="well resign_reasion_container">
+      <span class="label">任意</span>&nbsp;<small class="">退会理由</small>
+      <%= f.input :reason, as: :text, 
+      label:"<small class='muted'>差し支えなければ、退会する理由を教えてください。</small>",
+       input_html: { rows:"3", class:"resign_reason_text" } %>
+
+       <%= f.button :submit, "退会する", :class => 'btn btn-danger' %>
+    </div>
+   
+  <% end %>
+</div>

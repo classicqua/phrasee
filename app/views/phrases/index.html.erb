@@ -2,13 +2,13 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h1><span class="ph_category_name">新着フレーズ</span></h1>
+    <h1><span class="ph_category_name">新着</span></h1>
   </div>
 
 <% if @phrases.nil? %>
   新着のフレーズはありません。
 <% else %>
-  <ul class="ph_phrases_newcomer unstyled">
+  <ul class="unstyled">
     <% @phrases.each do |phrase| %>
       <li class="ph_phrase_item">
         <%= link_to phrase.japanese, phrase %>
@@ -25,4 +25,4 @@
 <%# end %>
 
 
-<%= link_to 'フレーズをのせる', new_phrase_path %>
+<%= link_to 'フレーズをのせる', new_phrase_path, class:"btn btn-success" %>

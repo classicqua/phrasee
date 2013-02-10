@@ -13,6 +13,9 @@
 
 
 // 退会理由
-.resign_reasion {
-  width: 95%;
+.resign_reasion_container {
+  @include well-cancel-color;
+}
+.resign_reason_text {
+  min-width: 320px;
 }

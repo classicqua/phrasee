@@ -28,7 +28,7 @@
         <%= link_to "削除する", phrase_path, method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
               title:@phrase.japanese, class:"btn btn-small btn-danger" %>
       <% else %>
-        <button class="btn btn-small"><i class="icon icon-star-empty"></i> お気に入りに追加</button>
+        <button class="btn btn-small" data-toggle="button" ><i class="icon icon-star-empty"></i> お気に入りに追加</button>
       <% end %>
       </div>
     </div>
@@ -81,6 +81,8 @@
     </ul>
   </div>
 
-  <%#= link_to 'Edit', edit_phrase_path(@phrase) %> |
+  <%= render "shared/comment" if signed_in?  %>
+
+  <%#= link_to 'Edit', edit_phrase_path(@phrase) %>
   <%#= link_to 'Back', phrases_path %>
 </div>

@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   # 退会手続き
   def resign
     @resignation = Resignation.new # 退会理由テーブルにデータ入れるため
-    render :resignation
+    render :resign
   end
 
   # DELETE /users
