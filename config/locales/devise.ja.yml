@@ -1,12 +1,12 @@
 ja:
   "Sign in": "ログイン"
-  "Registration": "ユーザー登録"
-  "Sign up": "ユーザー登録"
-  "Update": "更新"
+  "Registration": "会員登録"
+  "Sign up": "会員登録"
+  "Update": "更新する"
   "Forgot your password?": "パスワード忘れはこちら"
   "Send me reset password instructions": "パスワード再発行"
   "Resend confirmation instructions": "パスワード再発行"
-  "Didn't receive confirmation instructions?": "確認メールの再送信"
+  "Didn't receive confirmation instructions?": "ご本人確認メールの再送信"
   "Didn't receive unlock instructions?": "アカウント凍結解除メールの再送信"
 
   errors:
@@ -32,7 +32,9 @@ ja:
 #     already_authenticated: "You are already signed in."
       unauthenticated: 'ログインしてください。'
 #      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: '本登録を行ってください。'
+## 2013.2.10 変更
+      unconfirmed: '本人確認を完了してください。'
+#      unconfirmed: '本登録を行ってください。'
 #      unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'あなたのアカウントは凍結されています。'
 #      locked: 'Your account is locked.'

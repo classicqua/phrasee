@@ -18,6 +18,7 @@ class PhrasesController < ApplicationController
   # GET /phrases/1
   # GET /phrases/1.json
   def show
+    @user = current_user
     @phrase = Phrase.find(params[:id])
 
     respond_to do |format|
@@ -53,7 +54,8 @@ class PhrasesController < ApplicationController
   # POST /phrases
   # POST /phrases.json
   def create
-    @phrase = Phrase.new(params[:phrase])
+    # @phrase = Phrase.new(params[:phrase])
+    @phrase = current_user.phrases.build(params[:phrase])
 
     respond_to do |format|
       if @phrase.save

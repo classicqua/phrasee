@@ -99,8 +99,10 @@ ja:
     format: ! '%{attribute}%{message}'
     messages:
       accepted: を受諾してください。
-      blank: を入力してください。
-      confirmation: と確認の入力が一致しません。
+      blank: 入力必須です。
+      #blank: を入力してください。
+      confirmation: 確認用の入力と一致してません。
+      #confirmation: と確認の入力が一致しません。
       empty: を入力してください。
       equal_to: は%{count}にしてください。
       even: は偶数にしてください。
@@ -115,7 +117,7 @@ ja:
       not_an_integer: は整数で入力してください。
       odd: は奇数にしてください。
       record_invalid: バリデーションに失敗しました。 %{errors}
-      taken: はすでに存在します。
+      taken: はすでに使われています。
       too_long: は%{count}文字以内で入力してください。
       too_short: は%{count}文字以上で入力してください。
       wrong_length: は%{count}文字で入力してください。
@@ -128,9 +130,15 @@ ja:
     select:
       prompt: 選択してください。
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      user:
+        create: 登録する
+        submit: 保存する
+        update: 更新する
+      phrase:
+        create: 投稿する
+        update: 更新する
+        destroy: 削除する
+
   number:
     currency:
       format:

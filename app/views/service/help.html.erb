@@ -22,11 +22,15 @@
       <dt>フレーズをのせる（投稿する）方法</dt>
       <dd>
         <ol>
-          <li>画面右上端の <a class="btn btn-success" href=<%= new_phrase_path %> >フレーズをのせる</a> ボタンをクリックする</li>
-          <li>aa</li>
-          <li>aa</li>
-          <li></li>
-          <li></li>
+          <li><%= link_to 'ログイン画面', new_user_session_path %>からログインする</li>
+          <li>
+            <label class="button">
+              画面右上端の <a class="btn btn-success" href=<%= new_phrase_path %> >フレーズをのせる</a> ボタンをクリックする
+            </label>
+          </li>
+          <li>日本語と英語のフレーズおよびそれにまつわるエピソードなどを書く。</li>
+          <li>投稿する。</li>
+          <li>コーヒーを飲んで一服する。</li>
         </ol>
       </dd>
     </dl>

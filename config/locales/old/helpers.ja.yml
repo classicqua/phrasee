@@ -1,7 +1,7 @@
 ja:
   helpers:
     submit:
-      create: "登録する"
+      create: "登録するぜ"
       update: "更新する"
       submit: "保存する"
     label:

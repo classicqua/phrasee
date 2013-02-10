@@ -6,7 +6,9 @@
     使える言い回しや好きな映画のセリフなど、あなたが知っているフレーズを教えてください。
   </div>
 
-  <%= simple_form_for(@phrase) do |f| %>
+  <%= simple_form_for(@phrase, :as => resource_name, :url => phrases_path(resource_name), 
+                    :html => { :class => 'form-vertical',　:method => :post }) do |f| %>
+
     <%= f.error_notification %>
 
     <div class="form-inputs well ">
@@ -14,11 +16,13 @@
       <%= f.input :english, placeholder:"Keep it short and simple.", label:"英語フレーズ" %>
       <%= f.input :source, input_html: { class:"input-xxlarge" }, placeholder:"例）映画『○○』より", 
                   label:"出典<small>（映画や本のタイトルなど、引用元・参考情報があれば記入してください）</small>" %>
-      <%= f.input :story, as: :text,  input_html: { rows:"3", class:"input-xxlarge" },  placeholder:"例）カナダを旅行中にレストランで・・・",
+      <%= f.input :story, as: :text,  input_html: { rows:"3", class:"input-xxlarge" },  
+                  placeholder:"例）カナダを旅行中にレストランで・・・",
                   label:"エピソード<small>（このフレーズを知ったときの状況や、自分で使ってみた結果など）</small>" %>
       <%= f.association :category, collection:@categories, as: :radio_buttons, 
                         label_method: :category_name, value_method: :id, 
                         include_blank: false, label:"カテゴリー" %>
+    </div>
 
       <p>
         <label class="checkbox">
@@ -26,12 +30,13 @@
           <%= link_to "利用規約", terms_path %>に同意して書き込む
         </label>
       </p>
-    </div>
 
-    <div class="form-actions">
-      <input type="submit" class="btn btn-primary" value="投稿する">
-      <%#= f.button :submit, { class:"btn" }, html:{ 　value:"投稿する"  } %>
-    </div
+    <!--<div class="form-actions">-->
+    <p>&nbsp;</p>
+      <%#=<input type="submit" class="btn btn-primary" value="投稿する"> %>
+      <%= f.button :submit, :class => 'btn-primary' %><%#= value値はja.ymlに記載 %>
+
+    <!--</div>-->
   <% end %>
 
 <%#= render 'form' %>

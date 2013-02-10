@@ -8,6 +8,8 @@ ja:
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
+      html: '<span class="label label-important">必須</span>'
+      #html: '<font color="red">*</font>'
     error_notification:
       default_message: "設定内容を見直してください。"
     # Labels and hints examples
@@ -18,6 +20,12 @@ ja:
         email: 'メールアドレス'
         remember_me: 'ログイン状態を保持'
         password_confirmation: 'パスワード再入力（確認用）'
+        current_password: '現在のパスワード'
+    hints:
+      user:
+        edit:
+          password: '<span class="help-block"><small>（パスワード変更のとき以外は空欄のまま）</small></span>'
+          current_password: '本人確認のため、現在のパスワードを入力してください。'
 #      user:
 #        new:       
 #          email: 'メールアドレス.' #ログイン用
