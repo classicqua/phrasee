@@ -6,8 +6,7 @@
     使える言い回しや好きな映画のセリフなど、あなたが知っているフレーズを教えてください。
   </div>
 
-  <%= simple_form_for(@phrase, :as => resource_name, :url => phrases_path(resource_name), 
-                    :html => { :class => 'form-vertical',　:method => :post }) do |f| %>
+  <%= simple_form_for(@phrase, url: phrases_path(@phrase), html: { class:'form-vertical' }) do |f| %>
 
     <%= f.error_notification %>
 
