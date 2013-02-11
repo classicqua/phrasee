@@ -1,5 +1,14 @@
 <% provide(:title, "新着フレーズ") %>
 
+  <!-- パンくずリスト -->
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to 'トップ', root_path %>
+      <span class="divider">/</span>
+    </li>
+    <li class="active">新着</li>
+  </ol>
+
   <!-- page header -->
   <div class="page-header">
     <h1><span class="ph_category_name">新着</span></h1>
@@ -25,4 +34,4 @@
 <%# end %>
 
 
-<%= link_to 'フレーズをのせる', new_phrase_path, class:"btn btn-success" %>
+  <%= render 'shared/categories_and_post' %>

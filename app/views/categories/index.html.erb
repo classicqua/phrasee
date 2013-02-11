@@ -1,5 +1,14 @@
 <% provide(:title, "カテゴリー 一覧") %>
 
+  <!-- パンくずリスト -->
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to 'トップ', root_path %>
+      <span class="divider">/</span>
+    </li>
+    <li class="active">カテゴリー 一覧</li>
+  </ol>
+  
   <!-- page header -->
   <div class="page-header">
     <h1><span class="ph_category_name">カテゴリー 一覧</span></h1>
@@ -14,3 +23,5 @@
       </li>
     <% end %>
   </ul>
+
+<%= render 'shared/post_phrase_link' %>

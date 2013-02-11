@@ -18,7 +18,8 @@
     <div class="lead well ph_well-cancel-color ph_status">
         <ul class="unstyled inline ">
           <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon" } ) %> 投稿したフレーズ</li>
-          <li><%= link_to "10件", phrases_path %></li>
+          <li><%= link_to "#{@user.phrases.count}件", phrases_path(@user) %></li>
+          
         </ul>
 
         <ul class="unstyled inline">

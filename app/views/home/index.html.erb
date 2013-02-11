@@ -5,12 +5,34 @@
     <h1 class="small">みんなでつくる英語フレーズ集『Phrasee』<small></small></h1>
   </div>
 
+  <!-- phrases box row：新着 -->
+  <div class="row-fluid">
+    <div class="span6 ph_phrase_box well">
+      <h1 class="ph_category">
+        <%= link_to "新着", phrases_path, { class:"ph_new_link" } %>
+      </h1>
+        <% if @phrases.any? %>
+          <ul class="">
+            <% @phrases.each do |phrase| %>
+              <li class="ph_phrase_item">
+                <%= link_to phrase.japanese, phrase_path(phrase) %>
+              </li>
+            <% end %>
+          </ul>
+          <p class="ph_last_item">
+            <small><%= link_to "新着の英語フレーズをすべて見る", phrases_path %></small>
+          </p>            
+        <% else %>
+          新着フレーズはありません。
+        <% end %>
+    </div><%# 新着フレーズboxここまで %>
+  <%# </div> # 下記で自動的に付与  %>
 
   <% @categories.each_with_index do |category, index| %>
 
-    <!-- phrases box row -->
-    <% if index.even? %>
-    <div class="row-fluid">
+    <!-- phrases box row：カテゴリー別 -->
+    <% if index.odd? %>
+    <div class="row-fluid"><%# ループ初回と偶数回はスルー %>
     <% end %>
     
       <!-- phrases box  -->
@@ -22,7 +44,7 @@
             <% end %>
           </h1>
 
-          <%# フレーズ %>
+          <%# このカテゴリーのフレーズ %>
           <% if category.phrases.any? %>
             <ul class="">
               <% category.phrases[0..4].each do |phrase| %>
@@ -37,12 +59,13 @@
           <% else %>
             このカテゴリーに該当するフレーズはまだありません。
           <% end %>
-      </div>
+      </div><%# カテゴリー別フレーズboxここまで %>
 
-    <% if index.odd? or ( index.even? and Category.count-1 == index ) # 奇数or最後の要素 %>
+    <% if index.even? or ( index.odd? and Category.count-1 == index ) # 偶数or最後の要素 %>
     </div>
     <% end %>
    
   <% end %>
 
+  <%= render 'shared/categories_and_post' %>
 </div>

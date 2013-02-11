@@ -10,7 +10,9 @@
   //@include well-cancel-color; // 背景色を白に＋枠線取り去る
   /***/
 
-  //margin: 10px 0px;
+  @media (min-width: 480px) {
+    height: 280px; // 各カテゴリーのboxの高さを統一するため
+  }
 }
 
 .ph_category {

@@ -11,8 +11,6 @@ class PhrasesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @phrases }
     end
-=begin
-=end
   end
 
   # GET /phrases/1
@@ -48,7 +46,6 @@ class PhrasesController < ApplicationController
   # POST /phrases
   # POST /phrases.json
   def create
-    # @phrase = Phrase.new(params[:phrase])
     @phrase = current_user.phrases.build(params[:phrase])
 
     respond_to do |format|
