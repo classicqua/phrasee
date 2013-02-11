@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, "英語・英会話フレーズ|Phrasee|#{@user.name}") %>
 
 <div class="container ph_profile_container">
   <!-- パンくずリスト -->
@@ -47,4 +47,7 @@
         </ul>
     </div>
   </div>
+
+  <p><%= link_to "トップページへ", root_path %></p>  
 </div>
+

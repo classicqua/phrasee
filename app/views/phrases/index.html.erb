@@ -1,4 +1,4 @@
-<% provide(:title, "新着フレーズ") %>
+<% provide(:title, "新着英語・英会話フレーズ") %>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -15,7 +15,10 @@
   </div>
 
   <%= render 'shared/posted_phrases' %>
-  <%= render 'shared/categories_and_post' %>
+
+  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/categories_link' %>
+  <%= render 'shared/post_phrase_link' %>
 
 <%# if admin? %>
   <%#= link_to 'Edit', edit_phrase_path(phrase) %>

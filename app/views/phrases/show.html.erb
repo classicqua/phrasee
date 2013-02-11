@@ -1,4 +1,4 @@
-<% provide(:title, @phrase.japanese) %>
+<% provide(:title, "『#{@phrase.japanese}』の英語・英会話フレーズ|#{@phrase.english}|Phrasee") %>
 
 <!-- main -->
 <div class="container">
@@ -83,7 +83,10 @@
 
   <p><%= link_to "#{@phrase.user.name}さんの投稿フレーズ一覧を見る", posts_user_path(@phrase.user) %></p>
   <p><%= link_to "『#{@phrase.category.category_name}』のフレーズ一覧を見る" , category_path(@phrase.category.id) %></p>
-  <%= render 'shared/categories_and_post' %>
+  <p>&nbsp;</p>
+  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/categories_link' %>
+  <%= render 'shared/post_phrase_link' %>
 
   <%#= render "shared/comment" if signed_in?  %>
 </div>

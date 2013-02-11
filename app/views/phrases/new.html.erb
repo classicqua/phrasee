@@ -1,4 +1,4 @@
-<% provide(:title, "フレーズ投稿") %>
+<% provide(:title, "英語・英会話フレーズ|Phrasee|フレーズ投稿") %>
 
   <!-- page header -->
   <div class="page-header">
@@ -7,3 +7,6 @@
   </div>
 
   <%= render 'phrase_form', { url_path: phrases_path(@phrase), http_req: :post } %>
+
+  <p>&nbsp;</p>
+  <p><%= link_to "トップページへ", root_path %></p>

@@ -1,4 +1,4 @@
-<% provide(:title, @category.category_name) %>
+<% provide(:title, "『#{@category.category_name}』の英語・英会話フレーズ") %>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -6,6 +6,10 @@
       <%= link_to 'トップ', root_path %>
       <span class="divider">/</span>
     </li>
+     <li>
+      <%= link_to 'カテゴリー 一覧', categories_path %>
+      <span class="divider">/</span>
+    </li>   
     <li class="active">
       <%= @category.category_name %>
     </li>
@@ -16,6 +20,11 @@
     <h1><span class="ph_category_name"><%= @category.category_name %>（<%= @category.phrases.count %>件）</span></h1>
   </div>
 
+
   <%= render 'shared/posted_phrases' %>
 
-  <%= render 'shared/categories_and_post' %>
+
+  <p>&nbsp;</p>
+  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/categories_link' %>
+  <%= render 'shared/post_phrase_link' %>
