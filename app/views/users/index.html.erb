@@ -1,4 +1,16 @@
-<h3>会員一覧</h3>
+<% provide(:title, 'メンバー一覧') %>
+
+  <!-- パンくずリスト -->
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to 'トップ', root_path %>
+      <span class="divider">/</span>
+    </li>
+    <li class="active">メンバー</li>
+  </ol>
+
+<h3>メンバー一覧</h3>
+
 <ul class="phrases_list unstyled">
   <% @users.each do |user| %>
     <li class="phrase">

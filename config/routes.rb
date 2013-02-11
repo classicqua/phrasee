@@ -19,7 +19,12 @@ Phrasee::Application.routes.draw do
     get "/resign" => "registrations#resign" # 退会手続きページ表示
   end
 
-  resources :users
+  resources :users do
+    member do
+      get :posts # 各userが投稿したフレーズ
+    end
+  end
+
   resources :phrases
   resources :categories, only: [:index, :show]
 

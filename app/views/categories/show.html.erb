@@ -7,7 +7,7 @@
       <span class="divider">/</span>
     </li>
     <li class="active">
-      <%= link_to @category.category_name, category_path(@category) %>
+      <%= @category.category_name %>
     </li>
   </ol>
 
@@ -16,15 +16,6 @@
     <h1><span class="ph_category_name"><%= @category.category_name %>（<%= @category.phrases.count %>件）</span></h1>
   </div>
 
-  <% if @phrases.any? %>
-    <ul class="ph_caetgories_list">
-      <% @phrases.each do |phrase| %>
-        <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase_path(phrase.id) %></li>
-      <% end %>
-    </ul>
-    <%= render 'shared/pagination', object: @phrases %>
-  <% else %>
-    このカテゴリーに該当するフレーズはまだありません。
-  <% end %>
+  <%= render 'shared/posted_phrases' %>
 
   <%= render 'shared/categories_and_post' %>

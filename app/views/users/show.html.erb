@@ -1,7 +1,21 @@
+<% provide(:title, @user.name) %>
+
 <div class="container ph_profile_container">
+  <!-- パンくずリスト -->
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to 'トップ', root_path %>
+      <span class="divider">/</span>
+    </li>
+    <li>
+      <%= link_to "メンバー", users_path %>
+      <span class="divider">/</span>
+    </li>
+    <li class="active"><%= @user.name %></li>
+  </ol>
+
 
   <div class="well ph_well-box">
-
    
     <legend ><strong><%= @user.name %></strong>さん</legend>
     
@@ -18,8 +32,8 @@
     <div class="lead well ph_well-cancel-color ph_status">
         <ul class="unstyled inline ">
           <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon" } ) %> 投稿したフレーズ</li>
-          <li><%= link_to "#{@user.phrases.count}件", phrases_path(@user) %></li>
-          
+          <li><%= link_to "#{@user.phrases.count}件", posts_user_path(@user) %></li>
+
         </ul>
 
         <ul class="unstyled inline">
