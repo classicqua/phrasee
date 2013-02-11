@@ -23,8 +23,9 @@
       label:"<small class='muted'>差し支えなければ、退会する理由を教えてください。</small>",
        input_html: { rows:"3", class:"resign_reason_text" } %>
 
-       <%= f.button :submit, "退会する", :class => 'btn btn-danger' %>
+      <%= f.button :submit, "退会する", :class => 'btn btn-danger' %>
     </div>
-   
+    
+    <%= link_to "もどる", :back %>
   <% end %>
 </div>

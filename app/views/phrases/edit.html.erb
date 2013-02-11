@@ -1,6 +1,8 @@
-<h1>Editing phrase</h1>
+<% provide(:title, "フレーズ編集") %>
 
-<%= render 'form' %>
+  <!-- page header -->
+  <div class="page-header">
+    <h1>フレーズ編集</h1>
+  </div>
 
-<%= link_to 'Show', @phrase %> |
-<%= link_to 'Back', phrases_path %>
+  <%= render 'phrase_form', { url_path: phrase_path(@phrase), http_req: :put } %>

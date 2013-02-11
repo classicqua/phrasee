@@ -1,14 +1,16 @@
-<% provide(:title, "カテゴリ一覧") %>
+<% provide(:title, "カテゴリー 一覧") %>
 
   <!-- page header -->
   <div class="page-header">
-    <h1><span class="ph_category_name">カテゴリ一覧</span></h1>
+    <h1><span class="ph_category_name">カテゴリー 一覧</span></h1>
   </div>
 
-<ul class="ph_caetgories_list">
-  <%#= render @categories %>
-
-  <% @categories.each do |category| %>
-    <li class="ph_phrase_item"><%= link_to category.category_name, category_path(category.id) %></li>
-  <% end %>
-</ul>
+  <ul class="ph_caetgories_list">
+    <% @categories.each do |category| %>
+      <li class="ph_phrase_item">
+        <%= link_to category_path(category) do %>
+        <%= category.category_name %><small>（<%= category.phrases.count %>件）</small>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>

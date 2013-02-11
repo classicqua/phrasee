@@ -1,0 +1,33 @@
+
+<%# フレーズ投稿/編集フォーム %>
+
+  <%= simple_form_for(@phrase, url: url_path, html: { method: http_req, class:'form-vertical' }) do |f| %>
+  <%#= simple_form_for(resource, :as => resource_name, 
+    :url => phrases_path(resource_name), 
+    :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
+    <%= f.error_notification %>
+    <%= display_base_errors @phrase %>
+
+    <div class="form-inputs well ">
+      <%= f.input :japanese, placeholder:"短く簡潔に。", label:"日本語フレーズ" %>
+      <%= f.input :english, placeholder:"Keep it short and simple.", label:"英語フレーズ" %>
+      <%= f.input :source, input_html: { class:"input-xxlarge" }, placeholder:"例）映画『○○』より", 
+                  label:"出典<small>（映画や本のタイトルなど、引用元・参考情報があれば記入してください）</small>" %>
+      <%= f.input :story, as: :text,  input_html: { rows:"3", class:"input-xxlarge" },  
+                  placeholder:"例）カナダを旅行中にレストランで・・・",
+                  label:"エピソード<small>（このフレーズを知ったときの状況や、自分で使ってみた結果など）</small>" %>
+      <%= f.association :category, collection:@categories, as: :radio_buttons, 
+                        label_method: :category_name, value_method: :id, 
+                        include_blank: false, label:"カテゴリー" %>
+    </div>
+
+    <p>
+      <label class="checkbox">
+        <input type="checkbox" checked>
+        <%= link_to "利用規約", terms_path %>に同意して書き込む
+      </label>
+    </p>
+
+    <p>&nbsp;</p>
+      <%= f.button :submit, :class => 'btn-primary' %><%#= value値はja.ymlに記載 %>
+  <% end %>

@@ -130,14 +130,16 @@ ja:
     select:
       prompt: 選択してください。
     submit:
-      user:
-        create: 登録する
-        submit: 保存する
-        update: 更新する
-      phrase:
-        create: 投稿する
-        update: 更新する
-        destroy: 削除する
+        user:
+          create: 登録する
+          submit: 保存する
+          update: 更新する
+          destroy: 退会
+        phrase:
+          create: 投稿する
+          submit: 投稿する
+          update: 更新する
+          destroy: 削除する
 
   number:
     currency:

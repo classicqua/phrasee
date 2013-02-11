@@ -5,9 +5,7 @@
     <h1><span class="ph_category_name">新着</span></h1>
   </div>
 
-<% if @phrases.nil? %>
-  新着のフレーズはありません。
-<% else %>
+<% if @phrases.any? %>
   <ul class="unstyled">
     <% @phrases.each do |phrase| %>
       <li class="ph_phrase_item">
@@ -17,6 +15,8 @@
   </ul>
 
   <%= render 'shared/pagination', object: @phrases %>
+<% else %>
+  新着のフレーズはありません。
 <% end %>
 
 <%# if admin? %>

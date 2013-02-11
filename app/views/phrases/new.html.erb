@@ -1,4 +1,4 @@
-<% provide(:title, "新着フレーズ") %>
+<% provide(:title, "フレーズ投稿") %>
 
   <!-- page header -->
   <div class="page-header">
@@ -6,35 +6,4 @@
     使える言い回しや好きな映画のセリフなど、あなたが知っているフレーズを教えてください。
   </div>
 
-  <%= simple_form_for(@phrase, url: phrases_path(@phrase), html: { class:'form-vertical' }) do |f| %>
-
-    <%= f.error_notification %>
-
-    <div class="form-inputs well ">
-      <%= f.input :japanese, placeholder:"短く簡潔に。", label:"日本語フレーズ" %>
-      <%= f.input :english, placeholder:"Keep it short and simple.", label:"英語フレーズ" %>
-      <%= f.input :source, input_html: { class:"input-xxlarge" }, placeholder:"例）映画『○○』より", 
-                  label:"出典<small>（映画や本のタイトルなど、引用元・参考情報があれば記入してください）</small>" %>
-      <%= f.input :story, as: :text,  input_html: { rows:"3", class:"input-xxlarge" },  
-                  placeholder:"例）カナダを旅行中にレストランで・・・",
-                  label:"エピソード<small>（このフレーズを知ったときの状況や、自分で使ってみた結果など）</small>" %>
-      <%= f.association :category, collection:@categories, as: :radio_buttons, 
-                        label_method: :category_name, value_method: :id, 
-                        include_blank: false, label:"カテゴリー" %>
-    </div>
-
-      <p>
-        <label class="checkbox">
-          <input type="checkbox" checked>
-          <%= link_to "利用規約", terms_path %>に同意して書き込む
-        </label>
-      </p>
-
-    <!--<div class="form-actions">-->
-    <p>&nbsp;</p>
-      <%#=<input type="submit" class="btn btn-primary" value="投稿する"> %>
-      <%= f.button :submit, :class => 'btn-primary' %><%#= value値はja.ymlに記載 %>
-    <!--</div>-->
-  <% end %>
-
-<%#= render 'form' %>
+  <%= render 'phrase_form', { url_path: phrases_path(@phrase), http_req: :post } %>

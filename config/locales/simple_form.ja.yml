@@ -9,9 +9,10 @@ ja:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
       html: '<span class="label label-important">必須</span>'
-      #html: '<font color="red">*</font>'
+
     error_notification:
       default_message: "設定内容を見直してください。"
+
     # Labels and hints examples
     labels:
       defaults:
@@ -21,11 +22,21 @@ ja:
         remember_me: 'ログイン状態を保持'
         password_confirmation: 'パスワード再入力（確認用）'
         current_password: '現在のパスワード'
+      user:
+        edit:
+          current_password: '現在のパスワード（更新確認用）'
+
     hints:
       user:
         edit:
           password: '<span class="help-block"><small>（パスワード変更のとき以外は空欄のまま）</small></span>'
           current_password: '本人確認のため、現在のパスワードを入力してください。'
+
+    buttons:
+      user:
+        edit:
+          submit: '更新します'
+
 #      user:
 #        new:       
 #          email: 'メールアドレス.' #ログイン用

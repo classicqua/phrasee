@@ -1,0 +1,49 @@
+@import "custom";
+
+
+/* プロフィール（公開情報） */
+.ph_profile_container {
+
+  // well調整用
+  .ph_well-box { 
+    @include well-box; // wellの背景色を変える（デフォルト白）＋立体っぽく表示
+  }
+  .ph_well-cancel-color { 
+    @include well-cancel-color;
+  }
+
+  // メイン
+  margin-top: 30px;
+  max-width: 600px;
+  
+  legend {
+    text-align: center;
+  }
+  .ph_pr_img {
+    text-align: center;
+  }
+
+  // レスポンシブ対応：ある程度横幅がある画面のときは余白多めに
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 710px) {
+   
+    .ph_pr_img {
+      margin: 0 50px;
+    }
+    .ph_pr_msg {
+      text-align: left;
+      margin: 0 50px;
+    }
+    .ph_status {
+      margin: 0 50px;
+    }
+  }
+}
+
+/* アカウント設定（非公開） */
+.form_container {
+  max-width: 600px;
+  .form-actions {
+    max-width: 320px;
+  }
+}

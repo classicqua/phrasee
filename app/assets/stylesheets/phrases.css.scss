@@ -2,12 +2,17 @@
 
 
 .show_phrase_container {
-  @include well-box(none);
+  @include well-box(#FFFAF0);
 }
 
 .index_phrase_container {
   @include well-box(#eee);
 }
+
+.flash_msg {
+  margin: 3px auto;
+}
+
 
 /* Large desktop */
 @media (min-width: 1200px) {  }
@@ -29,4 +34,5 @@
 }
  
 /* Landscape phones and down */
-@media (max-width: 480px) {  }
+@media (max-width: 480px) {
+}

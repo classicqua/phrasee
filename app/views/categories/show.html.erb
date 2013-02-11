@@ -2,11 +2,24 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h1><span class="ph_category_name"><%= @category.category_name %></span></h1>
+    <h1><span class="ph_category_name"><%= @category.category_name %>（<%= @category.phrases.count %>件）</span></h1>
   </div>
 
-<ul class="ph_caetgories_list">
-  <% @phrases.each do |phrase| %>
-    <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase_path(phrase.id) %></li>
+  <% if @phrases.any? %>
+    <ul class="ph_caetgories_list">
+      <% @phrases.each do |phrase| %>
+        <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase_path(phrase.id) %></li>
+      <% end %>
+    </ul>
+    <%= render 'shared/pagination', object: @phrases %>
+  <% else %>
+    このカテゴリーに該当するフレーズはまだありません。
   <% end %>
-</ul>
+
+  <p>&nbsp;</p>
+  <div class="page-footer">
+    <%= link_to "カテゴリー 一覧へ", categories_path %>
+  </div>
+
+  <p>&nbsp;</p>
+  <%= link_to 'フレーズをのせる', new_phrase_path, class:"btn btn-success" %>

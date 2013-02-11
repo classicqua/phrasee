@@ -6,60 +6,43 @@
   </div>
 
 
-    <!-- phrases box row -->
-    <div class="row-fluid">
+  <% @categories.each_with_index do |category, index| %>
 
+    <!-- phrases box row -->
+    <% if index.even? %>
+    <div class="row-fluid">
+    <% end %>
+    
       <!-- phrases box  -->
       <div class="span6 ph_phrase_box well">
-        <h1 class="ph_category"><%= link_to "新着", phrases_path, { class:"ph_category_link" } %> <span class="badge ">10</span></h1>
-        <% if @phrases.nil? %>
-          新着フレーズはありません。
-        <% else %>
-          <ul class="unstyled">
-            <% @phrases.each do |phrase| %>
-              <li class="ph_phrase_item"><%= link_to phrase.japanese, phrase_path(phrase.id) %></li>
+          <%# カテゴリー名 %>
+          <h1 class="ph_category">
+            <%= link_to category_path(category), { class:"ph_category_link" } do %>
+              <%= category.category_name %><small>（<%= category.phrases.count %>件）</small>
             <% end %>
-              <li class="ph_phrase_item ph_last_item"><%= link_to "新着の英語フレーズをすべて見る", phrases_path %></li>
-          </ul>
-        <% end %>
+          </h1>
+
+          <%# フレーズ %>
+          <% if category.phrases.any? %>
+            <ul class="">
+              <% category.phrases[0..4].each do |phrase| %>
+                <li class="ph_phrase_item">
+                  <%= link_to phrase.japanese, phrase %>
+                </li>
+              <% end %>
+            </ul>
+            <p class="ph_last_item">
+              <small><%= link_to "『#{category.category_name}』の英語フレーズをすべて見る", category_path(category) %></small>
+            </p>            
+          <% else %>
+            このカテゴリーに該当するフレーズはまだありません。
+          <% end %>
       </div>
 
-      <!-- phrases box  -->
-      <div class="span6 ph_phrase_box well">
-        <h1 class="ph_category"><%= link_to @categories.first.category_name, category_path(@categories.first.id), { class:"ph_category_link" } %></h1>
-        <ul class="ph_phrases_list unstyled">
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item ph_last_item"><%= link_to "「XXX」関連の英語フレーズをすべて見る", "#" %></li>
-        </ul>
-      </div>
-
-    </div><%# phrases box row ここまで %>
-
-    <!-- phrases box row -->
-    <div class="row-fluid">
-
-      <!-- phrases box  -->
-      <div class="span6 ph_phrase_box well">
-        <h1 class="ph_category"><%= link_to "空港", "#", { class:"ph_category_link" } %></h1>
-        <ul class="ph_phrases_list unstyled">
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item ph_last_item"><%= link_to "「XXX」関連の英語フレーズをすべて見る", "#" %></li>
-        </ul>
-      </div>
-      <!-- phrases box  -->
-      <div class="span6 ph_phrase_box well">
-        <h1 class="ph_category"><%= link_to "レストラン", "#", { class:"ph_category_link" } %></h1>
-        <ul class="ph_phrases_list unstyled">
-          <li class="ph_phrase_item"><%= link_to "あいうえろあいうえろあ　いうえろあいうえろあい　うえろあいうえ　ろあいうえろ", "#" %></li>
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item"><%= link_to "●●●●●●●●●●●●●●●", "#" %></li>
-          <li class="ph_phrase_item ph_last_item"><%= link_to "「XXX」関連の英語フレーズをすべて見る", "#" %></li>
-        </ul>
-      </div>
-    </div><%# phrases box row ここまで %>
+    <% if index.odd? or ( index.even? and Category.count-1 == index ) # 奇数or最後の要素 %>
+    </div>
+    <% end %>
+   
+  <% end %>
 
 </div>
