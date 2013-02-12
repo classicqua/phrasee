@@ -15,7 +15,7 @@ Phrasee::Application.configure do
 
 
 ## メールを飛ばさない設定
-
+=begin
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
@@ -32,9 +32,10 @@ Phrasee::Application.configure do
       :password  => ENV["MANDRILL_API_KEY"],
       :authentication => 'login' # Mandrill supports 'plain' or 'login'
     }
+=end
 
 ## Mandrillでメール送信する設定
-=begin
+#=begin
   config.action_mailer.default_url_options = { :host => 'smtp.mandrillapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -48,7 +49,7 @@ Phrasee::Application.configure do
       :password  => ENV["MANDRILL_API_KEY"],
       :authentication => 'login' # Mandrill supports 'plain' or 'login'
     }
-=end
+#=end
 
 
   # Print deprecation notices to the Rails logger

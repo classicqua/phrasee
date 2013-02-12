@@ -74,8 +74,10 @@ Phrasee::Application.configure do
       :address   => "smtp.mandrillapp.com",
       :port      => 587, #:port      => 25,
       :enable_starttls_auto => true, # detects and uses STARTTLS
-      :user_name => ENV["MANDRILL_USERNAME"],
-      :password  => ENV["MANDRILL_API_KEY"],
+      #:user_name => ENV["MANDRILL_USERNAME"],
+      #:password  => ENV["MANDRILL_API_KEY"],
+      :user_name => 'bossp0424-temp@yahoo.co.jp',
+      :password  => 'iAjf5RnxpD74LzAZTLoLmQ',
       :authentication => 'login' # Mandrill supports 'plain' or 'login'
     }
 
