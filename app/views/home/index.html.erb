@@ -16,7 +16,8 @@
           <ul class="">
             <% @phrases.each do |phrase| %>
               <li class="ph_phrase_item">
-                <%= link_to phrase.japanese, phrase_path(phrase) %>
+                <% japanese_phrase = phrase.japanese %>
+                <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase_path(phrase) %>
               </li>
             <% end %>
           </ul>
@@ -50,7 +51,8 @@
             <ul class="">
               <% category.phrases[0..4].each do |phrase| %>
                 <li class="ph_phrase_item">
-                  <%= link_to phrase.japanese, phrase %>
+                  <% japanese_phrase = phrase.japanese %>
+                  <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase %>
                 </li>
               <% end %>
             </ul>
