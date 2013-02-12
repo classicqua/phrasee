@@ -57,11 +57,11 @@
   <!--/div-->
   <hr> 
 
-  <!-- コメント -->
+  <!-- コメント一覧 -->
   <%= render 'comments/comments_list', { comments: @comments } %>
-
   <p>&nbsp;</p>
-  <%= render 'comment_form', { url_path: comments_path, http_req: :post } %>
+  <!-- コメント投稿フォーム -->
+  <%= render 'comments/comment_form', { url_path: comments_path, http_req: :post } %>
 
   <p>&nbsp;</p>
   <p><%= link_to "#{@phrase.user.name}さんの投稿フレーズ一覧を見る", posts_user_path(@phrase.user) %></p>
