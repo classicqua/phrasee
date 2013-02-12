@@ -1,0 +1,24 @@
+<h2>パスワード再設定</h2>
+  <p>現在のパスワードをリセットして、再設定します。</p>
+
+<%#= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%#= devise_error_messages! %>
+
+<%= simple_form_for(resource, :as => resource_name, 
+  :url => password_path(resource_name), 
+  :html => { :method => :post , :class => 'form-vertical' }) do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors resource %>
+  
+  <p>&nbsp;</p>
+  <p class="">設定方法を記載したメールを送りますので、以下に送付先アドレスを入力の上ボタンを押してください。</p>
+
+  <%= f.input :email, :required => true %>
+  <%= f.button :submit, 'パスワード再設定手続きをメールで送る', :class => 'btn' %>
+
+  <%#= f.email_field :email, :autofocus => true %>
+  <%#= f.submit "パスワード再設定手続きをメールで送る", :class => 'btn'  %>
+<% end %>
+
+<p>&nbsp;</p>
+<%= render "devise/shared/links" %>

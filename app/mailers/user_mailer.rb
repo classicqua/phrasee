@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def email_name
     mail :subject => "Mandrill rides the Rails!",
-         :to      => "bossp-0424-test@yahoo.co.jp",
+         :to      => "to@yahoo.co.jp",
          :from    => "you@yourdomain.com"
   end
 end

@@ -8,7 +8,6 @@ class ServiceController < ApplicationController
 
   # ヘルプ
   def help
-
   end
 
   # 利用規約

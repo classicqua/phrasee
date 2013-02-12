@@ -1,0 +1,21 @@
+<h2>ご本人確認メール再送信</h2>
+
+<%#= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%#= devise_error_messages! %>
+<%= simple_form_for(resource, :as => resource_name, 
+  :url => confirmation_path(resource_name),
+  :html => { :method => :post , :class => 'form-vertical' }) do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors resource %>
+  
+  <p>&nbsp;</p>
+  <p class="">本人確認メールの送付先アドレスを設定してください。</p>
+  <%= f.input :email, :required => true %>
+  <%= f.button :submit, '本人確認メール再送信', :class => 'btn' %>
+
+  <%#= f.email_field :email, :autofocus => true %>
+  <%#= f.submit "本人確認メール再送信", :class => 'btn'  %>
+
+<% end %>
+<p>&nbsp;</p>
+<%= render "devise/shared/links" %>

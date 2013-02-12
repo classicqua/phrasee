@@ -38,7 +38,7 @@ namespace :db do
 =end
     1.times do
       User.all(:limit => 6).each do |user|
-        5.times do
+        15.times do
           cid = rand(10)+1
           name = Faker::Japanese::Name.name
           user.phrases.create!(
