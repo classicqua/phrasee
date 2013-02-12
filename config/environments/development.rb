@@ -13,6 +13,9 @@ Phrasee::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+
+## メールを飛ばさない設定
+
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
@@ -20,14 +23,32 @@ Phrasee::Application.configure do
   config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"  
-
     config.action_mailer.smtp_settings = {
       :address   => "smtp.mandrillapp.com",
-      :port      => 25,
+      :port      => 587, #:port      => 25,
+      #:domain    => "example.com",
+      :enable_starttls_auto => true, # detects and uses STARTTLS
       :user_name => ENV["MANDRILL_USERNAME"],
-      :password  => ENV["MANDRILL_API_KEY"]
+      :password  => ENV["MANDRILL_API_KEY"],
+      :authentication => 'login' # Mandrill supports 'plain' or 'login'
     }
 
+## Mandrillでメール送信する設定
+=begin
+  config.action_mailer.default_url_options = { :host => 'smtp.mandrillapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"  
+    config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => 587, #:port      => 25,
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => ENV["MANDRILL_USERNAME"],
+      :password  => ENV["MANDRILL_API_KEY"],
+      :authentication => 'login' # Mandrill supports 'plain' or 'login'
+    }
+=end
 
 
   # Print deprecation notices to the Rails logger

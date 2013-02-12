@@ -47,9 +47,9 @@
     <!--div class="page-header"-->
 
       <!-- メンバー画像 -->
-      <a class="pull-left" href="#">
-        <%= image_tag('service/8566716_aa614fe042_image.jpg', { alt:"post-icon", size:"80x80" } ) %> 
-      </a>
+      <%= link_to user_path(@phrase.user), { class:"pull-left" } do %>
+      <%= image_tag('service/8566716_aa614fe042_image.jpg', { alt:"post-icon", size:"80x80" } ) %> 
+      <% end %>
 
       <!-- エピソード本文 -->
       <div class="media-body">

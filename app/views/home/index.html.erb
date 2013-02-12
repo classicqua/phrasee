@@ -1,9 +1,11 @@
-<% provide(:title, "英語の名言・英会話フレーズなど満載|みんなでつくる英語フレーズ集『Phrasee』") %>
+<% provide(:title, "英語の名言・英会話フレーズなど満載！みんなでつくる英語フレーズ集『Phrasee』") %>
 <div class="container">
 
   <!-- page header -->
   <div class="page-header">
-    <h1 class="small">みんなでつくる英語フレーズ集『Phrasee』<small></small></h1>
+    <%= link_to guide_path do %>
+    <h1><%= "みんなでつくる英語フレーズ集『Phrasee』" %><small></small></h1>
+    <% end %>
   </div>
 
   <!-- phrases box row：新着 -->
