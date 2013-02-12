@@ -42,12 +42,16 @@
     <p class="muted">出典：<%= @phrase.source %></p>
   </div>
 
-  <!-- エピソード -->
+  <!-- 投稿者 -->
   <div class="media">
     <!--div class="page-header"-->
+
+      <!-- メンバー画像 -->
       <a class="pull-left" href="#">
         <%= image_tag('service/8566716_aa614fe042_image.jpg', { alt:"post-icon", size:"80x80" } ) %> 
       </a>
+
+      <!-- エピソード本文 -->
       <div class="media-body">
         <h4 class="media-heading"><%= link_to @phrase.user.name, user_path(@phrase.user) %></h4>
         <p class="muted"><%= @phrase.updated_at.to_s(:db) %></p><%# UTCからJST（日本時間）に変換 %>

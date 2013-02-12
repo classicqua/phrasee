@@ -1,16 +1,18 @@
-
 <%# コメント投稿フォーム %>
-
-  <%= simple_form_for(@new_comment, url: url_path, html: { method: http_req, class:'form-vertical' }) do |f| %>
-  <%#= simple_form_for(resource, :as => resource_name, 
-    :url => phrases_path(resource_name), 
-    :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
-    <%= f.error_notification %>
-    <%= display_base_errors @new_comment %>
-    <div class="form-inputs well ">
-      <%= f.input :content, as: :text,  input_html: { rows:"3", class:"input-large" },  
-                  placeholder:"例）使わせてもらいます。",
-                  label:"<small class='muted'>ひとことお礼など</small>" %>
-       <%= f.button :submit, :class => 'btn' %><%#= value値はja.ymlに記載 %>                  
-    </div>
-  <% end %>
+  
+<%= simple_form_for(@new_comment, url: url_path, html: { method: http_req, class:'form-vertical' }) do |f| %>
+<%#= simple_form_for(resource, :as => resource_name, 
+  :url => phrases_path(resource_name), 
+  :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors @new_comment %>
+  <div class="form-inputs ">
+    <%= f.input :content, as: :text,  input_html: { rows:"3", class:"input-large" },  
+                placeholder:"例）使わせてもらいます。",
+                label:"<small class='muted'>ひとことお礼など</small>" %>
+    <p><%= f.button :submit, :class => 'btn' %></p><%#= value値はja.ymlに記載 %>                 
+    <% if !signed_in? %>
+    <p class="muted">コメントを送るには<%= link_to "ログイン", new_user_session_path %>が必要です。 </p>   
+    <% end %>
+  </div>
+<% end %>
