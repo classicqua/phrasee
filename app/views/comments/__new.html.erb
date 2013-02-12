@@ -1,0 +1,26 @@
+<%# provide(:title, "英語・英会話フレーズ|Phrasee|コメント投稿") %>
+<h4>コメント投稿</h4>
+
+  <%= simple_form_for(@new_comment, url: url_path, html: { method: http_req, class:'form-vertical' }) do |f| %>
+  <%#= simple_form_for(resource, :as => resource_name, 
+    :url => phrases_path(resource_name), 
+    :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
+    <%= f.error_notification %>
+    <%= display_base_errors @new_comment %>
+
+    <div class="form-inputs well ">
+      <%= f.input :content, as: :text,  input_html: { rows:"3", class:"input-large" },  
+                  placeholder:"例）ありがとうございます。",
+                  label:"コメント<small>（ひとことお礼など）</small>" %>
+    </div>
+
+    <p>
+      <label class="checkbox">
+        <input type="checkbox" checked>
+        <%= link_to "利用規約", terms_path %>に同意して書き込む
+      </label>
+    </p>
+
+    <p>&nbsp;</p>
+      <%= f.button :submit, :class => 'btn-primary' %><%#= value値はja.ymlに記載 %>
+  <% end %>

@@ -1,5 +1,7 @@
 Phrasee::Application.routes.draw do
 
+  #get "comments/new"
+
   # ログイン有無でroot_pathを振り分け
   authenticated :user do
     root :to => 'home#index'
@@ -25,7 +27,13 @@ Phrasee::Application.routes.draw do
     end
   end
 
-  resources :phrases
+  resources :phrases do
+    member do
+      resources :comments, only: [:create]
+    end
+    #resources :comments, only: [:create]
+  end
+
   resources :categories, only: [:index, :show]
 
   # サービス運営

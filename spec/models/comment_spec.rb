@@ -1,15 +1,17 @@
 # == Schema Information
 #
-# Table name: resignations
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  reason     :text
+#  content    :text
+#  phrase_id  :integer
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'spec_helper'
 
-describe Resignation do
+describe Comment do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -140,6 +140,9 @@ ja:
           submit: 投稿する
           update: 更新する
           destroy: 削除する
+        comment:
+          create: コメントする
+
 
   number:
     currency:

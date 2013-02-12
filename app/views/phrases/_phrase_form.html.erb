@@ -9,8 +9,8 @@
     <%= display_base_errors @phrase %>
 
     <div class="form-inputs well ">
-      <%= f.input :japanese, placeholder:"短く簡潔に。", label:"日本語フレーズ" %>
-      <%= f.input :english, placeholder:"Keep it short and simple.", label:"英語フレーズ" %>
+      <%= f.input :japanese, placeholder:"短く簡潔に。", input_html: { class:"input-xxlarge" }, label:"日本語フレーズ" %>
+      <%= f.input :english, placeholder:"Keep it short and simple.", input_html: { class:"input-xxlarge" }, label:"英語フレーズ" %>
       <%= f.input :source, input_html: { class:"input-xxlarge" }, placeholder:"例）映画『○○』より", 
                   label:"出典<small>（映画や本のタイトルなど、引用元・参考情報があれば記入してください）</small>" %>
       <%= f.input :story, as: :text,  input_html: { rows:"3", class:"input-xxlarge" },  

@@ -34,5 +34,6 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   has_many :phrases, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
 end

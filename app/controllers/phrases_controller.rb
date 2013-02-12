@@ -16,8 +16,15 @@ class PhrasesController < ApplicationController
   # GET /phrases/1
   # GET /phrases/1.json
   def show
-    @user = current_user
-    @phrase = Phrase.find(params[:id])
+    @phrase = Phrase.find(params[:id]) # フレーズ
+    @user = current_user # このフレーズを見てる人
+
+    # 現在このフレーズについてるコメントたち
+    @comments = Comment.where( 'phrase_id = :phrase_id', { :phrase_id => @phrase } ) 
+                    #.paginate( page:params[:page], per_page:10 )
+
+    # 新規コメント用
+    @new_comment = @phrase.comments.new 
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,7 +57,7 @@ class PhrasesController < ApplicationController
 
     respond_to do |format|
       if @phrase.save
-        format.html { redirect_to @phrase, notice: 'Phrase was successfully created.' }
+        format.html { redirect_to @phrase, notice: '新規フレーズを投稿しました。' }
         format.json { render json: @phrase, status: :created, location: @phrase }
       else
         format.html { render action: "new" }
@@ -66,7 +73,7 @@ class PhrasesController < ApplicationController
 
     respond_to do |format|
       if @phrase.update_attributes(params[:phrase])
-        format.html { redirect_to @phrase, notice: 'Phrase was successfully updated.' }
+        format.html { redirect_to @phrase, notice: 'フレーズを更新しました。' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
