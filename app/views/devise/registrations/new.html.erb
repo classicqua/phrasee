@@ -17,8 +17,12 @@
     	<%= f.input :email, :required => true %>
     	<%= f.input :password, :required => true %>
     	<%= f.input :password_confirmation, :required => true %>
-    	<%= f.button :submit, 'ご本人確認メール送信', :class => 'btn' %>
+      <p><%= link_to "利用規約を見る", terms_path %></p>
+      <br/>
+      <%= f.button :submit, 'ご本人確認メール送信', :class => 'btn' %>
+      <small class="help-block">※利用規約に同意できない場合はメールを送信しないでください。</small>
     <% end %>
+
     <%= render "devise/shared/links" if resource.errors.any?  %>
 
     <p>&nbsp;</p>

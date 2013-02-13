@@ -13,6 +13,12 @@ ja:
     error_notification:
       default_message: "設定内容を見直してください。"
 
+    options:
+      user:
+        gender:
+          male: '男性'
+          female: '女性'
+
     # Labels and hints examples
     labels:
       defaults:

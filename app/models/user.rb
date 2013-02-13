@@ -20,6 +20,13 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
+#  profile_image          :string(255)
+#  introduction           :text
+#  gender                 :integer
+#  birth                  :date
+#  country_id             :integer
+#  postal_code            :string(255)
+#  mail_flg               :boolean
 #
 
 class User < ActiveRecord::Base
