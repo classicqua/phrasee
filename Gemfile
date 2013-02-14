@@ -27,6 +27,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
+
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
@@ -50,6 +51,11 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'bcrypt-ruby', '>= 3.0.1'
 gem 'will_paginate', '>= 3.0.3'
 gem 'bootstrap-will_paginate', '>= 0.0.6'
+
+  
+gem 'carrierwave'
+#gem 'rmagick', '2.13.2'
+
 group :production do
   gem 'pg'
 end
