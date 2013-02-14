@@ -1,15 +1,13 @@
 $(function() {
-  $('#zip').zip2addr('#addr');
-  
-  $('#addr').change(function(e){
-    var v = $('#addr').val();
-    $(".search_result_address").text(v);
-  });
 
-/*
-  var addr_handler = function(){
-    AjaxZip3.zip2addr('zip01', '', 'pref01', 'addr01');
-  };
-  $("#zip01").change(addr_handler).keyup(addr_handler);
-*/
+  // 郵便場号入力→住所検索
+  $('#zip').zip2addr('#addr');
+
+  // 住所＝日本以外を選んだときのイベント
+  $("#user_country_id").change(function(e){
+    var country = $(this).val();
+    if(( country != "Japan" ) && ( country != "japan" ) && ( country != "日本" ) && ( country != "1" ) && ( country != 1 )){
+      //alert(country);
+    }
+  });
 });

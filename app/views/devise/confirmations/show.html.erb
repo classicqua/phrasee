@@ -10,67 +10,86 @@
     <h3>アカウント設定</h3>
   </div>
 
-  <%= simple_form_for(resource, :as => resource_name, :url => confirm_path, 
+  <%= simple_form_for(resource, :as => resource_name, :url => confirm_path, :multipart => true,
       :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
+      <%= f.error_notification %>
+      <%#= display_base_errors resource %>
 
+      <%# 本人確認用トークン %>
       <%= f.input :token_for_confirmation, :as => :hidden, :input_html => { :value => @confirmation_token } %>
 
-    <div class="well basic_form_container">
+  <div class="basic_form_container">
+
+    <div class=""><span class="lead">【 他のユーザーに公開される情報 】</span></div>
+    <div class="well">
       <%# ニックネーム %>
-      <p>ニックネーム: <%= @user.name %></p>
+      <dl>
+        <dt>ニックネーム</dt>
+        <dd><span class="lead"><%= @user.name %></span></dd>
+      </dl>
 
       <%# プロフィール画像 %>
-      <span class="label label-important">公開</span>
-      <div class="fileupload fileupload-new" data-provides="fileupload">
-        <div class="fileupload-new thumbnail" style="width: 72px; height: 72px;"><img class="img-polaroid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADFUlEQVR4Xu2Y+UsqcRTFjy3aZhJltGAuP5hFEUpEG/73khkWglhqP2hZFLTYvufjXN486lnoTBah90IQ8+Y7d+75nu/59MZ2dnZWQQuXTQVQB+gR0Axo4QyEhqBSQCmgFFAKKAVaWAHFoGJQMagYVAy2MAT0P0OKQcWgYlAxqBhUDJpU4OLiAufn53h5eYHL5cLQ0NCnT+C9V1dXGB4eht1ur7vTT/Tgy5jGYKFQwO7uLrq6utDe3o6bmxuMjY1henq6arjb21skEgk8Pz9jeXkZPT09dQnwEz2MFzElAIddW1vDxMQEgsGgPGNnZwccdGZm5t0Oc+iNjQ3c39+LU1ZWVtDd3V1TgJ/o8fYlTAmQy+VwcHCAaDSKtrY2Gayjo6NqqEqlglQqBdrY6/WKY1ZXV8U1rO3tbTw8PGB2dlZctLe3h5OTE0xOTsrzG9GjptJ/bzAlwObmpgzd29uL4+Nj+b2vrw9TU1OSBUZx4GKxiEgkgru7O2QymXcCMBPoDoozOjqK9fV1jI+Pi6sa1eNbBIjH47i+vobT6YTH45EePK+Pj49i8c7OThwdHSGdTstu8p7Dw8MqAbiOu57P5yUXbDYbFhYWxFWN7FGPCKYcsLW1hdPTUywuLsrOs4yB5+bm5BozgmnPnGBdXl7KPT6fT4ZlYBoVi8XEIeFwGIODg3K50T1qiWBKgGw2i1KpJHZ2OBzybOIwmUwKBSgALcwdNer19fVfVvT398uxYBnOoFgMx/n5eVnXyB61hue/mxKA9ifW3G43AoGABBjPd7lcxtLS0ocpz0Bj6L2lgIFH/m1AR1BAv98vz2xUj3qGNy0AF+zv78vZ5c6ySIFQKISRkZEPe/Kskx4UiOHJ4OTAxCOvMTeMXac7BgYGvtyj3uEtCcBFRBh3ikVbc4jP6unpCfwhAg10cj3dYxwjivL/ta/0+HYBzDT47feayoDfPoyV91MB9JOYfhLTT2L6ScxKejbLGqWAUkApoBRQCjRLoluZQymgFFAKKAWUAlbSs1nWKAWUAkoBpYBSoFkS3cocLU+BP2VC558D5x+0AAAAAElFTkSuQmCC" />
-        </div>
-        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-        <div>
-          <span class="btn btn-file"><span class="fileupload-new">画像を選択</span><span class="fileupload-exists">別の画像を選択</span><input type="file" /></span>
-          <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">画像を削除</a>
-        </div>
-      </div>
+      <dl>
+        <dt>プロフィール画像</dt>
+        <dd>
+          <div class="fileupload-new thumbnail" style="width: 72px; height: 72px;">
+            <%= default_user_image_tag.html_safe %>
+          </div>
+
+          <%= file_field_tag 'upfile', { size:50 } %>
+          <%= f.input :profile_image, :as => :hidden, :input_html => { :value => "" } %>
+        </dd>
+      </dl>
+
+      
 
       <%# 自己紹介 %>
-      <%= f.input :introduction, as: :text,  input_html: { rows:"3", class:"input-xxlarge" },  
+      <%= f.input :introduction, as: :text, required: false,  input_html: { rows:"3", class:"input-xxlarge" },  
                   placeholder:"例）洋画を字幕無しで見たいがために英語の勉強を始めました。",
-                  label:"<span class='label label-important'>公開</span> 自己紹介" %>
+                  label:"<b>自己紹介</b>" %>
+    </div>
 
-      <%# 性別 %>         
-      <%= f.input :gender, as: :radio, required: true, collection: [:male, :female], label:'<span class="label">非公開</span> 性別' %>
+    <div class=""><span class="lead">【 非公開情報 】</span></div>
+    <div class="well">
+
+      <%# 性別 %>   
+      <%= f.input :gender, as: :radio_buttons, required: true, collection: [['男性', 1], ['女性', 2]], label:' <b>性別</b>' %>
+            
+      <%#= f.input :gender, as: :radio, required: true, collection: [:male, :female], label:' <b>性別</b>' %>
+      <%#= f.collection_radio_buttons :gender, required: true, [[1, '男性'] ,[2, '女性']], :male, :female %>
 
       <%# 生年月日 %>
       <%= f.input :birth, as: :date, required: true,
                     start_year: Date.today.year - 120, end_year: Date.today.year, # 120年前〜今年 
                     default: (Date.today - 30.year).at_beginning_of_year,
-                    label:"<span class='label'>非公開</span> 生年月日" 
-      %>
+                    label:" <b>生年月日</b>" %>
 
       <%# お住まいの国 %>
-      <%= f.input :country_id, as: :country, required: true, priority: ["Japan"], label:'<span class="label">非公開</span> お住まいの国' %>
+      <%= f.input :country_id, as: :country, required: true, priority: ["Japan"], label:' <b>現在お住まいの国</b>' %>
       <%#= f.country_select :country_id %>
       <%#= f.input :country_id, collection: @continents, as: :grouped_select, group_method: :countries %>
 
       <%# 郵便番号（日本国内在住者のみ） %>
       <%= f.input :postal_code, required: true,
-                  label:'<span class="label">非公開</span> 郵便番号<small>（日本にお住まいの方のみ）</small>', 
-                  placeholder:"例）123-4567",
+                  label:' <b>郵便番号</b><small>（日本にお住まいの方のみ）</small>', 
+                  placeholder:"例.123-4567",
                   input_html: { id:"zip", class:"input-small", maxlength: 8 },
                   hint:'<small class="help-block" id="searced_address">↑ハイフンは無くても可</small>' %> 
 
 
       <%# メール配信設定 %>
-      <%= f.input :mail_flg, inline_label: 'お知らせメールを受け取る', label:"<span class='label'>非公開</span> メール配信" %>
+      <%= f.input :mail_flg, required: false, inline_label: 'お知らせメールを受け取る', label:" <b>メール配信</b>" %>
     </div>
 
       <%# 利用規約へのリンク %>
       <div class="controls">
       <label class="checkbox">
-        <input type="checkbox" name="user[agreement]" value="1" checked> <%= link_to "利用規約", terms_path %>を確認しました
+        <input type="checkbox" name="agreement" value="1" checked> <%= link_to "利用規約", terms_path %>を確認しました
       </label>
       </div>
       <p>&nbsp;</p>
       <%= f.button :submit, '規約に同意して登録する', :class => 'btn' %>
+    </div>
   <% end %>
 
 </div>

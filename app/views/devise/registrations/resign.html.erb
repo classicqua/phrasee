@@ -1,7 +1,7 @@
 <% provide(:title, "英語・英会話フレーズ|Phrasee|退会") %>
 
 <div class="">
-  <h3>本当に退会しますか？</h3>
+  <h3>退会</h3>
 
   <div class="alert">
     <strong>注意!</strong> 退会するとこれまでに登録した情報は削除されます。（元に戻すことはできません）
@@ -13,7 +13,7 @@
     :html => { 
       :method => :delete, 
       :class => 'form-vertical', 
-      :data => { :confirm => "Are you sure?" } }
+      :data => { :confirm => "本当に退会しますか？?" } }
     ) do |f| %>
 
     <%# 退会理由 %>

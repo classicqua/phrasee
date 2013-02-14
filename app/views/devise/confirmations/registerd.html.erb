@@ -1,4 +1,12 @@
-<% provide(:title, "英語・英会話フレーズ|Phrasee|#{@user.name}") %>
+<% provide(:title, "英語・英会話フレーズ|Phrasee|会員登録完了") %>
+
+  <%= image_tag('signup/signup_step3.jpg', { alt:"step3" } ) %>
+
+  <!-- page header -->
+  <div class="page-header">
+    <h3>会員登録完了！</h3>
+  </div>
+
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -14,7 +22,6 @@
   </ol>
 
 <div class="container ph_profile_container">
-
 
 
   <div class="well ph_well-box">
@@ -59,4 +66,3 @@
   <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
 </div>
-

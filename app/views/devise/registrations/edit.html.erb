@@ -5,7 +5,6 @@
   <!-- page header -->
   <div class="page-header">
     <h3>アカウント設定</h3>
-    <strong><span class="lead"><%= current_user.name %></span></strong>さん
   </div>
 
   <div class="form_container"> 
@@ -14,6 +13,9 @@
       :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
       <%= f.error_notification %>
       <%= display_base_errors resource %>
+
+      <strong><span class="lead"><%= current_user.name %></span></strong>さん
+      <p>&nbsp;</p>
 
       <%# nameは変更不可にしておく %>
       <%#= f.input :name, :autofocus => true %>
