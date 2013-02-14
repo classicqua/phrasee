@@ -17,23 +17,24 @@ class ConfirmationsController < Devise::ConfirmationsController
   # PUT /confirm 
   def confirm
 
-=begin
+
     file = params[:upfile]
-    name = file.original_filename # ファイル名取得
+    name = Time.now.strftime("%Y%m%d%M%S").to_s + '_' + file.original_filename # ファイル名取得
     perms = ['.jpg', '.jpeg', '.gif', '.png']
     if !perms.include?(File.extname(name).downcase)
       result = 'アップロードできるのはjpg、gif、png形式の画像ファイルのみです。'
     elsif file.size > 1.megabyte
       result = 'アップロードできるファイルサイズは1MBまでです。'
     else
-      File.open("#{Rails.root}/app/assets/images/user_images/#{name}", wb){ |f| f.write(file.read) }
-      #result = "#{name.toutf8}をアップロードしました"
-      result = "画像をアップロードしました"
+      File.open("#{Rails.root}/app/assets/images/upload/#{name}", 'wb'){ |f| f.write(file.read) }
+      result = "#{name}をアップロードしました"
+      #result = "画像をアップロードしました"
     end
 
-    render :show => result and return true ### 一時的にここでとめる
+    render :text => result
+    #render :show => result and return true ### 一時的にここでとめる
+=begin
 
-=end
     ### （1）エラーチェック ###
 
     # 利用規約に同意してるかチェック
@@ -72,6 +73,7 @@ class ConfirmationsController < Devise::ConfirmationsController
         respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render :show }
       end
     end
+=end
   end
 
 

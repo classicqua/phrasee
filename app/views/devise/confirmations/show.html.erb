@@ -10,8 +10,8 @@
     <h3>アカウント設定</h3>
   </div>
 
-  <%= simple_form_for(resource, :as => resource_name, :url => confirm_path, :multipart => true,
-      :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
+  <%= simple_form_for(resource, :as => resource_name, :url => confirm_path, 
+      :html => { :method => :put, :multipart => true, :class => 'form-vertical' }) do |f| %>
     <%= f.error_notification %>
     <%#= display_base_errors resource %>
 
