@@ -45,6 +45,9 @@ class User < ActiveRecord::Base
   has_many :phrases, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  # プロフィール画像アップローダー
+  mount_uploader :profile_image, ProfileImageUploader
+
 
   # 本人確認メール送信前に登録する情報
   validates :name, presence:true

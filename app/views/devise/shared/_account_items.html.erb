@@ -3,6 +3,8 @@
 
   <div class=""><span class="lead">【 他のユーザーに公開される情報 】</span></div>
   <div class="well">
+    profile-image
+    <%= image_tag(user.profile_image_url) if user.profile_image? %>
 
     <%# ニックネーム %>
     <%# nameは変更不可にしておく %>
@@ -19,9 +21,9 @@
         <div class="fileupload-new thumbnail" style="width: 72px; height: 72px;">
           <%= default_user_image_tag.html_safe %>
         </div>
-
-        <%= file_field_tag 'upfile', { size:50 } %>
-        <%= f.input :profile_image, :as => :hidden, :input_html => { :value => "" } %>
+        <%= f.file_field :profile_image %>
+        <%#= file_field_tag 'upfile', { size:50 } %>
+        <%#= f.input :profile_image, :as => :hidden, :input_html => { :value => "" } %>
       </dd>
     </dl>
 

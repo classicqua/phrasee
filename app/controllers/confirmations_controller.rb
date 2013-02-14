@@ -16,8 +16,9 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   # PUT /confirm 
   def confirm
+    @user = User.find_by_confirmation_token(params[resource_name][:token_for_confirmation])
 
-
+=begin
     file = params[:upfile]
     name = Time.now.strftime("%Y%m%d%M%S").to_s + '_' + file.original_filename # ファイル名取得
     perms = ['.jpg', '.jpeg', '.gif', '.png']
@@ -33,6 +34,8 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     render :text => result
     #render :show => result and return true ### 一時的にここでとめる
+=end
+
 =begin
 
     ### （1）エラーチェック ###
