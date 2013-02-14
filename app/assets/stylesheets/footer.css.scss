@@ -82,9 +82,7 @@
 
       /* Large desktop */
       @media (min-width: 1200px) {
-        #footer {
 
-        }    
       }
        
       /* Portrait tablet to landscape and desktop */
@@ -104,12 +102,15 @@
         #footer {
           @include footer-adjust-row;
           @include footer-layout-adjust-column; // 2013.2.1追加
+          height: 450px;// 2013.2.14追加
         }
       }
        
       /* Landscape phones and down */
       @media (max-width: 480px) {
+        #footer {
 
+        }    
       }
 
 

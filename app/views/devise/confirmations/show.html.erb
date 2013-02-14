@@ -12,81 +12,24 @@
 
   <%= simple_form_for(resource, :as => resource_name, :url => confirm_path, :multipart => true,
       :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
-      <%= f.error_notification %>
-      <%#= display_base_errors resource %>
+    <%= f.error_notification %>
+    <%#= display_base_errors resource %>
 
-      <%# 本人確認用トークン %>
-      <%= f.input :token_for_confirmation, :as => :hidden, :input_html => { :value => @confirmation_token } %>
+    <%# 本人確認用トークン %>
+    <%= f.input :token_for_confirmation, :as => :hidden, :input_html => { :value => @confirmation_token } %>
 
-  <div class="basic_form_container">
+    <div class="basic_form_container">
 
-    <div class=""><span class="lead">【 他のユーザーに公開される情報 】</span></div>
-    <div class="well">
-      <%# ニックネーム %>
-      <dl>
-        <dt>ニックネーム</dt>
-        <dd><span class="lead"><%= @user.name %></span></dd>
-      </dl>
+      <%# 登録情報フォーム部品 %>
+      <%= render :partial => 'devise/shared/account_items', :locals=>{:f=>f, :user => @user} %>
 
-      <%# プロフィール画像 %>
-      <dl>
-        <dt>プロフィール画像</dt>
-        <dd>
-          <div class="fileupload-new thumbnail" style="width: 72px; height: 72px;">
-            <%= default_user_image_tag.html_safe %>
-          </div>
-
-          <%= file_field_tag 'upfile', { size:50 } %>
-          <%= f.input :profile_image, :as => :hidden, :input_html => { :value => "" } %>
-        </dd>
-      </dl>
-
-      
-
-      <%# 自己紹介 %>
-      <%= f.input :introduction, as: :text, required: false,  input_html: { rows:"3", class:"input-xxlarge" },  
-                  placeholder:"例）洋画を字幕無しで見たいがために英語の勉強を始めました。",
-                  label:"<b>自己紹介</b>" %>
-    </div>
-
-    <div class=""><span class="lead">【 非公開情報 】</span></div>
-    <div class="well">
-
-      <%# 性別 %>   
-      <%= f.input :gender, as: :radio_buttons, required: true, collection: [['男性', 1], ['女性', 2]], label:' <b>性別</b>' %>
-            
-      <%#= f.input :gender, as: :radio, required: true, collection: [:male, :female], label:' <b>性別</b>' %>
-      <%#= f.collection_radio_buttons :gender, required: true, [[1, '男性'] ,[2, '女性']], :male, :female %>
-
-      <%# 生年月日 %>
-      <%= f.input :birth, as: :date, required: true,
-                    start_year: Date.today.year - 120, end_year: Date.today.year, # 120年前〜今年 
-                    default: (Date.today - 30.year).at_beginning_of_year,
-                    label:" <b>生年月日</b>" %>
-
-      <%# お住まいの国 %>
-      <%= f.input :country_id, as: :country, required: true, priority: ["Japan"], label:' <b>現在お住まいの国</b>' %>
-      <%#= f.country_select :country_id %>
-      <%#= f.input :country_id, collection: @continents, as: :grouped_select, group_method: :countries %>
-
-      <%# 郵便番号（日本国内在住者のみ） %>
-      <%= f.input :postal_code, required: true,
-                  label:' <b>郵便番号</b><small>（日本にお住まいの方のみ）</small>', 
-                  placeholder:"例.123-4567",
-                  input_html: { id:"zip", class:"input-small", maxlength: 8 },
-                  hint:'<small class="help-block" id="searced_address">↑ハイフンは無くても可</small>' %> 
-
-
-      <%# メール配信設定 %>
-      <%= f.input :mail_flg, required: false, inline_label: 'お知らせメールを受け取る', label:" <b>メール配信</b>" %>
-    </div>
-
-      <%# 利用規約へのリンク %>
+      <%# 利用規約 %>
       <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox" name="agreement" value="1" checked> <%= link_to "利用規約", terms_path %>を確認しました
-      </label>
+        <label class="checkbox">
+          <input type="checkbox" name="agreement" value="1" checked> <%= link_to "利用規約", terms_path %>を確認しました
+        </label>
       </div>
+      
       <p>&nbsp;</p>
       <%= f.button :submit, '規約に同意して登録する', :class => 'btn' %>
     </div>

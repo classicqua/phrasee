@@ -14,24 +14,13 @@
       <%= f.error_notification %>
       <%= display_base_errors resource %>
 
-      <strong><span class="lead"><%= current_user.name %></span></strong>さん
-      <p>&nbsp;</p>
+      <%# 登録情報フォーム部品 %>
+      <%= render :partial => 'devise/shared/account_items', :locals=>{:f=>f, :user => current_user} %>
 
-      <%# nameは変更不可にしておく %>
-      <%#= f.input :name, :autofocus => true %>
+      <%# 更新用パスワード %>  
+      <%= f.input :current_password, :required => true %>
       
-      <%= f.input :email, :required => true %>
-
-      <%#= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-      <%= f.input :password, :autocomplete => "off", :required => false, :label => "新しいパスワード" %>
-      <%= f.input :password_confirmation, :required => false, :label => "新しいパスワード再入力（確認用）" %>
-
-      <div class="form-actions">
-        <%#= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-        <%= f.input :current_password, :required => true %>
-        <%#= f.button :submit, "#{t 'Update'}", :class => 'btn-warning' %>
-        <%= f.button :submit, :class => 'btn-warning' %>
-      </div>
+      <%= f.button :submit, :class => 'btn-warning' %>
     <% end %>
   </div>
 

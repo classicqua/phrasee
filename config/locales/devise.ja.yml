@@ -63,7 +63,7 @@ ja:
 #      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
 ## 2013.2.8 追加
       pre_confirmed: '本人確認が完了しました！ 続けて、アカウント設定をしてください。'
-      confirmed: 'アカウントを登録しました。'
+      confirmed: 'アカウントを登録しました。現在ログインしています。'
 #      confirmed: 'Your account was successfully confirmed. You are now signed in.'
 ## 2013.2.13 追加
       user:
@@ -73,6 +73,9 @@ ja:
 #      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
       signed_up: 'アカウント登録を受け付けました。確認のメールをお送りします。'
 #      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
+## 2013.2.14 追加
+      update_needs_confirmation: "アカウントを更新しました。新しいメールアドレス宛に本人確認用のメールをお送りしていますので、メールに記載されたリンクをクリックして手続きを完了してください。"
+#      
       updated: 'アカウントを更新しました。'
 #      updated: 'You updated your account successfully.'
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
