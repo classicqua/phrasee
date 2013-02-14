@@ -24,7 +24,7 @@
 #  introduction           :text
 #  gender                 :integer
 #  birth                  :date
-#  country_id             :integer
+#  country                :string(255)
 #  postal_code            :string(255)
 #  mail_flg               :boolean
 #

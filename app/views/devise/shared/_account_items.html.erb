@@ -35,24 +35,15 @@
   <div class=""><span class="lead">【 非公開情報 】</span></div>
   <div class="well">
 
-
-<% if user.confirmed? %>
-
-      <%= f.input :email, :required => true %>
-
-      <%#= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-      <%= f.input :password, :autocomplete => "off", :required => false, :label => "新しいパスワード" %>
-      <%= f.input :password_confirmation, :required => false, :label => "新しいパスワード再入力（確認用）" %>
-
-<% end %>
-
-
+  <%# ★編集時のみ(会員登録時のアカウント設定画面では非表示)  %>   
+  <% if user.confirmed? %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :password, :autocomplete => "off", :required => false, :label => "新しいパスワード" %>
+    <%= f.input :password_confirmation, :required => false, :label => "新しいパスワード再入力（確認用）" %>
+  <% end %>
 
     <%# 性別 %>   
     <%= f.input :gender, as: :radio_buttons, required: true, collection: [['男性', 1], ['女性', 2]], label:' <b>性別</b>' %>
-          
-    <%#= f.input :gender, as: :radio, required: true, collection: [:male, :female], label:' <b>性別</b>' %>
-    <%#= f.collection_radio_buttons :gender, required: true, [[1, '男性'] ,[2, '女性']], :male, :female %>
 
     <%# 生年月日 %>
     <%= f.input :birth, as: :date, required: true,
@@ -61,10 +52,9 @@
                   label:" <b>生年月日</b><small class='muted'>（年/月/日）</small>", input_html:{ style:"width:100px;" } %>
 
     <%# お住まいの国 %>
-    <%= f.input :country_id, as: :country, required: true, priority: ["Japan"], input_html:{ value: :country_id },
+    <%= f.input :country, as: :country, required: true, priority: ["Japan"],
                   label:' <b>現在お住まいの国</b>' %>
-    <%#= f.country_select :country_id %>
-    <%#= f.input :country_id, collection: @continents, as: :grouped_select, group_method: :countries %>
+
 
     <%# 郵便番号（日本国内在住者のみ） %>
     <%= f.input :postal_code, required: true,

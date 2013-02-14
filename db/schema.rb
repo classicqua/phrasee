@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213005446) do
+ActiveRecord::Schema.define(:version => 20130214070628) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20130213005446) do
     t.text     "introduction"
     t.integer  "gender"
     t.date     "birth"
-    t.integer  "country_id"
+    t.string   "country"
     t.string   "postal_code"
     t.boolean  "mail_flg"
   end

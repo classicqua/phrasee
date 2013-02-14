@@ -24,7 +24,7 @@
 #  introduction           :text
 #  gender                 :integer
 #  birth                  :date
-#  country_id             :integer
+#  country                :string(255)
 #  postal_code            :string(255)
 #  mail_flg               :boolean
 #
@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
-                  :profile_image, :introduction, :gender, :birth, :country_id, :postal_code, :mail_flg
+                  :profile_image, :introduction, :gender, :birth, :country, :postal_code, :mail_flg
 
 
   has_many :phrases, dependent: :destroy
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
     # 非公開アカウント情報
   validates :gender, presence:true
   validates :birth, presence:true
-  validates :country_id, presence:true
+  validates :country, presence:true
   validates :postal_code, presence:true
   validates :mail_flg, presence:true
 =end
