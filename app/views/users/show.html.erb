@@ -24,11 +24,9 @@
     <%# プロフィール %>
     <div class="well ph_well-cancel-color ph_pr_img">
       <% if @user.profile_image.present? %>
-        <%#= image_tag("user_images/#{@user.profile_image}", { alt:"user-image", size:"150x100" } ) %> 
-        <%= image_tag(@user.profile_image, { alt:"user-image", size:"150x100" } ) %> 
+        <%= image_tag(@user.profile_image_url, { alt:"user-icon", class:"img-polaroid", style:"max-height: 150px;" }) %> 
       <% else %>
-        <%#= image_tag('service/8566716_aa614fe042_image.jpg', { alt:"user-image", size:"150x100" } ) %> 
-        <%= default_user_image_tag.html_safe %>
+        <img src="http://quickimage.it/200x150" class="img-polaroid">
       <% end %>
     </div>
 

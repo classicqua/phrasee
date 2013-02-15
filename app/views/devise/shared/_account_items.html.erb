@@ -3,9 +3,6 @@
 
   <div class=""><span class="lead">【 他のユーザーに公開される情報 】</span></div>
   <div class="well">
-    profile-image
-    <%= image_tag(user.profile_image_url) if user.profile_image? %>
-
     <%# ニックネーム %>
     <%# nameは変更不可にしておく %>
     <%#= f.input :name, :autofocus => true %>
@@ -18,15 +15,34 @@
     <dl>
       <dt>プロフィール画像</dt>
       <dd>
-        <div class="fileupload-new thumbnail" style="width: 72px; height: 72px;">
-          <%= default_user_image_tag.html_safe %>
+        <div class="fileupload fileupload-new" data-provides="fileupload">
+          
+          <%# 画像表示領域 %>
+          <div class="fileupload-new thumbnail " style="max-width: 200px; max-height: 150px; line-height: 20px; background-color:#FFFFFF;">
+            <% if user.profile_image? %>
+              <%= image_tag(user.profile_image_url, { class:"", style:"max-height: 150px;" }) %>
+            <% else %>
+              <img src="http://quickimage.it/200x150">
+              <!-- img src="http://quickimage.it/200x150/EFEFEF/AAAAAA&text=Profile Image" / -->
+            <% end %>
+          </div>
+
+          <%# 画像選択・変更・削除ボタン %>
+          <div class="fileupload-preview fileupload-exists thumbnail " style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+          <div>
+            <span class="btn btn-file">
+              <span class="fileupload-new">画像選択</span>
+              <span class="fileupload-exists">変更</span>
+              <%= f.file_field :profile_image %><%# input type="file" %>
+            </span>
+            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">削除</a>
+          </div>
         </div>
-        <%= f.file_field :profile_image %>
+       
         <%#= file_field_tag 'upfile', { size:50 } %>
         <%#= f.input :profile_image, :as => :hidden, :input_html => { :value => "" } %>
       </dd>
     </dl>
-
 
     <%# 自己紹介 %>
     <%= f.input :introduction, as: :text, required: false,  input_html: { rows:"3", class:"input-xxlarge" },  

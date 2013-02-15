@@ -48,7 +48,11 @@
 
       <!-- メンバー画像 -->
       <%= link_to user_path(@phrase.user), { class:"pull-left" } do %>
-      <%= image_tag('service/8566716_aa614fe042_image.jpg', { alt:"post-icon", size:"80x80" } ) %> 
+        <% if @phrase.user.profile_image.present? %>
+          <%= image_tag(@phrase.user.profile_image_url, { alt:"post-icon", class:"img-polaroid", style:"max-height: 80px;" }) %> 
+        <% else %>
+          <img src="http://quickimage.it/80x80" class="img-polaroid">
+        <% end %>
       <% end %>
 
       <!-- エピソード本文 -->
