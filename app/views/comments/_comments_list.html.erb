@@ -11,10 +11,10 @@
       <%# コメント内容 %>
       <li class="media">
 
+        <%# コメント者画像（リンク付き） %>
         <%= link_to user_path(comment.user_id), { class:"pull-left" } do %>
-        
           <% if commented_user.profile_image.present? %>
-            <%= image_tag(commented_user.profile_image_url, { alt:"comment-user-icon", class:"img-polaroid", style:"max-height: 64px;" }) %> 
+            <%= image_tag(commented_user.profile_image_url(:thumb), { alt:"comment-user-icon", class:"img-polaroid", style:"max-height: 64px;" }) %> 
           <% else %>
             <img src="http://quickimage.it/64x64" class="img-polaroid">
           <% end %>
@@ -23,7 +23,7 @@
         <div class="media-body">
           <h4 class="media-heading"><%= link_to commented_user.name, user_path(comment.user_id) %></h4>
           <p class="muted"><%= comment.created_at.to_s(:db) %><%# UTCからJST（日本時間）に変換 %>
-          <p><%= comment.content %></p>
+          <p><%= simple_format(comment.content) %></p>
         </div>
         <hr>
       </li>

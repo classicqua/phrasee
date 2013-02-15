@@ -7,7 +7,7 @@
     <h3>アカウント設定</h3>
   </div>
 
-  <div class="form_container"> 
+  <!--div class="form_container" -->
     <%= simple_form_for(resource, :as => resource_name, 
       :url => registration_path(resource_name), 
       :html => { :method => :put, :multipart => true, :class => 'form-vertical' }) do |f| %>
@@ -22,7 +22,7 @@
       
       <%= f.button :submit, :class => 'btn-warning' %>
     <% end %>
-  </div>
+  <!-- /div -->
 
   <p>&nbsp;</p>
   <p><%= link_to "退会はこちらから", resign_path %></p>   

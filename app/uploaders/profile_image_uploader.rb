@@ -34,11 +34,15 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  process :resize_to_limit => [200, 200] # アップロード時にリサイズ
 
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :scale => [50, 50]
   # end
+  version :thumb do
+    process :resize_to_fit  => [64, 64] # image_url(:thumb)で指定したときのサイズ
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

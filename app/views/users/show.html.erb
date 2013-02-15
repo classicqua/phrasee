@@ -21,7 +21,7 @@
    
     <legend ><strong><%= @user.name %></strong>さん</legend>
     
-    <%# プロフィール %>
+    <%# プロフィール画像 %>
     <div class="well ph_well-cancel-color ph_pr_img">
       <% if @user.profile_image.present? %>
         <%= image_tag(@user.profile_image_url, { alt:"user-icon", class:"img-polaroid", style:"max-height: 150px;" }) %> 
@@ -30,8 +30,9 @@
       <% end %>
     </div>
 
+    <%# 自己紹介 %>
     <div class="well ph_well-cancel-color ph_pr_msg">
-      <p><%= @user.introduction if @user.introduction.present? %></p>
+      <p><%= simple_format(@user.introduction) if @user.introduction.present? %></p>
     </div>
 
     <%# 状況 %>

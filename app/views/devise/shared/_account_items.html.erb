@@ -20,7 +20,7 @@
           <%# 画像表示領域 %>
           <div class="fileupload-new thumbnail " style="max-width: 200px; max-height: 150px; line-height: 20px; background-color:#FFFFFF;">
             <% if user.profile_image? %>
-              <%= image_tag(user.profile_image_url, { class:"", style:"max-height: 150px;" }) %>
+              <%= image_tag(user.profile_image_url.to_s, { class:"", style:"max-height: 150px;" }) %>
             <% else %>
               <img src="http://quickimage.it/200x150">
               <!-- img src="http://quickimage.it/200x150/EFEFEF/AAAAAA&text=Profile Image" / -->
