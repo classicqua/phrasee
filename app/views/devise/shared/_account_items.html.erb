@@ -8,7 +8,10 @@
     <%#= f.input :name, :autofocus => true %>
     <dl>
       <dt>ニックネーム</dt>
-      <dd><strong><span class="lead"><%= user.name %></span></strong>さん</dd>
+      <dd>
+        <strong><span class="lead"><%= user.name %></span></strong>さん
+        <%= f.input :name, :as => :hidden, :input_html => { :value => user.name } %>
+      </dd>
     </dl>
 
     <%# プロフィール画像 %>
@@ -81,7 +84,8 @@
                 hint:'<small class="help-block" id="searced_address">↑ハイフンは無くても可</small>' %> 
 
     <%# メール配信設定 %>
-    <%= f.input :mail_flg, required: false, inline_label: 'お知らせメールを受け取る', label:" <b>メール配信</b>", input_html:{ checked:"checked", value:true } %>
+    <% mflg = "checked" if user.mail_flg %>
+    <%= f.input :mail_flg, required: false, inline_label: 'お知らせメールを受け取る', label:" <b>メール配信</b>", input_html:{ checked:mflg  } %>
   </div>
 
 <% end %>
