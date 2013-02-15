@@ -49,7 +49,7 @@
       <!-- メンバー画像 -->
       <%= link_to user_path(@phrase.user), { class:"pull-left" } do %>
         <% if @phrase.user.profile_image.present? %>
-          <%= image_tag(@phrase.user.profile_image_url, { alt:"post-icon", class:"img-polaroid", style:"max-height: 80px;" }) %> 
+          <%= image_tag(@phrase.user.profile_image_url(:thumb), { alt:"post-icon", class:"img-polaroid" }) %> 
         <% else %>
           <img src="http://quickimage.it/80x80" class="img-polaroid">
         <% end %>

@@ -24,9 +24,9 @@
     <%# プロフィール画像 %>
     <div class="well ph_well-cancel-color ph_pr_img">
       <% if @user.profile_image.present? %>
-        <%= image_tag(@user.profile_image_url, { alt:"user-icon", class:"img-polaroid", style:"max-height: 150px;" }) %> 
+        <%= image_tag(@user.profile_image_url, { alt:"user-icon", class:"img-polaroid", style:"max-height: 200px;" }) %> 
       <% else %>
-        <img src="http://quickimage.it/200x150" class="img-polaroid">
+        <img src="http://quickimage.it/200x200" class="img-polaroid">
       <% end %>
     </div>
 

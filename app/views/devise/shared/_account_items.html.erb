@@ -18,17 +18,16 @@
         <div class="fileupload fileupload-new" data-provides="fileupload">
           
           <%# 画像表示領域 %>
-          <div class="fileupload-new thumbnail " style="max-width: 200px; max-height: 150px; line-height: 20px; background-color:#FFFFFF;">
+          <div class="fileupload-new thumbnail " style="max-width: 200px; max-height: 200px; line-height: 20px; background-color:#FFFFFF;">
             <% if user.profile_image? %>
               <%= image_tag(user.profile_image_url.to_s, { class:"", style:"max-height: 150px;" }) %>
             <% else %>
-              <img src="http://quickimage.it/200x150">
-              <!-- img src="http://quickimage.it/200x150/EFEFEF/AAAAAA&text=Profile Image" / -->
+              <img src="http://quickimage.it/200x200">
             <% end %>
           </div>
 
           <%# 画像選択・変更・削除ボタン %>
-          <div class="fileupload-preview fileupload-exists thumbnail " style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+          <div class="fileupload-preview fileupload-exists thumbnail " style="max-width: 200px; max-height: 200px; line-height: 20px;"></div>
           <div>
             <span class="btn btn-file">
               <span class="fileupload-new">画像選択</span>
