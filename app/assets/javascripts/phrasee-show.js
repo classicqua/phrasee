@@ -17,5 +17,16 @@ $(function(){
       after("<div class='flash_msg alert-info'>&nbsp;<small>お気に入りリストから削除しました。</small></div>");
   	}
   });
+  
+  // コメントボタン
+  $(document).on("click",  ".post_comment_button", function(e){
+    //prevent(e);
+  	var body = jQuery.trim( $(".comment_for_phrase").val() );
+  	if(!body){
+      alert("何か書いてください。");
+      return false;
+  	}
+  	$(".comment_for_phrase").val(body);
+  });
 });
 

@@ -12,7 +12,13 @@
       <li class="media">
 
         <%= link_to user_path(comment.user_id), { class:"pull-left" } do %>
-        <%= image_tag('icons/glyphicons_294_coffe_cup.png', { alt:"post-icon", size:"80x80" } ) %> 
+        
+        <% if commented_user.profile_image? %>
+          <%= image_tag(commented_user.profile_image, { alt:"user-image", size:"64x64" } ) %>
+        <% else %>
+          <%= default_user_image_tag.html_safe %>
+        <% end %>
+        
 
 
           <%# ※あとでプロフィール画像入れる %>
