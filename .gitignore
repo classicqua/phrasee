@@ -79,3 +79,4 @@ pickle-email-*.html
 /config/service.yml
 
 /public/uploads/user/profile_image/
+public/uploads/*
