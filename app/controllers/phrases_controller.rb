@@ -35,7 +35,7 @@ class PhrasesController < ApplicationController
   # GET /phrases/new.json
   def new
     @phrase = Phrase.new
-    @categories = get_category_all
+    #@categories = get_category_all
 
     respond_to do |format|
       format.html # new.html.erb

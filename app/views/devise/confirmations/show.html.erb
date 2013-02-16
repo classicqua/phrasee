@@ -10,10 +10,10 @@
     <h3>アカウント設定</h3>
   </div>
 
-  <%= simple_form_for(resource, :as => resource_name, :url => confirm_path, 
+  <%= simple_form_for(resource, :as => resource_name, :url => confirm_path,
       :html => { :method => :put, :multipart => true, :class => 'form-vertical' }) do |f| %>
     <%= f.error_notification %>
-    <%#= display_base_errors resource %>
+    <%= display_base_errors resource %>
 
     <%# 本人確認用トークン %>
     <% token_for_confirm = resource.confirmation_token || @confirmation_token %>

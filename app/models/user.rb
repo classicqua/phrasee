@@ -48,18 +48,14 @@ class User < ActiveRecord::Base
 
   # プロフィール画像アップローダー
   mount_uploader :profile_image, ProfileImageUploader
-
+  #validates_presence_of :profile_image # プロフィール画像は任意なのでコメントアウト
+  #validates_integrity_of :profile_image
+  validates_processing_of :profile_image
 
   ## 本人確認メール送信前に登録する情報
-  validates :name, presence:true
-  validates :email, presence:true, 
-            length:{ minimum:1, maximum:100 }
-  #validates :encrypted_password, presence:true
-
-  # アカウント設定時
-  # 利用規約への同意フラグ（カラムなし）
-  validates_acceptance_of :agreement # PUTだと動いてない？
-
+  validates :name,  presence:true, length:{ minimum:1, maximum:16 }
+  validates :email, presence:true, length:{ minimum:1, maximum:100 }
+  validates :encrypted_password, presence:true
 
 ### 以下のカラムは「更新」のときだけ必須にする（本人確認のときは登録しないので） ###
 
@@ -77,10 +73,15 @@ class User < ActiveRecord::Base
                            length:{ minimum:7, maximum:8 }, on: :update
   #validates :mail_flg, presence:true, on: :update
 
+  # 利用規約への同意フラグ（カラムなし）
+  validates_acceptance_of :agreement
+  
+
   def need_postal_code?
     self.country.downcase == "japan" # 日本在住者は郵便番号必須
   end
 
+### クエリ関連 ###
   self.per_page = Constants.PH_PAGINATION.PER_PAGE || 10
   default_scope order: 'users.updated_at DESC'
 end

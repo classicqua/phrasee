@@ -12,4 +12,6 @@
 class Category < ActiveRecord::Base
   attr_accessible :category_name, :detail
   has_many :phrases
+
+  validates :category_name, presence:true
 end

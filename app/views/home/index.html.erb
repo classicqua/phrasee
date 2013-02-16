@@ -11,13 +11,13 @@
   </div>
 
   <!-- phrases box row：新着 -->
-  <div class="row-fluid">
+  <div class="row-fluid ph-row">
     <div class="span6 ph_phrase_box well">
       <h1 class="ph_category">
         <%= link_to "新着", phrases_path, { class:"ph_new_link" } %>
       </h1>
         <% if @phrases.any? %>
-          <ul class="">
+          <ul class="ph_phrase_ul">
             <% @phrases.each do |phrase| %>
               <li class="ph_phrase_item">
                 <% japanese_phrase = phrase.japanese %>
@@ -38,7 +38,7 @@
 
     <!-- phrases box row：カテゴリー別 -->
     <% if index.odd? %>
-    <div class="row-fluid"><%# ループ初回と偶数回はスルー %>
+    <div class="row-fluid ph-row"><%# ループ初回と偶数回はスルー %>
     <% end %>
     
       <!-- phrases box  -->
@@ -52,7 +52,7 @@
 
           <%# このカテゴリーのフレーズ %>
           <% if category.phrases.any? %>
-            <ul class="">
+            <ul class="ph_phrase_ul">
               <% category.phrases[0..4].each do |phrase| %>
                 <li class="ph_phrase_item">
                   <% japanese_phrase = phrase.japanese %>

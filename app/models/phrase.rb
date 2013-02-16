@@ -1,3 +1,5 @@
+#coding: utf-8
+
 # == Schema Information
 #
 # Table name: phrases
@@ -24,14 +26,18 @@ class Phrase < ActiveRecord::Base
             length:{ minimum:1, maximum:100 }
   validates :english, presence:true, 
             length:{ minimum:1, maximum:100 }
+            
   validates :user_id, presence:true
   validates :category_id, presence:true
-  validates :source, presence:true, 
-            length:{ minimum:1, maximum:100 }
+  validates :source, length:{ maximum:250 }
   validates :story, presence:true, 
-            length:{ minimum:1, maximum:100 }
+            length:{ minimum:1, maximum:250 }
 
+  ## 正規表現 ##
+  validates_format_of :japanese, :with => /[\p{Han}\p{Hiragana}\p{Katakana}]/i, :message => "日本語は全角文字で入力してください。"
+  validates_format_of :english,  :without => /[\p{Han}\p{Hiragana}\p{Katakana}]/i, :message => "英語は半角英数で入力してください。"
 
+  ## クエリ関連 ##
   self.per_page = Constants.PH_PAGINATION.PER_PAGE || 10
   default_scope order: 'phrases.updated_at DESC'
 end

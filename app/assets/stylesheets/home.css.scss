@@ -9,9 +9,12 @@
   @include well-box; // wellの背景色を変える（デフォルト白）＋立体っぽく表示
   //@include well-cancel-color; // 背景色を白に＋枠線取り去る
   /***/
+  height:auto;
 
-  @media (min-width: 480px) {
-    height: 280px; // 各カテゴリーのboxの高さを統一するため
+  // レスポンシブ対応
+  @media (min-width: 768px) and (max-width: 920px) {
+    //min-height: 280px; // 各カテゴリーのboxの高さを統一するため
+    li{ font-size: 16px; }
   }
 }
 
@@ -21,6 +24,10 @@
 
 .ph_category_link {
   @include category-name-color;
+}
+
+.ph-row {
+
 }
 
 .ph_phrase_item {

@@ -1,0 +1,11 @@
+ja:
+  errors:
+    messages:
+      carrierwave_processing_error: '処理が失敗しました'
+      carrierwave_integrity_error: 'この形式のファイルはアップロードできません'
+      carrierwave_download_error: 'ダウンロードできませんでした'
+      extension_white_list_error: "拡張子%{extension}のファイルはアップロード禁止です。%{allowed_types} の画像をアップロードしてください。"
+      extension_black_list_error: "拡張子%{extension}のファイルはアップロード禁止です。NGのファイル形式: %{prohibited_types}"
+      rmagick_processing_error: "rmagickの処理中にエラーが発生しました（画像以外のファイルがアップされた可能性）。 オリジナルエラー: %{e}"
+      mime_types_processing_error: "MIME形式のファイル処理中にエラーが発生しました（content-typeが正しくない可能性）。 オリジナルエラー: %{e}"
+      mini_magick_processing_error: "MiniMagickの処理中にエラーが発生しました（画像以外のファイルがアップされた可能性）。 オリジナルエラー: %{e}"

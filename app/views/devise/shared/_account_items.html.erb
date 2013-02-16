@@ -19,7 +19,7 @@
       <dt>プロフィール画像</dt>
       <dd>
         <div class="fileupload fileupload-new" data-provides="fileupload">
-          
+
           <%# 画像表示領域 %>
           <div class="fileupload-new thumbnail " style="max-width: 200px; max-height: 200px; line-height: 20px; background-color:#FFFFFF;">
             <% if user.profile_image? %>
@@ -38,6 +38,7 @@
               <%= f.file_field :profile_image %><%# input type="file" %>
             </span>
             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">削除</a>
+            <p><small class="help-block">jpg, jpeg, gif, png形式のみアップロード可</small></p>
           </div>
         </div>
       </dd>

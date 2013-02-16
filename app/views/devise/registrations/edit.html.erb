@@ -7,12 +7,25 @@
     <h3>アカウント設定</h3>
   </div>
 
+  <% if resource.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(resource.errors.count, "error") %> エラーです。</h3>
+          
+      <ul>
+      <% resource.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <!--div class="form_container" -->
     <%= simple_form_for(resource, :as => resource_name, 
       :url => registration_path(resource_name), 
       :html => { :method => :put, :multipart => true, :class => 'form-vertical' }) do |f| %>
       <%= f.error_notification %>
-      <%= display_base_errors resource %>
+      <%#= display_base_errors resource %>
 
       <%# 登録情報フォーム部品 %>
       <%= render :partial => 'devise/shared/account_items', :locals=>{:f=>f, :user => current_user} %>

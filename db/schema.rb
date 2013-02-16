@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214070628) do
+ActiveRecord::Schema.define(:version => 20130216070749) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -29,15 +29,15 @@ ActiveRecord::Schema.define(:version => 20130214070628) do
   end
 
   create_table "phrases", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "japanese"
     t.string   "english"
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "source"
     t.text     "story"
-    t.boolean  "launch_flg"
+    t.boolean  "launch_flg",  :default => true
   end
 
   create_table "resignations", :force => true do |t|
