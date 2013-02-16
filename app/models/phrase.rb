@@ -15,18 +15,23 @@
 #
 
 class Phrase < ActiveRecord::Base
-  attr_accessible :japanese, :english, :source, :story, :launch_flg, :category_id
+  attr_accessible :japanese, :english, :source, :story, :launch_flg, :category_id, :source, :story, :launch_flg
   belongs_to :user
   belongs_to :category
   has_many :comments, dependent: :destroy
-=begin
+
   validates :japanese, presence:true, 
             length:{ minimum:1, maximum:100 }
   validates :english, presence:true, 
             length:{ minimum:1, maximum:100 }
   validates :user_id, presence:true
   validates :category_id, presence:true
-=end
+  validates :source, presence:true, 
+            length:{ minimum:1, maximum:100 }
+  validates :story, presence:true, 
+            length:{ minimum:1, maximum:100 }
 
+
+  self.per_page = Constants.PH_PAGINATION.PER_PAGE || 10
   default_scope order: 'phrases.updated_at DESC'
 end

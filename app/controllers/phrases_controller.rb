@@ -5,7 +5,7 @@ class PhrasesController < ApplicationController
   # GET /phrases
   # GET /phrases.json
   def index
-    @phrases = Phrase.paginate(page:params[:page], per_page:10)
+    @phrases = Phrase.paginate(page:params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,7 +21,6 @@ class PhrasesController < ApplicationController
 
     # 現在このフレーズについてるコメントたち
     @comments = Comment.where( 'phrase_id = :phrase_id', { :phrase_id => @phrase } ) 
-                    #.paginate( page:params[:page], per_page:10 )
 
     # 新規コメント用
     @new_comment = @phrase.comments.new 

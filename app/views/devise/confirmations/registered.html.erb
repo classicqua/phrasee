@@ -1,0 +1,32 @@
+<% provide(:title, "英語・英会話フレーズ|Phrasee|会員登録完了") %>
+
+  <!-- パンくずリスト -->
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to 'トップ', root_path %>
+      <span class="divider">/</span>
+    </li>
+    <li>
+      <%= link_to "メンバー", users_path %>
+      <span class="divider">/</span>
+    </li>
+    <li class="active"><%= @user.name if @user %></li>
+  </ol>
+
+  <!-- page header -->
+  <%= image_tag('signup/signup_step3.jpg', { alt:"step3" } ) %>
+
+  <div class="page-header">
+    <h3>会員登録が完了しました！</h3>
+  </div>
+    <p><b>他の人の投稿フレーズをお気に入り登録したり、コメントをつけたりできます。</b></p>
+    <p>※登録情報を変えたいときは、<%= link_to "『アカウント設定』", edit_user_registration_path  %>で修正・更新してください。</p>
+
+
+  <div class="container ph_profile_container">
+    <%= render 'shared/public_user_profile' %>
+  </div>
+
+  <p>&nbsp;</p>
+  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/post_phrase_link' %>

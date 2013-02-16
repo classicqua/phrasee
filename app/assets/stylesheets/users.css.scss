@@ -2,44 +2,61 @@
 
 
 /* プロフィール（公開情報） */
-.ph_profile_container {
+.ph_profile_wrapper {
+  //text-align:left;
+  margin: 0 auto;
 
-  // well調整用
-  .ph_well-box { 
-    @include well-box; // wellの背景色を変える（デフォルト白）＋立体っぽく表示
-  }
-  .ph_well-cancel-color { 
-    @include well-cancel-color;
-  }
+  .ph_profile_container {
 
-  // メイン
-  margin-top: 30px;
-  max-width: 600px;
-  
-  legend {
-    text-align: center;
-  }
-  .ph_pr_img {
-    text-align: center;
-  }
+    // well調整用
+    .ph_well-box { 
+      @include well-box; // wellの背景色を変える（デフォルト白）＋立体っぽく表示
+    }
+    .ph_well-cancel-color { 
+      @include well-cancel-color;
+    }
 
-  // レスポンシブ対応：ある程度横幅がある画面のときは余白多めに
-  /* Portrait tablet to landscape and desktop */
-  @media (min-width: 710px) {
-   
+    // メイン
+    margin-top: 30px;
+    max-width: 600px;
+    
+    legend {
+      text-align: center;
+    }
     .ph_pr_img {
-      margin: 0 30px;
+      text-align: center;
     }
     .ph_pr_msg {
-      text-align: left;
-      margin: 0 35px;
+      text-align: center;
     }
-    .ph_status {
-      margin: 0 30px;
+
+    // レスポンシブ対応：ある程度横幅がある画面のときは余白多めに
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 710px) {
+
+      .ph_pr_img {
+        margin: 0 30px;
+      }
+      .ph_pr_msg {
+        //text-align: left;
+        margin: 0 35px;
+      }
+     .ph_status {
+        margin: 0 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+     .ph_status {
+        margin: 0 2px;
+        padding: 2px 2px;
+        li {
+          font-size: 16px;
+        }
+      }
     }
   }
 }
-
 /* アカウント設定（非公開） */
 .form_container {
   max-width: 600px;

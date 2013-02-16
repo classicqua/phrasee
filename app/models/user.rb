@@ -1,3 +1,5 @@
+#coding: utf-8
+
 # == Schema Information
 #
 # Table name: users
@@ -71,6 +73,14 @@ class User < ActiveRecord::Base
   validates :gender, presence:true, on: :update
   validates :birth, presence:true, on: :update
   validates :country, presence:true, on: :update
-  validates :postal_code, presence:true, length:{ minimum:7, maximum:8 }, on: :update
-  validates :mail_flg, presence:true, on: :update
+  validates :postal_code, presence:true, :if => :need_postal_code?,
+                           length:{ minimum:7, maximum:8 }, on: :update
+  #validates :mail_flg, presence:true, on: :update
+
+  def need_postal_code?
+    self.country.downcase == "japan" # 日本在住者は郵便番号必須
+  end
+
+  self.per_page = Constants.PH_PAGINATION.PER_PAGE || 10
+  default_scope order: 'users.updated_at DESC'
 end

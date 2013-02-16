@@ -16,7 +16,8 @@
     <%#= display_base_errors resource %>
 
     <%# 本人確認用トークン %>
-    <%= f.input :token_for_confirmation, :as => :hidden, :input_html => { :value => @confirmation_token } %>
+    <% token_for_confirm = resource.confirmation_token || @confirmation_token %>
+    <%= f.input :token_for_confirmation, :as => :hidden, :input_html => { :value => token_for_confirm } %>
 
     <div class="basic_form_container">
 

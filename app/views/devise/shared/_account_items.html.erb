@@ -40,9 +40,6 @@
             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">削除</a>
           </div>
         </div>
-       
-        <%#= file_field_tag 'upfile', { size:50 } %>
-        <%#= f.input :profile_image, :as => :hidden, :input_html => { :value => "" } %>
       </dd>
     </dl>
 
@@ -82,7 +79,7 @@
                 label:' <b>郵便番号</b><small>（日本にお住まいの方のみ）</small>', 
                 placeholder:"例.123-4567",
                 input_html: { id:"zip", class:"input-small", maxlength: 8 },
-                hint:'<small class="help-block" id="searced_address">↑ハイフンは無くても可</small>' %> 
+                hint:'<small class="help-block" id="searced_address"></small>' %> 
 
     <%# メール配信設定 %>
     <% mflg = "checked" unless user.mail_flg == false  %>

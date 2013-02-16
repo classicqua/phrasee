@@ -32,7 +32,6 @@ Phrasee::Application.routes.draw do
     member do
       resources :comments, only: [:create]
     end
-    #resources :comments, only: [:create]
   end
 
   resources :categories, only: [:index, :show]

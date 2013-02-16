@@ -13,47 +13,8 @@
     <li class="active"><%= @user.name %></li>
   </ol>
 
-<div class="container ph_profile_container">
+  <%= render 'shared/public_user_profile' %>
 
-
-
-  <div class="well ph_well-box">
-   
-    <legend ><strong><%= @user.name %></strong>さん</legend>
-    
-    <%# プロフィール画像 %>
-    <div class="well ph_well-cancel-color ph_pr_img">
-      <% if @user.profile_image.present? %>
-        <%= image_tag(@user.profile_image_url, { alt:"user-icon", class:"img-polaroid", style:"max-height: 200px;" }) %> 
-      <% else %>
-        <img src="http://quickimage.it/200x200" class="img-polaroid">
-      <% end %>
-    </div>
-
-    <%# 自己紹介 %>
-    <div class="well ph_well-cancel-color ph_pr_msg">
-      <p><%= simple_format(@user.introduction) if @user.introduction.present? %></p>
-    </div>
-
-    <%# 状況 %>
-    <div class="lead well ph_well-cancel-color ph_status">
-        <ul class="unstyled inline ">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon" } ) %> 投稿したフレーズ</li>
-          <li><%= link_to "#{@user.phrases.count}件", posts_user_path(@user) %></li>
-
-        </ul>
-
-        <ul class="unstyled inline">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"favorite-icon" } ) %> お気に入りフレーズ</li>
-          <li><%= link_to "12件", "#" %></li>
-        </ul>
-
-        <ul class="unstyled inline">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"love-icon" } ) %> お気に入りに追加された回数</li>
-          <li><%= link_to "6回", "#" %></li>
-        </ul>
-    </div>
-  </div>
   <p>&nbsp;</p>
   <p><%= link_to "トップページへ", root_path %></p>
   <%= render 'shared/categories_link' %>

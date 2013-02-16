@@ -59,7 +59,7 @@
       <div class="media-body">
         <h4 class="media-heading"><%= link_to @phrase.user.name, user_path(@phrase.user) %></h4>
         <p class="muted"><%= @phrase.updated_at.to_s(:db) %></p><%# UTCからJST（日本時間）に変換 %>
-        <p class="lead"><%= simple_format(@phrase.story) %></p>
+        <%= simple_format(@phrase.story, class:"lead") %>
       </div>
     </div>
   <!--/div-->

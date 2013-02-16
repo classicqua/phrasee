@@ -12,14 +12,12 @@ class UsersController < ApplicationController
   def posts
     @user = User.find(params[:id])
     @phrases = Phrase.where( 'user_id = :user_id', { :user_id => params[:id] } )
-                    .paginate( page:params[:page], per_page:10 )
+                      .paginate(page:params[:page])
 
-    render :posts;
-=begin
+    #render :posts;
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :posts }
       format.json { render json: @phrases }
     end
-=end
   end
 end

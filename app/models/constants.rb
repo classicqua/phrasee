@@ -1,5 +1,6 @@
 class Constants < Settingslogic
   source "#{Rails.root}/config/constants.yml"
-  # こうすることで環境ごとに定数を切り分けられる
+  
+  # 環境別に定数設定
   namespace Rails.env
 end
