@@ -63,7 +63,8 @@
   <% end %>
 
     <%# 性別 %>   
-    <%= f.input :gender, as: :radio_buttons, required: true, collection: [['男性', 1], ['女性', 2]], label:' <b>性別</b>' %>
+    <% gen_checked = (user.gender.present? && user.gender>0 ) ? user.gender : 1 %>
+    <%= f.input :gender, as: :radio_buttons, required: true, collection: [['男性', 1], ['女性', 2]], label:' <b>性別</b>', checked:gen_checked %>
 
     <%# 生年月日 %>
     <%= f.input :birth, as: :date, required: true,
@@ -84,7 +85,7 @@
                 hint:'<small class="help-block" id="searced_address">↑ハイフンは無くても可</small>' %> 
 
     <%# メール配信設定 %>
-    <% mflg = "checked" if user.mail_flg %>
+    <% mflg = "checked" unless user.mail_flg == false  %>
     <%= f.input :mail_flg, required: false, inline_label: 'お知らせメールを受け取る', label:" <b>メール配信</b>", input_html:{ checked:mflg  } %>
   </div>
 

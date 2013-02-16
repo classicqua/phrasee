@@ -38,9 +38,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :agreement,
                   :profile_image, :introduction, :gender, :birth, :country, :postal_code, :mail_flg
-
 
   has_many :phrases, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -49,27 +48,29 @@ class User < ActiveRecord::Base
   mount_uploader :profile_image, ProfileImageUploader
 
 
-  # 本人確認メール送信前に登録する情報
+  ## 本人確認メール送信前に登録する情報
   validates :name, presence:true
   validates :email, presence:true, 
             length:{ minimum:1, maximum:100 }
   #validates :encrypted_password, presence:true
 
+  # アカウント設定時
+  # 利用規約への同意フラグ（カラムなし）
+  validates_acceptance_of :agreement # PUTだと動いてない？
+
 
 ### 以下のカラムは「更新」のときだけ必須にする（本人確認のときは登録しないので） ###
 
-=begin
-  # 本人確認後に登録する情報
-    # 公開情報
-  validates :profile_image, presence:true
-  validates :introduction, presence:true, 
-            length:{ maximum:255 }
-    # 非公開アカウント情報
-  validates :gender, presence:true
-  validates :birth, presence:true
-  validates :country, presence:true
-  validates :postal_code, presence:true
-  validates :mail_flg, presence:true
-=end
+  ## 本人確認後に登録する情報（=UPDATEする）
 
+  # 公開情報
+  #validates :profile_image, presence:true
+  validates :introduction, length:{ maximum:255 }
+  
+  # 非公開アカウント情報
+  validates :gender, presence:true, on: :update
+  validates :birth, presence:true, on: :update
+  validates :country, presence:true, on: :update
+  validates :postal_code, presence:true, length:{ minimum:7, maximum:8 }, on: :update
+  validates :mail_flg, presence:true, on: :update
 end

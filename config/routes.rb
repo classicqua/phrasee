@@ -18,6 +18,7 @@ Phrasee::Application.routes.draw do
   # PUT で userモデルのconfirm_atを「確認完了」に
   devise_scope :user do
     put "/confirm" => "confirmations#confirm" # 本人確認処理完了
+    get "/registered" => "confirmations#registered" # アカウント設定完了 
     get "/resign" => "registrations#resign" # 退会手続きページ表示
   end
 

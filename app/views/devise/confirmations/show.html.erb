@@ -26,10 +26,12 @@
       <%# 利用規約 %>
       <div class="controls">
         <label class="checkbox">
-          <input type="checkbox" name="agreement" value="1" checked> <%= link_to "利用規約", terms_path %>を確認しました
-        </label>
+          <%#  <input type="checkbox" name="user[agreement]" value="1" checked> %>
+          <%= f.check_box :agreement, checked:"checked" %>
+          <%= link_to "利用規約", terms_path %>を確認しました
+        </label>  
       </div>
-      
+
       <p>&nbsp;</p>
       <%= f.button :submit, '規約に同意して登録する', :class => 'btn' %>
     </div>

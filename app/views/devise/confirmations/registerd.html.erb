@@ -5,8 +5,6 @@
   <!-- page header -->
   <div class="page-header">
     <h3>会員登録完了！</h3>
-  </div>
-
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -18,51 +16,28 @@
       <%= link_to "メンバー", users_path %>
       <span class="divider">/</span>
     </li>
-    <li class="active"><%= @user.name %></li>
+    <li class="active">登録完了した人</li>
   </ol>
 
-<div class="container ph_profile_container">
+  <%= simple_form_for(resource, :as => resource_name, :url => confirm_path, 
+      :html => { :method => :put, :multipart => true, :class => 'form-vertical' }) do |f| %>
+    <%= f.error_notification %>
 
-
-  <div class="well ph_well-box">
-   
-    <legend ><strong><%= @user.name %></strong>さん</legend>
-    
-    <%# プロフィール %>
-    <div class="well ph_well-cancel-color ph_pr_img">
-      <% if @user.profile_image.present? %>
-        <%= image_tag("user_images/#{@user.profile_image}", { alt:"user-image", size:"150x100" } ) %> 
-      <% else %>
-        <%#= image_tag('service/8566716_aa614fe042_image.jpg', { alt:"user-image", size:"150x100" } ) %> 
-        <%= default_user_image_tag.html_safe %>
-      <% end %>
+    <label>プロフィール画像</label>
+    <%= image_tag(@user.profile_image_url) if @user.profile_image? %>
+      
+      <p>&nbsp;</p>
+      <%= f.button :submit, :class => 'btn' %>
     </div>
+  <% end %>
 
-    <div class="well ph_well-cancel-color ph_pr_msg">
-      <p><%= @user.introduction if @user.introduction.present? %></p>
-    </div>
 
-    <%# 状況 %>
-    <div class="lead well ph_well-cancel-color ph_status">
-        <ul class="unstyled inline ">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon" } ) %> 投稿したフレーズ</li>
-          <li><%= link_to "#{@user.phrases.count}件", posts_user_path(@user) %></li>
 
-        </ul>
+  <div class="container ph_profile_container">
 
-        <ul class="unstyled inline">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"favorite-icon" } ) %> お気に入りフレーズ</li>
-          <li><%= link_to "12件", "#" %></li>
-        </ul>
-
-        <ul class="unstyled inline">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"love-icon" } ) %> お気に入りに追加された回数</li>
-          <li><%= link_to "6回", "#" %></li>
-        </ul>
-    </div>
   </div>
+
   <p>&nbsp;</p>
   <p><%= link_to "トップページへ", root_path %></p>
   <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
-</div>
