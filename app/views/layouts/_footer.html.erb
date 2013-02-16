@@ -12,18 +12,9 @@
       <div class="span5">
         <h5>当サイトについてのご意見を募集中です。</h5>
         <p>あなたが不満な点・良いと思う点など、ご自由にお寄せください。</p>
-        <form>
           <div class="control-group info footer_centerize">
-            <div class="controls">
-              <label class="control-label">ご意見送信フォーム</label>
-              <textarea class="input-block-level" rows="6"></textarea>
-              <a class="btn">サイト運営者へ意見を送る</a>
-              <div id="otoiawase_link">
-                <%= link_to "使い方についてのお問い合わせはこちら", help_path %>
-              </div>
-            </div>
+            <%= render 'goiken/new' %>
           </div>
-        </form>
       </div>
     </div>
     <div class="row-fluid footer_centerize">

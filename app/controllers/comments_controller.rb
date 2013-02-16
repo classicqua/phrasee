@@ -23,9 +23,8 @@ class CommentsController < ApplicationController
   # comments POST   /phrases/:id/comments(.:format)   comments#create
   def create
     @phrase = Phrase.find(params[:id]) # コメント対象のフレーズ
-    logger.debug('ddddddddddddddd')
-    logger.debug(params)
-    # @new_comment = @phrase.comments.build(params[:content])
+    #logger.debug(params)
+    
     @new_comment = @phrase.comments.new
     @new_comment.content = params[:comment][:content]
     @new_comment.user_id = current_user.id # コメント者のidをセット

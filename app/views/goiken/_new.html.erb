@@ -1,0 +1,11 @@
+<%= form_tag({ controller:'goiken', action:'create'},{ remote:true }) do %>
+    <div class="controls goiken_box">
+      <label class="control-label">ご意見送信フォーム</label>
+      <div id="post_result"></div><%# コメント送信結果メッセージ表示 %>
+      <%= text_area_tag :body, '', { rows:6, class:"input-block-level goiken_text" } %>
+      <%= submit_tag 'サイト運営者へ意見を送る', class:'btn post_goiken_button' %>
+      <div id="otoiawase_link">
+        <%= link_to "使い方についてのお問い合わせはこちら", help_path %>
+      </div>
+    </div>
+<% end %>

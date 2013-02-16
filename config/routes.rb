@@ -1,6 +1,8 @@
 Phrasee::Application.routes.draw do
 
-  #get "comments/new"
+  # ご意見フォーム
+  get "goiken/new"
+  post "goiken/create"
 
   # ログイン有無でroot_pathを振り分け
   authenticated :user do
