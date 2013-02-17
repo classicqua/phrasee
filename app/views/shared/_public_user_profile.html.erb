@@ -35,7 +35,7 @@
 
         <ul class="unstyled inline">
           <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"love-icon" } ) %> お気に入りに追加された回数</li>
-          <li><%= link_to "6回", "#" %></li>
+          <li><b><%= "#{@favoriteds.count}回" %></b></li>
         </ul>
       </div>
     </div>

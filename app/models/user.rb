@@ -46,12 +46,13 @@ class User < ActiveRecord::Base
   has_many :phrases, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  #has_many :phrases, through: :favorites
 
   # プロフィール画像アップローダー
   mount_uploader :profile_image, ProfileImageUploader
   #validates_presence_of :profile_image # プロフィール画像は任意なのでコメントアウト
   #validates_integrity_of :profile_image
-  validates_processing_of :profile_image
+  validates_processing_of :profile_image # アップロード時のエラー
 
 
 ### 本人確認メール送信前に登録するカラム ###

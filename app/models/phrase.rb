@@ -22,6 +22,7 @@ class Phrase < ActiveRecord::Base
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  #has_many :users, through: :favorites
 
   validates :japanese, presence:true, 
             length:{ minimum:1, maximum:100 }

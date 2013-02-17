@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    # お気に入りされたフレーズ
+    @favoriteds = Favorite.where(phrase_id: @user.phrase_ids)
   end
 
   def posts
