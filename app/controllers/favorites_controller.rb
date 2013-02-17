@@ -1,44 +1,56 @@
 #coding: utf-8
 class FavoritesController < ApplicationController
-  before_filter :authenticate_user!, only: [:create, :update]
+  before_filter :authenticate_user!, only: [:create, :update, :destroy]
 
-  def new
-
+  # user_id = :id のユーザーのお気に入りフレーズ一覧表示
+  # GET    /users/:id/favorites(.:format) 
+  def index
+    @user = User.find(params[:id])
+    phrase_ids = []
+    @user.favorites.each { |fav| phrase_ids.push(fav.phrase_id) }
+    #@phrases = Phrase.where( 'id = :phrase_id', { phrase_id: phrase_ids } )
+    #                .paginate( page:params[:page] )
+    @phrases = Phrase.where(id:phrase_ids).paginate( page:params[:page] )
   end
 
   # お気に入りへ追加
-  # POST /users/123/favorites
+  # POST   /users/:id/favorites(.:format)
   def create
+    @phrase = Phrase.find(params[:favorite][:phrase_id]) 
 
-    @favorite = current_user.favorites.build(params[:favorite])
-    if @favorite.save
-      flash[:success] = "Micropost created!"
-      redirect_to root_url
-    else
-      @feed_items = []
-      render 'phrases/show'
+    # 二重登録防止
+    count = Favorite.where( 'phrase_id = :phrase_id AND user_id = :user_id', { phrase_id: @phrase.id, user_id: current_user.id } ).count
+    if count > 0
+      flash[:error] = 'すでにお気に入りに追加されています。'
+      return false
     end
 
-=begin
-    @phrase = Phrase.find(params[:id]) # お気に入り対象のフレーズ
-
-    @new_favorite = @phrase.comments.new
-    @new_favorite.phrase_id = params[:favorite][:phrase_id]
-    @new_favorite.user_id = current_user.id # コメント者のidをセット
+    # お気に入り追加
+    current_user.favorite_on!(@phrase)
 
     respond_to do |format|
-      if @new_favorite.save
-        format.html { redirect_to @phrase, notice: 'お気に入りに追加しました。' }
-      else
-        format.html { render action: "show" }
-      end
+      format.html { redirect_to @phrase, notice: 'お気に入りに追加しました。' }
+      format.js
     end
-=end
+  end
+
+  # PUT    /users/:id/favorites/:id(.:format)
+  def update
+    
   end
 
   # お気に入りから削除
-  # PUT 
-  def update
-    
+  # DELETE /users/:id/favorites/:id(.:format) 
+  def destroy
+    @favorite = current_user.favorites.find_by_phrase_id(params[:favorite][:phrase_id])
+    @phrase = Phrase.find(@favorite.phrase_id) # リダイレクト用
+
+    # お気に入りから削除
+    current_user.favorite_off!(@favorite)
+
+    respond_to do |format|
+      format.html { redirect_to @phrase, notice: 'お気に入りから削除しました。' }
+      format.js
+    end
   end
 end

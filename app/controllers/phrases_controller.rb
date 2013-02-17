@@ -25,6 +25,9 @@ class PhrasesController < ApplicationController
     # 新規コメント用
     @new_comment = @phrase.comments.new 
 
+    # お気に入り用
+    #@favorite = current_user.favorites.new
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @phrase }

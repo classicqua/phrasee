@@ -1,0 +1,13 @@
+<% if @phrases.any? %>
+  <ul class="__unstyled">
+    <% @phrases.each do |phrase| %>
+      <li class="ph_phrase_item">
+        <%= link_to phrase.japanese, phrase %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= render 'shared/pagination', object: @phrases %>
+<% else %>
+  <p>フレーズはまだありません。</p>
+<% end %>

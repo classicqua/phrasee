@@ -1,4 +1,4 @@
-<% provide(:title, "英語・英会話フレーズ|Phrasee|カテゴリー 一覧") %>
+<% provide(:title, "英語・英会話フレーズ|Phrasee|お気に入りフレーズ一覧") %>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -14,14 +14,14 @@
       <%= link_to @user.name, user_path(@user) %>
       <span class="divider">/</span>
     </li>
-    <li class="active">投稿フレーズ</li>
+    <li class="active">お気に入りフレーズ</li>
   </ol>
   
   <!-- page header -->
   <div class="page-header">
     <h1>
-      <span class="ph_category_name"><%= @user.name %> さんの投稿フレーズ</span>
-      <small>（<%= @user.phrases.count %>件）</small>
+      <span class="ph_category_name"><%= @user.name %> さんのお気に入りフレーズ</span>
+      <small>（<%= @user.favorites.count %>件）</small>
     </h1>
   </div>
 

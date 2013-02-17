@@ -1,7 +1,5 @@
 Phrasee::Application.routes.draw do
 
-
-
   # ログイン有無でroot_pathを振り分け
   authenticated :user do
     root :to => 'home#index'
@@ -25,18 +23,19 @@ Phrasee::Application.routes.draw do
   resources :users do
     member do
       get :posts # 各userが投稿したフレーズ
-      get :favorites # 各userのお気に入りフレーズ
+      #get :favorites # 各userのお気に入りフレーズ
+      resources :favorites, only: [:index, :create, :update, :destroy]
     end
   end
 
   resources :phrases do
     member do
       resources :comments, only: [:create]
-      resources :favorites, only: [:create, :update]
     end
   end
 
   resources :categories, only: [:index, :show]
+
   
   # ご意見フォーム
   get "goiken/new"

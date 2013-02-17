@@ -30,7 +30,7 @@
 
         <ul class="unstyled inline">
           <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"favorite-icon" } ) %> お気に入りフレーズ</li>
-          <li><%= link_to "12件", "#" %></li>
+          <li><%= link_to "#{@user.favorites.count}件", favorites_path(@user) %></li>
         </ul>
 
         <ul class="unstyled inline">

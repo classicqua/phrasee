@@ -83,6 +83,21 @@ class User < ActiveRecord::Base
     self.country.downcase == "japan" # 日本在住者は郵便番号必須
   end
 
+
+## お気に入り
+
+  # お気に入りに追加
+  def favorite_on!(phrase)
+    favorites.create!(phrase_id:phrase.id)
+    #self.favorites.create!(phrase_id:phrase.id)
+  end
+
+  # お気に入りから削除
+  def favorite_off!(favorite)
+    favorites.find(favorite.id).destroy
+    #self.favorites.find(favorite.id).destroy
+  end
+
 ### クエリ関連 ###
   self.per_page = Constants.PH_PAGINATION.PER_PAGE || 10
   default_scope order: 'users.updated_at DESC'

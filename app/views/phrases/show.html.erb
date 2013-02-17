@@ -33,7 +33,12 @@
         <%= link_to "削除する", phrase_path, method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
               title:@phrase.japanese, class:"btn btn-small btn-danger" %>
       <% else %>
+      <%#  
         <button class="btn btn-small ph_favorite_button" data-toggle="button" ><i class="icon icon-star-empty"></i> お気に入りに追加</button>
+      %>
+        <!-- お気に入り追加フォーム -->
+        <%= render 'favorites/favorite_form' %>
+
       <% end %>
       </div>
     </div>

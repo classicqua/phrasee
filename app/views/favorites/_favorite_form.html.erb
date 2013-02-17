@@ -1,0 +1,28 @@
+<%# お気に入り追加/削除フォーム %>
+<% if user_signed_in?  %>
+  <% if current_user.favorites.find_by_phrase_id(@phrase.id) %>
+      <%# お気に入り削除 %>
+      <%= form_for(current_user.favorites.find_by_phrase_id(@phrase.id), html:{ method: :delete }, remote:false ) do |f| %>
+        <div><%= f.hidden_field :phrase_id %></div>
+        <button class="btn btn-small -ph_favorite_button active btn-success" data-toggle="button" type="submit">
+          <i class="icon icon-star-empty"></i> お気に入り追加済
+        </button>     
+      <% end %>
+
+  <% else %>
+
+    <%# お気に入り追加 %>
+    <%= form_for(current_user.favorites.build(phrase_id: @phrase.id), remote:false ) do |f| %>
+      <div><%= f.hidden_field :phrase_id %></div>
+      <button class="btn btn-small -ph_favorite_button" data-toggle="button" type="submit">
+        <i class="icon icon-star-empty"></i> お気に入りに追加
+      </button>  
+    <% end %>
+  <% end %>
+
+<% else %>
+  <%= link_to new_user_session_path, class:"btn btn-small -ph_favorite_button", notice:"ログインしてください。" do %>
+    <i class="icon icon-star-empty"></i> お気に入りに追加
+  <% end %>
+  <spann class="muted"><small>（ログインすると使えます）</small></span>
+<% end %>
