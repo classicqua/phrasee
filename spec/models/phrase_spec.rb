@@ -11,7 +11,7 @@
 #  category_id :integer
 #  source      :string(255)
 #  story       :text
-#  launch_flg  :boolean
+#  launch_flg  :boolean          default(TRUE)
 #
 
 require 'spec_helper'

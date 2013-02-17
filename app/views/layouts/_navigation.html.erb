@@ -29,7 +29,7 @@
           <% if signed_in? %>   
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class='icon-user'></i>&nbsp;<%= current_user.name %>&nbsp;<b class="caret"></b>
+                <i class='icon-user'></i>&nbsp;<%= truncate(current_user.name, { :length => 12 }) %>&nbsp;<b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li>

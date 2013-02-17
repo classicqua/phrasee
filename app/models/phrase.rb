@@ -1,5 +1,4 @@
 #coding: utf-8
-
 # == Schema Information
 #
 # Table name: phrases
@@ -13,14 +12,16 @@
 #  category_id :integer
 #  source      :string(255)
 #  story       :text
-#  launch_flg  :boolean
+#  launch_flg  :boolean          default(TRUE)
 #
 
+#coding: utf-8
 class Phrase < ActiveRecord::Base
   attr_accessible :japanese, :english, :source, :story, :launch_flg, :category_id, :source, :story, :launch_flg
   belongs_to :user
   belongs_to :category
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :japanese, presence:true, 
             length:{ minimum:1, maximum:100 }

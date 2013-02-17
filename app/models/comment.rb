@@ -12,6 +12,9 @@
 
 class Comment < ActiveRecord::Base
   attr_accessible :content, :phrase_id, :user_id
-  belongs_to :phrases
-  belongs_to :users
+  belongs_to :phrase
+  belongs_to :user
+
+  validates :content, presence:true, 
+            length:{ minimum:1, maximum:250 }
 end

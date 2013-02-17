@@ -1,15 +1,17 @@
 # == Schema Information
 #
-# Table name: goikens
+# Table name: favorites
 #
 #  id         :integer          not null, primary key
-#  body       :text
+#  user_id    :integer
+#  phrase_id  :integer
+#  delete_flg :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'spec_helper'
 
-describe Goiken do
+describe Favorites do
   pending "add some examples to (or delete) #{__FILE__}"
 end

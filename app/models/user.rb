@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
 
   has_many :phrases, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # プロフィール画像アップローダー
   mount_uploader :profile_image, ProfileImageUploader
@@ -52,8 +53,9 @@ class User < ActiveRecord::Base
   #validates_integrity_of :profile_image
   validates_processing_of :profile_image
 
-  ## 本人確認メール送信前に登録する情報
-  validates :name,  presence:true, length:{ minimum:1, maximum:16 }
+
+### 本人確認メール送信前に登録するカラム ###
+  validates :name,  presence:true, length:{ minimum:1, maximum:30 }
   validates :email, presence:true, length:{ minimum:1, maximum:100 }
   #validates :encrypted_password, presence:true
 

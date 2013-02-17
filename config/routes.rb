@@ -1,8 +1,6 @@
 Phrasee::Application.routes.draw do
 
-  # ご意見フォーム
-  get "goiken/new"
-  post "goiken/create"
+
 
   # ログイン有無でroot_pathを振り分け
   authenticated :user do
@@ -27,16 +25,22 @@ Phrasee::Application.routes.draw do
   resources :users do
     member do
       get :posts # 各userが投稿したフレーズ
+      get :favorites # 各userのお気に入りフレーズ
     end
   end
 
   resources :phrases do
     member do
       resources :comments, only: [:create]
+      resources :favorites, only: [:create, :update]
     end
   end
 
   resources :categories, only: [:index, :show]
+  
+  # ご意見フォーム
+  get "goiken/new"
+  post "goiken/create"
 
   # サービス運営
   match '/guide',       to: 'service#guide', via: :get
