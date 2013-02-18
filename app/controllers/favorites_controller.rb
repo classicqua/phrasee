@@ -14,10 +14,6 @@ class FavoritesController < ApplicationController
     end
 
     # このユーザーのお気に入りフレーズ
-    #phrase_ids = []
-    #@user.favorites.each { |fav| phrase_ids.push(fav.phrase_id) }
-    #@phrases = Phrase.where(id:phrase_ids).paginate( page:params[:page] )
-
     @phrases = Phrase.where(id:@user.favorites.map{|fav| fav.phrase_id}).paginate(page:params[:page])
   end
 
