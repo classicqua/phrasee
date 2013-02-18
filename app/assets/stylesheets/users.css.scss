@@ -46,6 +46,13 @@
       }
     }
 
+    @media (min-width: 540px) {
+     .ph_status {
+        margin-left:65px;
+        //margin: 0 30px;
+      }
+    }
+
     @media (max-width: 480px) {
      .ph_status {
         margin: 0 2px;

@@ -1,3 +1,4 @@
+#coding: utf-8
 class UsersController < ApplicationController
   #before_filter :authenticate_user!
 
@@ -6,16 +7,29 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id]) # 該当ユーザー
+    rescue Exception => e
+    #rescue ActiveRecord::RecordNotFound  # URLにユーザー番号打ち込んだときなど
+      flash[:error] = 'メンバーのプロフィールが見つかりませんでした。' 
+      redirect_to root_url
+      return
+    end
 
     # お気に入りされたフレーズ
     @favoriteds = Favorite.where(phrase_id: @user.phrase_ids)
   end
 
   def posts
-    @user = User.find(params[:id])
-    @phrases = Phrase.where( 'user_id = :user_id', { :user_id => params[:id] } )
-                      .paginate(page:params[:page])
+    begin
+      @user = User.find(params[:id])
+      @phrases = Phrase.where( 'user_id = :user_id', { :user_id => params[:id] } )
+                        .paginate(page:params[:page])
+    rescue Exception => e
+      flash[:error] = 'データが見つかりませんでした。' 
+      redirect_to root_url
+      return
+    end
 
     #render :posts;
     respond_to do |format|

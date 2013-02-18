@@ -33,15 +33,24 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
+                  <%= link_to favorites_path(current_user) do %>
+                    <i class='icon-star'></i>&nbsp;お気に入り
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to current_user do %>
-                    <i class='icon-user'></i>&nbsp;公開プロフィール
+                    <%#= image_tag('glyphicons_free/glyphicons/png/glyphicons_352_nameplate.png', { alt:"profile-icon", size:"14x14" } ) %>
+                    <i class='icon-book'></i>&nbsp;プロフィール(公開)
                   <% end %>
                 </li>
                 <li>
                   <%= link_to edit_user_registration_path(current_user) do %>
-                    <i class='icon-lock'></i>&nbsp;アカウント設定
+                    <!--<i class='icon-lock'></i>-->
+                    <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_044_keys.png', { alt:"private-icon", size:"14x14" } ) %>
+                    &nbsp;アカウント設定
                   <% end %>
                 </li>
+                <li class="divider"></li>
                 <li>
                   <%= link_to destroy_user_session_path, { method: "delete" } do %>
                     <i class='icon-off'></i>&nbsp;ログアウト

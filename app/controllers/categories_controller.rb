@@ -10,7 +10,15 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    begin
+      @category = Category.find(params[:id])
+    rescue Exception => e
+    #rescue ActiveRecord::RecordNotFound  # URLに番号を打ち込んだときなど
+      flash[:error] = 'カテゴリーが見つかりませんでした。' 
+      redirect_to root_url
+      return  
+    end
+
     @phrases = Phrase.where( 'category_id = :category_id', { :category_id => params[:id] } )
                     .paginate( page:params[:page], per_page:10 )
   end

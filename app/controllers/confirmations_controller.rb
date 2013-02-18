@@ -86,6 +86,8 @@ class ConfirmationsController < Devise::ConfirmationsController
   # GET /registerd
   def registered
     @user = current_user 
+    # お気に入りされたフレーズ
+    @favoriteds = Favorite.where(phrase_id: @user.phrase_ids)
     render :registered
   end
 

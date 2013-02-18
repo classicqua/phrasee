@@ -3,7 +3,7 @@
   <div class=" ph_profile_container"><%# 左右margin/padding調整用 %>
     <div class="well ph_well-box"><%# 白囲み表示or囲み無し切り替え用 %>
 
-  <% if @user.present? %>
+    <% if @user.present? %>
       <legend ><strong><%= @user.name %></strong>さん</legend>
       
       <%# プロフィール画像 %>
@@ -25,7 +25,6 @@
         <ul class="unstyled inline ">
           <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon" } ) %> 投稿したフレーズ</li>
           <li><%= link_to "#{@user.phrases.count}件", posts_user_path(@user) %></li>
-
         </ul>
 
         <ul class="unstyled inline">
@@ -38,11 +37,9 @@
           <li><b><%= "#{@favoriteds.count}回" %></b></li>
         </ul>
       </div>
+    <% else %>
+      <p>該当ユーザーが見つかりませんでした。</p>
+    <% end %>
     </div>
-
-  <% else %>
-    <p>該当ユーザーが見つかりませんでした。</p>
-  <% end %>
-
   </div>
 </div>

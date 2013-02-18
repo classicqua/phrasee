@@ -16,7 +16,14 @@ class PhrasesController < ApplicationController
   # GET /phrases/1
   # GET /phrases/1.json
   def show
-    @phrase = Phrase.find(params[:id]) # フレーズ
+    begin
+      @phrase = Phrase.find(params[:id]) # フレーズ
+    rescue Exception => e
+      flash[:error] = 'フレーズが見つかりませんでした。' 
+      redirect_to root_url
+      return
+    end
+
     @user = current_user # このフレーズを見てる人
 
     # 現在このフレーズについてるコメントたち
