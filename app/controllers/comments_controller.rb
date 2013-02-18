@@ -8,8 +8,14 @@ class CommentsController < ApplicationController
 
   # comments POST   /phrases/:id/comments(.:format)   comments#create
   def create
-    @phrase = Phrase.find(params[:id]) # コメント対象のフレーズ
-
+    begin
+      @phrase = Phrase.find(params[:id]) # コメント対象のフレーズ
+    rescue Exception => e
+      flash[:error] = 'コメントを書き込めませんでした。'
+      redirect_to root_url
+      return
+    end
+    
     @new_comment = @phrase.comments.new
     @new_comment.content = params[:comment][:content]
     @new_comment.user_id = current_user.id # コメント者のidをセット

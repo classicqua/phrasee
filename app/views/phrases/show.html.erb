@@ -10,7 +10,7 @@
       <span class="divider">/</span>
     </li>
      <li>
-      <%= link_to 'カテゴリー 一覧', categories_path %>
+      <%= link_to 'カテゴリー', categories_path %>
       <span class="divider">/</span>
     </li>   
     <li>
@@ -28,17 +28,13 @@
       <div>
 
       <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
-      <% if signed_in? && @phrase.user.id == current_user.id %>
+      <% if user_signed_in? && @phrase.user == current_user %>
         <%= link_to "編集する", edit_phrase_path(@phrase), class:"btn btn-small" %>
         <%= link_to "削除する", phrase_path, method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
               title:@phrase.japanese, class:"btn btn-small btn-danger" %>
       <% else %>
-      <%#  
-        <button class="btn btn-small ph_favorite_button" data-toggle="button" ><i class="icon icon-star-empty"></i> お気に入りに追加</button>
-      %>
-        <!-- お気に入り追加フォーム -->
+        <!-- お気に入り追加/削除フォーム（ボタン） -->
         <%= render 'favorites/favorite_form' %>
-
       <% end %>
       </div>
     </div>
@@ -56,7 +52,7 @@
         <% if @phrase.user.profile_image.present? %>
           <%= image_tag(@phrase.user.profile_image_url(:thumb), { alt:"post-icon", class:"img-polaroid" }) %> 
         <% else %>
-          <img src="http://quickimage.it/80x80" class="img-polaroid">
+          <%= image_tag("icons/80x80.gif", { alt:"phrasee-icon", class:"img-polaroid", size:"80x80" }) %> 
         <% end %>
       <% end %>
 

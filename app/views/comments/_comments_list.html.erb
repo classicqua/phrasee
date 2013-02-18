@@ -16,7 +16,7 @@
           <% if commented_user.profile_image.present? %>
             <%= image_tag(commented_user.profile_image_url(:thumb), { alt:"comment-user-icon", class:"img-polaroid", style:"max-height: 64px;" }) %> 
           <% else %>
-            <img src="http://quickimage.it/64x64" class="img-polaroid">
+            <%= image_tag("icons/64x64.gif", { alt:"user-icon", class:"img-polaroid", size:"64x64" }) %>
           <% end %>
         <% end %>
 

@@ -11,7 +11,7 @@
         <% if @user.profile_image.present? %>
           <%= image_tag(@user.profile_image_url, { alt:"user-icon", class:"img-polaroid", style:"max-height: 200px;" }) %> 
         <% else %>
-          <img src="http://quickimage.it/200x200" class="img-polaroid">
+          <%= image_tag("icons/200x200.gif", { alt:"user-icon", class:"img-polaroid", size:"200x200" }) %> 
         <% end %>
       </div>
 
