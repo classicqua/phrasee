@@ -22,6 +22,7 @@ user.add_role :admin
 
 # フレーズカテゴリー
 =begin
+#CATEGORIES: ['あいさつ', '空港', 'レストラン', 'ホテル', 'お買い物', '映画', '本', '音楽', 'ビジネス', 'コンピュータ', 'その他']
 YAML.load(ENV['CATEGORIES']).each do |category|
   Category.find_or_create_by_category_name({ :category_name => category }, :without_protection => true)
   puts 'category: ' << category

@@ -12,6 +12,6 @@
 
 class Favorites < ActiveRecord::Base
   attr_accessible :delete_flg, :phrase_id, :user_id
-　belongs_to :user
-　belongs_to :phrase
+  belongs_to :user
+  belongs_to :phrase
 end
