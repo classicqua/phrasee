@@ -1,44 +1,55 @@
 Phrasee::Application.routes.draw do
 
+### 共通 ###
+
   # ログイン有無でroot_pathを振り分け
   authenticated :user do
     root :to => 'home#index'
   end
   root :to => "home#index"
 
-  #devise_for :users
+
+### ユーザー（会員）用 ###
+
+  # deviseによるユーザー認証ルート構成
   devise_for :users, 
              :controllers => {
                 :confirmations => 'confirmations',  # オーバーライドしたConfirmationsControllerを使う
                 :registrations => 'registrations'   # オーバーライドしたRegistrationsControllerを使う
              }
 
-  # PUT で userモデルのconfirm_atを「確認完了」に
+  # deviseカスタマイズ
   devise_scope :user do
-    put "/confirm" => "confirmations#confirm" # 本人確認処理完了
-    get "/registered" => "confirmations#registered" # アカウント設定完了 
+    put "/confirm" => "confirmations#confirm" # 本人確認処理（仮登録のレコードを更新）
+    get "/registered" => "confirmations#registered" # アカウント設定完了画面表示
     get "/resign" => "registrations#resign" # 退会手続きページ表示
   end
 
+  # 会員登録したユーザー
   resources :users do
     member do
       get :posts # 各userが投稿したフレーズ
-      #get :favorites # 各userのお気に入りフレーズ
-      resources :favorites, only: [:index, :create, :update, :destroy]
+      resources :favorites, only: [:index, :create, :update, :destroy] # 各userのお気に入りフレーズ
     end
   end
 
+
+### フレーズ用 ###
+
+  # 英語フレーズ
   resources :phrases do
     member do
       resources :comments, only: [:create]
     end
   end
 
+  # フレーズのカテゴリー　
   resources :categories, only: [:index, :show]
-
   
+
+### 運営用 ###
+
   # ご意見フォーム
-  get "goiken/new"
   post "goiken/create"
 
   # サービス運営

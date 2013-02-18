@@ -2,10 +2,6 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!, only: [:create]
 
-  def index
-   
-  end
-
   # comments POST   /phrases/:id/comments(.:format)   comments#create
   def create
     begin
@@ -27,17 +23,5 @@ class CommentsController < ApplicationController
         format.html { render action: "show" }
       end
     end
-
-=begin
-    respond_to do |format|
-      if @new_comment.save
-        format.html { redirect_to phrase_url(@phrase), notice: 'コメントを投稿しました。' }
-      #  format.json { render json: phrase_url(@phrase), status: :created, location: phrase_url(@phrase) }
-      else
-        format.html { redirect_to phrase_url(@phrase) }
-      #  format.json { render json: phrase_url(@phrase).errors, status: :unprocessable_entity }
-      end
-    end
-=end
   end
 end

@@ -1,7 +1,5 @@
 #coding: utf-8
 class GoikenController < ApplicationController
-  def new
-  end
 
   def create
 

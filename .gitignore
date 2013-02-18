@@ -76,7 +76,6 @@ pickle-email-*.html
 # Ignore application configuration
 /config/application.yml
 
-/config/service.yml
-
-/public/uploads/user/profile_image/
+# Ignore user icons
+/public/uploads/user/profile_image/*
 public/uploads/*
