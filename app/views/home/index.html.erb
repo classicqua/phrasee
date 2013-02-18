@@ -14,7 +14,9 @@
   <div class="row-fluid ph-row">
     <div class="span6 ph_phrase_box well">
       <h1 class="ph_category">
-        <%= link_to "新着", phrases_path, { class:"ph_new_link" } %>
+        <%= link_to phrases_path, { class:"ph_new_link" } do %>
+          新着順<small>（全<%= Phrase.count %>件）</small>
+        <% end %>
       </h1>
         <% if @phrases.any? %>
           <ul class="ph_phrase_ul">
@@ -26,7 +28,7 @@
             <% end %>
           </ul>
           <p class="ph_last_item">
-            <small><%= link_to "新着の英語フレーズをすべて見る", phrases_path %></small>
+            <small><%= link_to "英語フレーズをすべて見る", phrases_path %></small>
           </p>            
         <% else %>
           新着フレーズはありません。

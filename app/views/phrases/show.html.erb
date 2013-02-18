@@ -79,7 +79,10 @@
   <p><%= link_to "トップページへ", root_path %></p>
   <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
-
-
-  <%#= render "shared/comment"  %>
 </div>
+  <%#= render "shared/comment"  %>
+<script type="text/javascript">
+$(function(){
+  $("span.label-important").remove();
+});
+</script>

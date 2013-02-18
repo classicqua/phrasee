@@ -6,12 +6,12 @@
       <%= link_to 'トップ', root_path %>
       <span class="divider">/</span>
     </li>
-    <li class="active">新着</li>
+    <li class="active">新着順</li>
   </ol>
 
   <!-- page header -->
   <div class="page-header">
-    <h1><span class="ph_category_name">新着</span></h1>
+    <h1><span class="ph_category_name">新着順（全<%= Phrase.count %>件）</span></h1>
   </div>
 
   <%= render 'shared/phrases_list' %>
