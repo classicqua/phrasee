@@ -52,22 +52,38 @@ class PhrasesController < ApplicationController
 
   # GET /phrases/1/edit
   def edit
-    @phrase = Phrase.find(params[:id])
-    @categories = get_category_all
+    begin
+      @phrase = Phrase.find(params[:id])
+      @categories = get_category_all
+    rescue Exception => e # 存在しないフレーズを編集しようとしたとき
+      flash[:error] = 'データが見つかりませんでした。' 
+      redirect_to root_url
+      return
+    end
   end
 
   # POST /phrases
   # POST /phrases.json
   def create
-    @phrase = current_user.phrases.build(params[:phrase])
 
-    respond_to do |format|
-      if @phrase.save
-        format.html { redirect_to @phrase, notice: '新規フレーズを投稿しました。' }
-        format.json { render json: @phrase, status: :created, location: @phrase }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @phrase.errors, status: :unprocessable_entity }
+    # 利用規約への同意チェック
+    if(params[:phrase][:agreement] != "1") # 利用規約に同意してなかったら差し戻す
+      flash.now[:error] = '利用規約に同意いただけない場合、投稿はご遠慮ください。'
+      params[:phrase].delete(:agreement)
+      @phrase = Phrase.new(params[:phrase]) # modelオブジェクトを作り直して値をつめる
+      render action: "new" and return
+    else 
+    # 新規フレーズ登録へ
+      @phrase = current_user.phrases.build(params[:phrase])
+
+      respond_to do |format|
+        if @phrase.save
+          format.html { redirect_to @phrase, notice: '新規フレーズを投稿しました。' }
+          format.json { render json: @phrase, status: :created, location: @phrase }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @phrase.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -75,15 +91,28 @@ class PhrasesController < ApplicationController
   # PUT /phrases/1
   # PUT /phrases/1.json
   def update
-    @phrase = Phrase.find(params[:id])
+    # 利用規約への同意チェック
+    if(params[:phrase][:agreement] != "1") # 利用規約に同意してなかったら差し戻す
+      flash[:error] = '利用規約に同意いただけない場合、投稿はご遠慮ください。'
+      redirect_to :back # ★createと同じ方式ではうまく動かないので取り急ぎこの形で対処。
+    else 
+    # 新規フレーズ登録へ
+      begin
+        @phrase = Phrase.find(params[:id])
+      rescue Exception => e # 存在しないフレーズを更新しようとしたとき
+        flash[:error] = 'データが見つかりませんでした。' 
+        redirect_to root_url
+        return
+      end
 
-    respond_to do |format|
-      if @phrase.update_attributes(params[:phrase])
-        format.html { redirect_to @phrase, notice: 'フレーズを更新しました。' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @phrase.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @phrase.update_attributes(params[:phrase])
+          format.html { redirect_to @phrase, notice: 'フレーズを更新しました。' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @phrase.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -91,11 +120,18 @@ class PhrasesController < ApplicationController
   # DELETE /phrases/1
   # DELETE /phrases/1.json
   def destroy
-    @phrase = Phrase.find(params[:id])
+    begin
+      @phrase = Phrase.find(params[:id])
+    rescue Exception => e # 存在しないフレーズを削除しようとしたとき
+      flash[:error] = 'データが見つかりませんでした。' 
+      redirect_to root_url
+      return
+    end
+
     @phrase.destroy
 
     respond_to do |format|
-      format.html { redirect_to phrases_url }
+      format.html { redirect_to posts_user_url(current_user) }
       format.json { head :no_content }
     end
   end

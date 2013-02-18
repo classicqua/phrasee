@@ -20,7 +20,13 @@ class FavoritesController < ApplicationController
   # お気に入りへ追加
   # POST   /users/:id/favorites(.:format)
   def create
-    @phrase = Phrase.find(params[:favorite][:phrase_id]) 
+    begin
+      @phrase = Phrase.find(params[:favorite][:phrase_id]) 
+    rescue Exception => e # 削除されたフレーズをお気に入りしようとしたとき
+      flash[:error] = 'データが見つかりませんでした。' 
+      redirect_to root_url
+      return
+    end
 
     begin
       # 二重登録防止

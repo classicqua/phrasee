@@ -11,7 +11,7 @@
                 placeholder:"例）使わせてもらいます。",
                 label:"<small class='muted'>ひとことお礼など</small>" %>
     <p><%= f.button :submit, :class => 'btn post_comment_button' %></p><%#= value値はja.ymlに記載 %>                 
-    <% if !signed_in? %>
+    <% if !user_signed_in? %>
     <p class="muted">コメントを送るには<%= link_to "ログイン", new_user_session_path %>が必要です。 </p>   
     <% end %>
   </div>
