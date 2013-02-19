@@ -23,9 +23,11 @@ $(function(){
   // コメントボタン
   $(document).on("click",  ".post_comment_button", function(e){
     //prevent(e);
+    $(this).addClass("disabled"); //ダブルクリック防止
   	var body = jQuery.trim( $(".comment_for_phrase").val() );
   	if(!body){
       alert("何か書いてください。");
+      $(this).removeClass("disabled"); //解除
       return false;
   	}
   	$(".comment_for_phrase").val(body);
