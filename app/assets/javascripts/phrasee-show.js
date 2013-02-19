@@ -2,7 +2,8 @@ $(function(){
 
 	// お気に入りボタンクリック時のイベント
   $(document).on("click", ".ph_favorite_button", function(e){
-
+    $(this).addClass("disabled"); //ダブルクリック防止
+/*
   	var icon_class = $(this).find("i").prop("class");
   	var button_text_add = "<i class='"+ icon_class +"'></i>" + " お気に入りに追加";
   	var button_text_del = "<i class='"+ icon_class +"'></i>" + " お気に入り追加済";
@@ -16,6 +17,7 @@ $(function(){
   		$(this).removeClass("btn-success").html(button_text_add).
       after("<div class='flash_msg alert-info'>&nbsp;<small>お気に入りリストから削除しました。</small></div>");
   	}
+*/
   });
   
   // コメントボタン
