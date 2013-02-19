@@ -9,9 +9,6 @@ Phrasee::Application.routes.draw do
   root :to => "home#index"
 
 
-
-
-
 ### ユーザー（会員）用 ###
 
   # deviseによるユーザー認証ルート構成
