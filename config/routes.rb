@@ -9,10 +9,14 @@ Phrasee::Application.routes.draw do
   root :to => "home#index"
 
 
+
+
+
 ### ユーザー（会員）用 ###
 
   # deviseによるユーザー認証ルート構成
-  devise_for :users, 
+  devise_for :admin_users,
+             :users, 
              :controllers => {
                 :confirmations => 'confirmations',  # オーバーライドしたConfirmationsControllerを使う
                 :registrations => 'registrations'   # オーバーライドしたRegistrationsControllerを使う
@@ -33,6 +37,9 @@ Phrasee::Application.routes.draw do
     end
   end
 
+### Adminユーザー（管理者）用 ###
+  #devise_for :admin_users
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
 ### フレーズ用 ###
 

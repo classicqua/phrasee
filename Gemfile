@@ -55,6 +55,8 @@ gem 'bootstrap-will_paginate', '>= 0.0.6'
   
 gem 'carrierwave'
 gem 'rmagick', '2.13.2'
+gem 'kaminari' # 2/19追加
+gem 'rails_admin' # 2/19追加
 
 group :production do
   gem 'pg'
