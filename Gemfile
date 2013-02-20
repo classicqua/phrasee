@@ -59,6 +59,6 @@ gem 'kaminari' # 2/19追加
 gem 'rails_admin' # 2/19追加
 
 group :production do
-  # gem 'pg'
+  # gem 'pg' # heroku用
   gem 'mysql2' # sqale用
 end
