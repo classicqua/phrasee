@@ -2,4 +2,3 @@
 
 set -e
 ln -s /home/sqale/etc/database.yml /home/sqale/current/config/database.yml
-ln -s /home/sqale/etc/application.yml /home/sqale/current/config/application.yml
