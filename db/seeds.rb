@@ -24,7 +24,6 @@ user.confirm!
 
 puts 'AdminUser'
 admin_user = AdminUser.find_or_create_by_email :email => ENV['ADMIN_USER_EMAIL'].dup, :password => ENV['ADMIN_USER_PASSWORD'].dup
-#AdminUser.create({ :email => ENV['ADMIN_USER_EMAIL'].dup, :password => ENV['ADMIN_USER_PASSWORD'].dup })
 puts "How many admin_users exist? : #{AdminUser.count.to_s}"
 
 # フレーズカテゴリー
