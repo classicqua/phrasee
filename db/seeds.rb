@@ -9,6 +9,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Environment variables (ENV['...']) are set in the file config/application.yml.
 # See http://railsapps.github.com/rails-environment-variables.html
+
+=begin
 puts 'ROLES'
 YAML.load(ENV['ROLES']).each do |role|
   Role.find_or_create_by_name({ :name => role }, :without_protection => true)
@@ -18,7 +20,12 @@ puts 'DEFAULT USERS'
 user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
 user.confirm!
-user.add_role :admin
+=end
+
+puts 'AdminUser'
+admin_user = AdminUser.find_or_create_by_email :email => ENV['ADMIN_USER_EMAIL'].dup, :password => ENV['ADMIN_USER_PASSWORD'].dup
+#AdminUser.create({ :email => ENV['ADMIN_USER_EMAIL'].dup, :password => ENV['ADMIN_USER_PASSWORD'].dup })
+puts "How many admin_users exist? : #{AdminUser.count.to_s}"
 
 # フレーズカテゴリー
 =begin
@@ -28,6 +35,6 @@ YAML.load(ENV['CATEGORIES']).each do |category|
   puts 'category: ' << category
 end
 =end
-Category.create([{ category_name: 'あいさつ' }, { category_name: '空港' }, { category_name: 'レストラン' }, { category_name: 'ホテル' }, 
+Category.create ([{ category_name: 'あいさつ' }, { category_name: '空港' }, { category_name: 'レストラン' }, { category_name: 'ホテル' }, 
   { category_name: 'お買い物' }, { category_name: '映画' }, { category_name: '本' }, { category_name: '音楽' }, 
-  { category_name: 'ビジネス' }, { category_name: 'コンピュータ' }, { category_name: 'その他' } ])
+  { category_name: 'ビジネス' }, { category_name: 'コンピュータ' }, { category_name: 'その他' } ]) unless Category.count > 0

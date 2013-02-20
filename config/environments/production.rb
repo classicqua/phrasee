@@ -67,7 +67,8 @@ Phrasee::Application.configure do
   #config.action_mailer.default_url_options = { :host => 'example.com' }
   #config.action_mailer.default_url_options = { :host => 'smtp.mandrillapp.com' }
   #config.action_mailer.default_url_options = { :host => 'phrasee.herokuapp.com' }
-  config.action_mailer.default_url_options = { :host => "#{Socket.gethostname}"}
+  #config.action_mailer.default_url_options = { :host => 'phrasee.jp'}
+  config.action_mailer.default_url_options = { :host => 'phrasee-sq-classicqua.sqale.jp'}
 
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
