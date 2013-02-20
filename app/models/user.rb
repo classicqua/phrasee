@@ -52,7 +52,8 @@ class User < ActiveRecord::Base
 ### 本人確認メール送信前に登録するカラム ###
   validates :name,  presence:true, length:{ minimum:1, maximum:30 }
   validates :email, presence:true, length:{ minimum:1, maximum:100 }
-  #validates :encrypted_password, presence:true
+  validates :password, presence:true, length:{ minimum:6 }
+  validates :encrypted_password, presence:true
 
 ### 以下のカラムは「更新」のときだけ必須にする（本人確認のときは登録しないので） ###
 

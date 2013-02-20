@@ -21,7 +21,8 @@ group :development, :test do
   gem 'spork', '0.9.2'
   gem 'pry-rails'
   gem 'pry-doc'
-
+  gem 'pry-debugger'
+  gem 'pry-exception_explorer'
 end
 
 group :assets do
