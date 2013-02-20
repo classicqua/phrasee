@@ -3,6 +3,8 @@ gem 'rails', '3.2.11'
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 # 定数管理
