@@ -134,10 +134,10 @@ GEM
     method_source (0.8.1)
     mime-types (1.20.1)
     multi_json (1.5.0)
+    mysql2 (0.3.11)
     nested_form (0.3.1)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
-    pg (0.14.1)
     polyglot (0.3.3)
     pry (0.9.11.4)
       coderay (~> 1.0.5)
@@ -282,7 +282,7 @@ DEPENDENCIES
   hub (>= 1.10.2)
   jquery-rails
   kaminari
-  pg
+  mysql2
   pry-doc
   pry-rails
   quiet_assets (>= 1.0.1)
