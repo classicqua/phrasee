@@ -16,6 +16,8 @@
       <div class="nav-collapse collapse">
         <div class="navbar-content">
           <ul class="nav  pull-right">
+
+            <% if !Rails.env.production? %><%# 検索システムが完成するまでproduction環境では非表示にしておく %>
             <!-- 検索フォーム -->
             <li>
               <form class="navbar-form">
@@ -24,7 +26,8 @@
                   <button type="submit" class="btn search-phrase"><i class="icon-search"></i></button>
                 </div>
               </form>
-            </li>
+            </li>  
+            <% end %>
 
           <% if signed_in? %>   
             <li id="fat-menu" class="dropdown">
