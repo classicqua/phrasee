@@ -48,12 +48,6 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   #has_many :phrases, through: :favorites
 
-  # プロフィール画像アップローダー
-  mount_uploader :profile_image, ProfileImageUploader
-  #validates_presence_of :profile_image # プロフィール画像は任意なのでコメントアウト
-  #validates_integrity_of :profile_image
-  validates_processing_of :profile_image # アップロード時のエラー
-
 
 ### 本人確認メール送信前に登録するカラム ###
   validates :name,  presence:true, length:{ minimum:1, maximum:30 }
@@ -65,6 +59,10 @@ class User < ActiveRecord::Base
   ## 本人確認後に登録する情報（=UPDATEする）
 
   # 公開情報
+  mount_uploader :profile_image, ProfileImageUploader # プロフィール画像アップローダー
+  #validates_presence_of :profile_image # プロフィール画像は任意なのでコメントアウト
+  #validates_integrity_of :profile_image
+  validates_processing_of :profile_image # アップロード時のエラー
   #validates :profile_image, presence:true
   validates :introduction, length:{ maximum:255 }
   
@@ -85,7 +83,7 @@ class User < ActiveRecord::Base
   end
 
 
-## お気に入り
+## お気に入り関連 ###
 
   # お気に入りに追加
   def favorite_on!(phrase)

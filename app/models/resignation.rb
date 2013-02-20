@@ -10,4 +10,6 @@
 
 class Resignation < ActiveRecord::Base
   attr_accessible :reason
+
+  validates :reason, length:{ maximum:250 }
 end

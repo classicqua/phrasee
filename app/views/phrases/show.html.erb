@@ -40,7 +40,7 @@
     </div>
 
     <!-- 出典・引用元 -->
-    <p class="muted">出典：<%= @phrase.source %></p>
+    <p class="muted"><%= "出典：#{@phrase.source}" unless @phrase.source.blank? %></p>
   </div>
 
   <!-- 投稿者 -->

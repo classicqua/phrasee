@@ -29,18 +29,13 @@ class FavoritesController < ApplicationController
     end
 
     begin
-      # 二重登録防止
-      count = Favorite.where( 'phrase_id = :phrase_id AND user_id = :user_id', { phrase_id: @phrase.id, user_id: current_user.id } ).count  
-    rescue Exception => e
-      if count > 0
-        flash[:error] = 'お気に入りに追加できませんでした。'
-        redirect_to @phrase
-        return
-      end  
+      # お気に入り追加
+      current_user.favorite_on!(@phrase)
+    rescue Exception => e # 二重登録防止
+      flash[:error] = 'お気に入りに追加できませんでした。'
+      redirect_to root_url
+      return
     end
-
-    # お気に入り追加
-    current_user.favorite_on!(@phrase)
 
     respond_to do |format|
       format.html { redirect_to @phrase, notice: 'お気に入りに追加しました。' }
@@ -57,16 +52,17 @@ class FavoritesController < ApplicationController
   # DELETE /users/:id/favorites/:id(.:format) 
   def destroy
     begin
+
       @favorite = current_user.favorites.find_by_phrase_id(params[:favorite][:phrase_id])  
       @phrase = Phrase.find(@favorite.phrase_id) # リダイレクト用
+
+      # お気に入りから削除
+      current_user.favorite_off!(@favorite)
     rescue Exception => e # 存在しないfavoriteを削除しようとしたときなど
       flash[:error] = 'お気に入りから削除できませんでした。'
-      redirect_to @phrase
+      redirect_to root_url
       return
     end   
-
-    # お気に入りから削除
-    current_user.favorite_off!(@favorite)
 
     respond_to do |format|
       format.html { redirect_to @phrase, notice: 'お気に入りから削除しました。' }

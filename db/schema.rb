@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219034751) do
+ActiveRecord::Schema.define(:version => 20130219115415) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",               :default => "", :null => false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20130219034751) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
+
+  add_index "favorites", ["user_id", "phrase_id"], :name => "index_favorites_on_user_id_and_phrase_id", :unique => true
 
   create_table "goikens", :force => true do |t|
     t.text     "body"
