@@ -78,4 +78,6 @@ pickle-email-*.html
 
 # Ignore user icons
 /public/uploads/user/profile_image/*
-public/uploads/*
+/public/uploads/tmp/*
+/public/uploads/*
+
