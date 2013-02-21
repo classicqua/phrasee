@@ -26,9 +26,17 @@ db/*.sqlite3
 #------------------------
 
 #--- Ignore user icons ---
-/public/uploads/user/profile_image/*
-/public/uploads/tmp/*
+/public/uploads
+/public/uploads/tmp
+/public/uploads/user/profile_image
+
+/public/uploads/
+/public/uploads/tmp/
+/public/uploads/user/profile_image/
+
 /public/uploads/*
+/public/uploads/tmp/*
+/public/uploads/user/profile_image/*
 #------------------------
 
 # various artifacts
