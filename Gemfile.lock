@@ -32,6 +32,7 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    aws_cf_signer (0.1.1)
     bcrypt-ruby (3.0.1)
     better_errors (0.5.0)
       coderay (>= 1.0.0)
@@ -55,6 +56,9 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.3.7)
       ffi (~> 1.0, >= 1.0.6)
+    cloudinary (1.0.44)
+      aws_cf_signer
+      rest-client
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -214,6 +218,8 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     remotipart (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rmagick (2.13.2)
     rolify (3.2.0)
     rspec-core (2.12.2)
@@ -288,6 +294,7 @@ DEPENDENCIES
   cancan (>= 1.6.8)
   capybara (>= 2.0.2)
   carrierwave
+  cloudinary
   coffee-rails (~> 3.2.1)
   country_select
   database_cleaner (>= 0.9.1)

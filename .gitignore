@@ -23,6 +23,7 @@ db/*.sqlite3
 #--- Ignore in GitHub ---
 /config/database.yml
 /config/application.yml
+/config/cloudinary.yml
 #------------------------
 
 #--- Ignore user icons ---
