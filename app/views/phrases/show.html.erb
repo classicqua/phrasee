@@ -40,7 +40,11 @@
     </div>
 
     <!-- 出典・引用元 -->
-    <p class="muted"><%= "出典：#{@phrase.source}" unless @phrase.source.blank? %></p>
+    <% unless @phrase.source.blank?  %>
+    <p class="muted">
+      出典・参考：<%= show_linkable_source(@phrase.source) %>
+    </p>
+    <% end %>  
   </div>
 
   <!-- 投稿者 -->
