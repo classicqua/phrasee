@@ -17,17 +17,18 @@
 <ul class="users_list unstyled">
   <% @users.each do |user| %>
     <li class="ph_phrase_item">
-
-      <!-- メンバー画像 -->
-      <%= link_to user_path(user), { class:"" } do %>
-        <% if user.profile_image.present? %>
-          <%= image_tag(user.profile_image_url(:thumb), { alt:"user-icon", class:"img-polaroid", size:"44x44" }) %> 
-        <% else %>
-          <%= image_tag("icons/44x44.gif", { alt:"user-icon", class:"img-polaroid", size:"44x44" }) %>
-        <% end %>
-      <% end %>
-
-      <%= link_to user.name, user %>
+      <ol class="inline">
+        <li style="width:70px;">
+          <!-- メンバー画像 -->
+          <%= link_to user_path(user), { class:"" } do %>
+             <%= render partial: 'devise/shared/profile_image', locals:{ user: user, type: :thumb } %>
+          <% end %>
+        </li>
+        <li>
+          <!-- メンバー名 -->
+          <%= link_to user.name, user %>
+        </li>
+      </ol>
     </li>
   <% end %>
 </ul>

@@ -2,22 +2,24 @@
 
 class ProfileImageUploader < CarrierWave::Uploader::Base
 
+
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+  include Cloudinary::CarrierWave # 画像クラウド
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file # 2013.2.22 コメントアウト（cloudinaryを使うため）
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  #  "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}" # 2013.2.22 コメントアウト（cloudinaryを使うため）
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -42,6 +44,9 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   # end
   version :thumb do
     process :resize_to_fit  => [64, 64] # image_url(:thumb)で指定したときのサイズ
+  end
+  version :icon do
+    process :resize_to_fit  => [44, 44] # image_url(:icon)で指定したときのサイズ
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -21,12 +21,8 @@
         <div class="fileupload fileupload-new" data-provides="fileupload">
 
           <%# 画像表示領域 %>
-          <div class="fileupload-new thumbnail " style="max-width: 200px; max-height: 200px; line-height: 20px; background-color:#FFFFFF;">
-            <% if user.profile_image? %>
-              <%= image_tag(user.profile_image_url.to_s, { class:"", style:"max-height: 150px;" }) %>
-            <% else %>
-            <%= image_tag("icons/200x200.gif", { alt:"user-icon", class:"img-polaroid", size:"190x190" }) %>
-            <% end %>
+          <div class="fileupload-new thumbnail " style="max-width: 210px; max-height: 210px; line-height: 20px; background-color:#FFFFFF;">
+            <%= render partial: 'devise/shared/profile_image', locals:{ user: user } %>
           </div>
 
           <%# 画像選択・変更・削除ボタン %>

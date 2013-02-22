@@ -8,11 +8,7 @@
       
       <%# プロフィール画像 %>
       <div class="well ph_well-cancel-color ph_pr_img">
-        <% if @user.profile_image.present? %>
-          <%= image_tag(@user.profile_image_url, { alt:"user-icon", class:"img-polaroid", style:"max-height: 200px;" }) %> 
-        <% else %>
-          <%= image_tag("icons/200x200.gif", { alt:"user-icon", class:"img-polaroid", size:"200x200" }) %> 
-        <% end %>
+        <%= render partial: 'devise/shared/profile_image', locals:{ user:@user } %>
       </div>
 
       <%# 自己紹介 %>

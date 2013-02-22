@@ -13,11 +13,7 @@
 
         <%# コメント者画像（リンク付き） %>
         <%= link_to user_path(comment.user_id), { class:"pull-left" } do %>
-          <% if commented_user.profile_image.present? %>
-            <%= image_tag(commented_user.profile_image_url(:thumb), { alt:"comment-user-icon", class:"img-polaroid", style:"max-height: 64px;" }) %> 
-          <% else %>
-            <%= image_tag("icons/64x64.gif", { alt:"user-icon", class:"img-polaroid", size:"64x64" }) %>
-          <% end %>
+          <%= render partial: 'devise/shared/profile_image', locals:{ user: commented_user, type: :thumb } %>
         <% end %>
 
         <div class="media-body">

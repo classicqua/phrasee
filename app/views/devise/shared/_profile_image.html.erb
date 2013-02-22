@@ -1,0 +1,13 @@
+
+<% type = type.blank? ? nil : type # type=:thumbでサムネイルサイズ %>
+
+<% if user.profile_image.present? %>
+  <%# cloudinaryで画像管理 %>
+  <%= cl_image_tag( user.profile_image_url(type).to_s, width:200, height:200, crop: :fit, alt:"user-profile-image", class:"img-polaroid") %>
+<% else %> 
+  <% if(type==:thumb) %>
+    <%= image_tag("icons/64x64.gif", { alt:"user-icon", class:"img-polaroid" }) %> 
+  <% else %>
+    <%= image_tag("icons/200x200.gif", { alt:"user-icon", class:"img-polaroid" }) %> 
+  <% end %>
+<% end %>

@@ -49,11 +49,7 @@
 
       <!-- メンバー画像 -->
       <%= link_to user_path(@phrase.user), { class:"pull-left" } do %>
-        <% if @phrase.user.profile_image.present? %>
-          <%= image_tag(@phrase.user.profile_image_url(:thumb), { alt:"post-icon", class:"img-polaroid" }) %> 
-        <% else %>
-          <%= image_tag("icons/80x80.gif", { alt:"phrasee-icon", class:"img-polaroid", size:"80x80" }) %> 
-        <% end %>
+        <%= render partial: 'devise/shared/profile_image', locals:{ user: @phrase.user, type: :thumb } %>
       <% end %>
 
       <!-- エピソード本文 -->
