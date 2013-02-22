@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   #before_filter :authenticate_user!
 
   def index
-    @users = User.paginate(page:params[:page], per_page:10)
+    # 本人確認済の人だけ一覧表示
+    @users = User.where("confirmed_at is NOT NULL").paginate(page:params[:page], per_page:10)
   end
 
   def show
