@@ -64,10 +64,7 @@ Phrasee::Application.configure do
   config.active_support.deprecation = :notify
 
   #config.action_mailer.default_url_options = { :host => 'example.com' }
-  #config.action_mailer.default_url_options = { :host => 'smtp.mandrillapp.com' }
-  #config.action_mailer.default_url_options = { :host => 'phrasee.herokuapp.com' }
-  #config.action_mailer.default_url_options = { :host => 'phrasee.jp'} # ドメイン有効になったらこちらに変更
-  config.action_mailer.default_url_options = { :host => 'phrasee-sq-classicqua.sqale.jp'}
+  config.action_mailer.default_url_options = { :host => ENV["MAILER_DEF_URL"] }
 
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
