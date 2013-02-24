@@ -27,6 +27,28 @@ admin_user = AdminUser.find_or_create_by_email :email => ENV['ADMIN_USER_EMAIL']
 puts "How many admin_users exist? : #{AdminUser.count.to_s}"
 
 # フレーズカテゴリー
+categories = [
+ "あいさつ",
+ "旅行",
+ "ホテル",
+ "空港",
+ "レストラン",
+ "お買い物",
+ "映画",
+ "本",
+ "音楽",
+ "ビジネス",
+ "コンピュータ",
+ "子育て",
+ "名言",
+ "おもしろネタ",
+ "その他"
+]
+categories.each do |c|
+  Category.find_or_create_by_category_name({ :category_name => c }, :without_protection => true)
+end
+
+=begin
 Category.create ([
  { category_name: 'あいさつ' },
  { category_name: '旅行' },
@@ -43,3 +65,4 @@ Category.create ([
  { category_name: '名言' },
  { category_name: 'おもしろネタ' },
  { category_name: 'その他' } ]) unless Category.count > 0
+=end
