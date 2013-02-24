@@ -16,19 +16,23 @@ namespace :db do
                    password_confirmation: password)
     end
 
-    # ダミー
+    # フレーズカテゴリー
     Category.create!([
-      { category_name: 'あいさつ' }, 
-      { category_name: '空港' }, 
-      { category_name: 'レストラン' }, 
-      { category_name: 'ホテル' }, 
-      { category_name: 'お買い物' }, 
-      { category_name: '映画' }, 
-      { category_name: '本' }, 
-      { category_name: '音楽' }, 
-      { category_name: 'ビジネス' }, 
-      { category_name: 'コンピュータ' }, 
-      { category_name: 'その他' } ]) if Category.count == 0
+      { category_name: 'あいさつ' },
+      { category_name: '旅行' },
+      { category_name: 'ホテル' },
+      { category_name: '空港' },
+      { category_name: 'レストラン' },
+      { category_name: 'お買い物' },
+      { category_name: '映画' },
+      { category_name: '本' },
+      { category_name: '音楽' },
+      { category_name: 'ビジネス' },
+      { category_name: 'コンピュータ' },
+      { category_name: '子育て' },
+      { category_name: '名言' },
+      { category_name: 'おもしろネタ' },
+      { category_name: 'その他' } ])  if Category.count == 0
 
 =begin
     20.times do

@@ -27,13 +27,19 @@ admin_user = AdminUser.find_or_create_by_email :email => ENV['ADMIN_USER_EMAIL']
 puts "How many admin_users exist? : #{AdminUser.count.to_s}"
 
 # フレーズカテゴリー
-=begin
-#CATEGORIES: ['あいさつ', '空港', 'レストラン', 'ホテル', 'お買い物', '映画', '本', '音楽', 'ビジネス', 'コンピュータ', 'その他']
-YAML.load(ENV['CATEGORIES']).each do |category|
-  Category.find_or_create_by_category_name({ :category_name => category }, :without_protection => true)
-  puts 'category: ' << category
-end
-=end
-Category.create ([{ category_name: 'あいさつ' }, { category_name: '空港' }, { category_name: 'レストラン' }, { category_name: 'ホテル' }, 
-  { category_name: 'お買い物' }, { category_name: '映画' }, { category_name: '本' }, { category_name: '音楽' }, 
-  { category_name: 'ビジネス' }, { category_name: 'コンピュータ' }, { category_name: 'その他' } ]) unless Category.count > 0
+Category.create ([
+ { category_name: 'あいさつ' },
+ { category_name: '旅行' },
+ { category_name: 'ホテル' },
+ { category_name: '空港' },
+ { category_name: 'レストラン' },
+ { category_name: 'お買い物' },
+ { category_name: '映画' },
+ { category_name: '本' },
+ { category_name: '音楽' },
+ { category_name: 'ビジネス' },
+ { category_name: 'コンピュータ' },
+ { category_name: '子育て' },
+ { category_name: '名言' },
+ { category_name: 'おもしろネタ' },
+ { category_name: 'その他' } ]) unless Category.count > 0
