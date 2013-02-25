@@ -1,5 +1,7 @@
 #coding: utf-8
 module CategoryHelper
+
+  # 以下のmy_categoriesで指定した順にカテゴリーを並べ替えたレコードを返す
   def get_category_all
 
     ct = [] # 並び替えたカテゴリーレコード一覧

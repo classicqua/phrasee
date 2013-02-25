@@ -55,12 +55,15 @@ gem 'bcrypt-ruby', '>= 3.0.1'
 gem 'will_paginate', '>= 3.0.3'
 gem 'bootstrap-will_paginate', '>= 0.0.6'
 
-  
 gem 'carrierwave'
 gem 'rmagick', '2.13.2'
 gem 'cloudinary' # 2/22追加
 gem 'kaminari' # 2/19追加
 gem 'rails_admin' # 2/19追加
+
+# SEO
+gem 'meta-tags', :require => 'meta_tags' # 2/25追加
+gem 'sitemap_generator' # 2/25追加
 
 group :production do
   gem 'pg' # heroku用

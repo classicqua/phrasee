@@ -1,7 +1,7 @@
 #coding: utf-8
 class ApplicationController < ActionController::Base
   include CategoryHelper
-  
+
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|

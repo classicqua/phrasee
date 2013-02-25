@@ -3,8 +3,34 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title><%= content_for?(:title) ? yield(:title) : "Phrasee!" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Phrasee" %>">
+
+    <%# Title  %>
+    <% basic_title = "[Phrasee]みんなでつくる英語フレーズ集" %>
+    <title><%= content_for?(:title) ? yield(:title) : basic_title %></title>
+
+    <%# Description  %>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Phraseeはみんなでつくる英語フレーズ集です。" %>">
+
+    <%# Keywords %>
+    <% plus_words = ["英語", "英会話", "フレーズ"] %>
+    <% keywords = plus_words.push(Category.all.map{|c|c.category_name}).join(", ") %>
+    <% set_meta_tags :keywords => keywords %>
+
+    <%# og %>
+    <% 
+    set_meta_tags :og => {
+      :title    => basic_title,
+      :type     => 'website',
+      :url      => 'http://www.phrasee.jp/',
+      :image    => 'http://www.phrasee.jp/apple-touch-icon.png',
+      :site_name    => 'みんなでつくる英語フレーズ集『Phrasee』'
+    } 
+    %>
+
+    <%# meta出力 %>
+    <%= display_meta_tags %>
+
+    <%# js/css %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= favicon_link_tag '/favicon.ico' %>
