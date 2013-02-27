@@ -56,31 +56,45 @@
     <%= f.input :password_confirmation, :required => false, :label => "新しいパスワード再入力（確認用）" %>
   <% end %>
 
+
+<% if 1 != 1 %><%# 個人情報聴取を中止したため非表示に。2013.2.27 %>
     <%# 性別 %>   
-    <% gen_checked = (user.gender.present? && user.gender>0 ) ? user.gender : 1 %>
-    <%= f.input :gender, as: :radio_buttons, required: true, collection: [['男性', 1], ['女性', 2]], label:' <b>性別</b>', checked:gen_checked %>
+    <div class="control-group">
+      <% gen_checked = (user.gender.present? && user.gender>0 ) ? user.gender : nil %>
+      <%= f.input :gender, as: :radio_buttons, required: false, collection: [['男性', 1], ['女性', 2]], 
+          label:' <b>性別</b>', checked:gen_checked %>
+      <input type="button" class="btn-mini reset_gender" value="リセット">
+    </div>
 
     <%# 生年月日 %>
-    <%= f.input :birth, as: :date, required: true,
-                  start_year: Date.today.year - 120, end_year: Date.today.year, # 120年前〜今年 
-                  default: (Date.today - 30.year).at_beginning_of_year,
-                  label:" <b>生年月日</b><small class='muted'>（年/月/日）</small>", input_html:{ style:"width:100px;" } %>
+    <div class="control-group">
+      <%= f.input :birth, as: :date, required: false , include_blank: true, 
+                    start_year: Date.today.year - 120, end_year: Date.today.year, # 120年前〜今年 
+                    default: (Date.today - 30.year).at_beginning_of_year,
+                    label:" <b>生年月日</b><small class='muted'>（年/月/日）</small>", input_html:{ style:"width:100px;" } %>
+    </div>
 
     <%# お住まいの国 %>
-    <%= f.input :country, as: :country, required: true, priority: ["Japan"],
-                  label:' <b>現在お住まいの国</b>' %>
-
+    <div class="control-group">
+      <%= f.input :country, as: :country, required: false, priority: ["Japan"], include_blank: true,
+                    label:' <b>現在お住まいの国</b>' %>
+    </div>
 
     <%# 郵便番号（日本国内在住者のみ） %>
-    <%= f.input :postal_code, required: true,
-                label:' <b>郵便番号</b><small>（日本にお住まいの方のみ）</small>', 
-                placeholder:"例.123-4567",
-                input_html: { id:"zip", class:"input-small", maxlength: 8 },
-                hint:'<small class="help-block" id="searced_address"></small>' %> 
+    <div class="control-group">
+      <%= f.input :postal_code, required: false,
+                  label:' <b>郵便番号</b><small>（日本にお住まいの方のみ）</small>', 
+                  placeholder:"例.123-4567",
+                  input_html: { id:"zip", class:"input-small", maxlength: 8 },
+                  hint:'<small class="help-block" id="searced_address"></small>' %> 
+    </div>
+<% end %>
 
     <%# メール配信設定 %>
-    <% mflg = "checked" unless user.mail_flg == false  %>
-    <%= f.input :mail_flg, required: false, inline_label: 'お知らせメールを受け取る', label:" <b>メール配信</b>", input_html:{ checked:mflg  } %>
+    <div class="control-group">
+      <% mflg = "checked" unless user.mail_flg == false  %>
+      <%= f.input :mail_flg, required: false, inline_label: 'お知らせメールを受け取る', label:" <b>メール配信</b>", input_html:{ checked:mflg  } %>
+    </div>
   </div>
 
 <% end %>

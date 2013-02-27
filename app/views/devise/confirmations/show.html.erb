@@ -24,16 +24,8 @@
       <%# 登録情報フォーム部品 %>
       <%= render :partial => 'devise/shared/account_items', :locals=>{:f=>f, :user => @user} %>
 
-      <%# 利用規約 %>
-      <div class="controls">
-        <label class="checkbox">
-          <%= f.check_box :agreement, checked:"checked" %>
-          <%= link_to "利用規約", terms_path %>を確認しました
-        </label>  
-      </div>
-
       <p>&nbsp;</p>
-      <%= f.button :submit, '規約に同意して登録する', :class => 'btn' %>
+      <%= f.button :submit, '登録する', :class => 'btn' %>
     </div>
   <% end %>
 

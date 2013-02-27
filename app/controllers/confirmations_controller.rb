@@ -22,7 +22,8 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   ## 登録STEP2
   # 1)性別などを入力→ 2)usersテーブルの該当レコードUPDATE → 3)成功したらconfirm処理 → 4)エラーなければ登録完了画面へ
-  # 
+  # →個人情報聴取とりやめのため1)は削除 2013.2.26
+  #
   # PUT /confirm 
   def confirm
     token = params[resource_name][:token_for_confirmation] 
@@ -38,48 +39,37 @@ class ConfirmationsController < Devise::ConfirmationsController
     lc_token_for_confirm = params[resource_name][:token_for_confirmation].clone
     params[resource_name].delete(:token_for_confirmation)
 
-    ### エラーチェック ###
-    if(params[resource_name][:agreement] != "1") # 利用規約に同意してなかったら差し戻す
-
-      #logger.debug('### 利用規約同意してない ###')
-      #logger.debug(params[resource_name][:agreement])
-
-      #set_flash_message(:error, :disagree_terms) 
-      flash.now[:alert] = I18n.t "devise.confirmations.user.disagree_terms"
-      render action:'show', confirmation_token: lc_token_for_confirm # アカウント設定画面にもどる
-    else 
     ### アカウント設定処理 ###
 
-      # 2)usersテーブルの該当レコードUPDATE（update_without_passwordメソッドを使う）
-      update_successfully_flg = @user.update_without_password(params[resource_name])
+    # 2)usersテーブルの該当レコードUPDATE（update_without_passwordメソッドを使う）
+    update_successfully_flg = @user.update_without_password(params[resource_name])
 
-      logger.debug('mejimeji ### UPATE結果 update_without_password ###')
-      logger.debug(update_successfully_flg)
+    logger.debug('mejimeji ### UPATE結果 update_without_password ###')
+    logger.debug(update_successfully_flg)
+    
+    # 3)成功したらconfirm処理
+    if update_successfully_flg 
       
-      # 3)成功したらconfirm処理
-      if update_successfully_flg 
-        
-        # 本人確認（confirm） ・・・ すでに認証済の人がアクセスしたときのエラー処理もこのメソッドがやってくれる
-        self.resource = resource_class.confirm_by_token(lc_token_for_confirm)
+      # 本人確認（confirm） ・・・ すでに認証済の人がアクセスしたときのエラー処理もこのメソッドがやってくれる
+      self.resource = resource_class.confirm_by_token(lc_token_for_confirm)
 
-        # 4)エラーなければ登録完了画面へ
-        if resource.errors.empty?
+      # 4)エラーなければ登録完了画面へ
+      if resource.errors.empty?
 
-            set_flash_message(:notice, :confirmed) if is_navigational_format?
-            sign_in(resource_name, resource) 
-            #respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
-            respond_with_navigational(resource){ redirect_to registered_url }
-        else
+          set_flash_message(:notice, :confirmed) if is_navigational_format?
+          sign_in(resource_name, resource) 
+          #respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
+          respond_with_navigational(resource){ redirect_to registered_url }
+      else
 
-          # confirm処理失敗時
-          respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render :show }
-        end
-      else 
-
-        # UPDATE失敗時
-        flash.now[:alert] = I18n.t "devise.confirmations.user.invalid_account_data"
-        render action:'show', confirmation_token: lc_token_for_confirm # アカウント設定画面にエラー表示
+        # confirm処理失敗時
+        respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render :show }
       end
+    else 
+
+      # UPDATE失敗時
+      flash.now[:alert] = I18n.t "devise.confirmations.user.invalid_account_data"
+      render action:'show', confirmation_token: lc_token_for_confirm # アカウント設定画面にエラー表示
     end
   end
 

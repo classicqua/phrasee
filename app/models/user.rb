@@ -41,19 +41,22 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :agreement,
-                  :profile_image, :introduction, :gender, :birth, :country, :postal_code, :mail_flg
+                  :profile_image, :introduction, :mail_flg
+                  #:gender, :birth, :country, :postal_code,
 
   has_many :phrases, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   #has_many :phrases, through: :favorites
 
-
 ### 本人確認メール送信前に登録するカラム ###
   validates :name,  presence:true, length:{ minimum:1, maximum:30 }
   validates :email, presence:true, length:{ minimum:1, maximum:100 }
   validates :password, presence:true, length:{ minimum:6 }, on: :create
   validates :encrypted_password, presence:true, on: :create
+
+  # 利用規約への同意フラグ（カラムなし）
+  validates_acceptance_of :agreement, :allow_nil => false, :message => "※会員登録には利用規約への同意が必要です。", :on => :create
 
 ### 以下のカラムは「更新」のときだけ必須にする（本人確認のときは登録しないので） ###
 
@@ -66,22 +69,34 @@ class User < ActiveRecord::Base
   validates_processing_of :profile_image # アップロード時のエラー
   #validates :profile_image, presence:true
   validates :introduction, length:{ maximum:255 }
-  
+
   # 非公開アカウント情報
-  validates :gender, presence:true, on: :update
-  validates :birth, presence:true, on: :update
-  validates :country, presence:true, on: :update
-  validates :postal_code, presence:true, :if => :need_postal_code?,
-                           length:{ minimum:7, maximum:8 }, on: :update
   #validates :mail_flg, presence:true, on: :update
 
-  # 利用規約への同意フラグ（カラムなし）
-  validates_acceptance_of :agreement
-  
 
-  def need_postal_code?
-    self.country.downcase == "japan" # 日本在住者は郵便番号必須
+### 個人情報取得中止のためコメントアウト 2013.2.26 ###  
+=begin
+  #validates :gender, presence:true, on: :update
+  #validates :birth, presence:true, on: :update 
+  #validates :country, presence:true, on: :update
+
+  # 郵便番号 →任意項目に変更 2013.2.25
+  #validates :postal_code, presence:true, :if => :need_postal_code?,
+  #                         length:{ minimum:7, maximum:8 }, on: :update
+  # 任意項目に変更 2013.2.25
+  validates :postal_code, length:{ minimum:7, maximum:8 }, :if => :set_postal_code?, on: :update
+ 
+
+# 任意項目に変更 2013.2.25
+#  def need_postal_code?
+#    self.country.downcase == "japan" # 日本在住者は郵便番号必須
+#  end
+
+  # 郵便番号が入力されてるか？
+  def set_postal_code?
+    !self.postal_code.blank?
   end
+=end
 
 
 ## お気に入り関連 ###
