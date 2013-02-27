@@ -73,32 +73,6 @@ class User < ActiveRecord::Base
   # 非公開アカウント情報
   #validates :mail_flg, presence:true, on: :update
 
-
-### 個人情報取得中止のためコメントアウト 2013.2.26 ###  
-=begin
-  #validates :gender, presence:true, on: :update
-  #validates :birth, presence:true, on: :update 
-  #validates :country, presence:true, on: :update
-
-  # 郵便番号 →任意項目に変更 2013.2.25
-  #validates :postal_code, presence:true, :if => :need_postal_code?,
-  #                         length:{ minimum:7, maximum:8 }, on: :update
-  # 任意項目に変更 2013.2.25
-  validates :postal_code, length:{ minimum:7, maximum:8 }, :if => :set_postal_code?, on: :update
- 
-
-# 任意項目に変更 2013.2.25
-#  def need_postal_code?
-#    self.country.downcase == "japan" # 日本在住者は郵便番号必須
-#  end
-
-  # 郵便番号が入力されてるか？
-  def set_postal_code?
-    !self.postal_code.blank?
-  end
-=end
-
-
 ## お気に入り関連 ###
 
   # お気に入りに追加
