@@ -3,6 +3,9 @@
 
 .show_phrase_container {
   @include well-box(#FFFAF0);
+  .title_phrase a{
+    color: #000;
+  }
 }
 
 .index_phrase_container {

@@ -1,4 +1,5 @@
 <% provide(:title, "『#{@phrase.japanese}』の英語・英会話フレーズ|#{@phrase.english}|Phrasee") %>
+<% provide(:description, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
 
 <!-- main -->
 <div class="container">
@@ -23,26 +24,26 @@
   <!-- 投稿フレーズ -->
   <div class="container">
     <div class="well show_phrase_container">
-      <h1><%= @phrase.japanese %></h1>
-      <h1><%= @phrase.english %></h1>
+      <h1 class="title_phrase"><%= link_to @phrase.japanese, @phrase %></h1>
+      <h1 class="title_phrase"><%= link_to @phrase.english, @phrase %></h1>
+      
       <div>
-
-      <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
-      <% if user_signed_in? && @phrase.user == current_user %>
-        <%= link_to "編集する", edit_phrase_path(@phrase), class:"btn btn-small" %>
-        <%= link_to "削除する", phrase_path, method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
-              title:@phrase.japanese, class:"btn btn-small btn-danger" %>
-      <% else %>
-        <!-- お気に入り追加/削除フォーム（ボタン） -->
-        <%= render 'favorites/favorite_form' %>
-      <% end %>
+        <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
+        <% if user_signed_in? && @phrase.user == current_user %>
+          <%= link_to "編集する", edit_phrase_path(@phrase), class:"btn btn-small" %>
+          <%= link_to "削除する", phrase_path, method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
+                title:@phrase.japanese, class:"btn btn-small btn-danger" %>
+        <% else %>
+          <!-- お気に入り追加/削除フォーム（ボタン） -->
+          <%= render 'favorites/favorite_form' %>
+        <% end %>
       </div>
     </div>
 
     <!-- 出典・引用元 -->
     <% unless @phrase.source.blank?  %>
     <p class="muted">
-      出典・参考：<%= show_linkable_source(@phrase.source) %>
+      <small>出典・参考：</small><%= show_linkable_source(@phrase.source) %>
     </p>
     <% end %>  
   </div>
