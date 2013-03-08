@@ -4,7 +4,8 @@
     <div class="well ph_well-box"><%# 白囲み表示or囲み無し切り替え用 %>
 
     <% if @user.present? %>
-      <legend ><strong><%= @user.name %></strong>さん</legend>
+      <legend>
+        <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_071_book.png', { alt:"phrase-book-icon", size:"16x16" } ) %>&nbsp;<strong><%= @user.name %></strong>さんのフレーズブック</legend>
       
       <%# プロフィール画像 %>
       <div class="well ph_well-cancel-color ph_pr_img">

@@ -6,7 +6,7 @@ module CategoryHelper
 
     ct = [] # 並び替えたカテゴリーレコード一覧
     my_categories = [
-     "あいさつ",
+     "あいさつ・日常会話",
      "旅行",
      "ホテル",
      "空港",
