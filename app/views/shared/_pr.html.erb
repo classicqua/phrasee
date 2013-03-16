@@ -1,0 +1,11 @@
+<%# アカウント登録へのリンク %>
+<% unless signed_in? %> 
+<div class="row-fluid">
+  <div class="alert alert-info span6" >
+    <%= link_to new_user_registration_path do %>
+    <i class="icon-book "></i>
+    <%= "会員登録（無料）してマイフレーズ集をつくろう！" %>
+    <% end %>
+  </div>
+</div>
+<% end %>
