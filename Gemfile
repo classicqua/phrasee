@@ -65,6 +65,10 @@ gem 'rails_admin' # 2/19追加
 gem 'meta-tags', :require => 'meta_tags' # 2/25追加
 gem 'sitemap_generator' # 2/25追加
 
+# for twitter auth 2013.4.11 追加
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 group :production do
   gem 'pg' # heroku用
   # gem 'mysql2' # sqale用

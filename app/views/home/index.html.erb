@@ -1,13 +1,18 @@
-<% provide(:title, "英語の名言・英会話フレーズなど満載！みんなでつくる英語フレーズ集『Phrasee』") %>
+<% provide(:title, "みんなでつくる英語フレーズ集 | 英語の名言・英会話フレーズ集なら『Phrasee』") %>
 
 <div class="container">
   <!-- page header -->
   <div class="page-header">
+
     <h1>
     <%= link_to guide_path do %>
     <%= "みんなでつくる英語フレーズ集『Phrasee』" %>
     <% end %>
     </h1>
+
+    <%# ソーシャルボタン %>
+    <%= render 'shared/social-buttons' %>
+
     <%# アカウント登録へのリンク %>
     <%= render 'shared/pr' %>
   </div>
