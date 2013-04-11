@@ -3,16 +3,21 @@
 <div class="container">
   <!-- page header -->
   <div class="page-header">
+    <div class="row-fluid">
 
-    <h1>
-    <%= link_to guide_path do %>
-    <%= "みんなでつくる英語フレーズ集『Phrasee』" %>
-    <% end %>
-    </h1>
+      <div class="span6">
+        <h1>
+        <%= link_to guide_path do %>
+        <%= "みんなでつくる英語フレーズ集『Phrasee』" %>
+        <% end %>
+        </h1>
+      </div>
 
-    <%# ソーシャルボタン %>
-    <%= render 'shared/social-buttons' %>
-
+      <div class="span6 social-buttons">
+      <%# ソーシャルボタン %>
+      <%= render 'shared/social-buttons' %>
+      </div>
+    </div>
     <%# アカウント登録へのリンク %>
     <%= render 'shared/pr' %>
   </div>
