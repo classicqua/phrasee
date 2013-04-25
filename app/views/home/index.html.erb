@@ -7,7 +7,7 @@
 
       <div class="span6">
         <h1>
-        <%= link_to guide_path do %>
+        <%= link_to guide_path, title:"Phraseeとは？使い方の説明などはこちらから" do %>
         <%= "みんなでつくる英語フレーズ集『Phrasee』" %>
         <% end %>
         </h1>
@@ -35,7 +35,7 @@
             <% @phrases.each do |phrase| %>
               <li class="ph_phrase_item">
                 <% japanese_phrase = phrase.japanese %>
-                <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase_path(phrase) %>
+                <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら" } %>
               </li>
             <% end %>
           </ul>
@@ -59,7 +59,7 @@
       <div class="span6 ph_phrase_box well">
           <%# カテゴリー名 %>
           <h1 class="ph_category">
-            <%= link_to category_path(category), { class:"ph_category_link" } do %>
+            <%= link_to category_path(category), { class:"ph_category_link", title:"『#{category.category_name}』の英語フレーズ一覧はこちら" } do %>
               <%= category.category_name %><small>（<%= category.phrases.count %>件）</small>
             <% end %>
           </h1>
@@ -70,12 +70,12 @@
               <% category.phrases[0..4].each do |phrase| %>
                 <li class="ph_phrase_item">
                   <% japanese_phrase = phrase.japanese %>
-                  <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase %>
+                  <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase, { title:"『#{japanese_phrase}』の英語フレーズはこちら" } %>
                 </li>
               <% end %>
             </ul>
             <p class="ph_last_item">
-              <small><%= link_to "『#{category.category_name}』の英語フレーズをすべて見る", category_path(category) %></small>
+              <small><%= link_to "『#{category.category_name}』の英語フレーズをすべて見る", category_path(category), { title:"『#{category.category_name}』の英語フレーズ一覧はこちら" } %></small>
             </p>            
           <% else %>
             このカテゴリーに該当するフレーズはまだありません。

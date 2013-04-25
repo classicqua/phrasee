@@ -17,4 +17,4 @@
   <%= render 'phrase_form', { url_path: phrase_path(@phrase), http_req: :put } %>
 
   <p>&nbsp;</p>
-  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/top-page_link' %>

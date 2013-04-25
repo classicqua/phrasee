@@ -2,9 +2,9 @@
 <% unless signed_in? %> 
 <div class="row-fluid">
   <div class="alert alert-info span6" >
-    <%= link_to new_user_registration_path do %>
+    <%= link_to new_user_registration_path, title:"あなたが覚えた英語フレーズをマイページに記録しよう！" do %>
     <i class="icon-book "></i>
-    <%= "日本最大級の英語フレーズ辞典を一緒に作ってみませんか? " %>
+    <%= "【無料】日本最大級の英語フレーズ辞典を一緒につくってみませんか? " %>
     <% end %>
   </div>
 </div>

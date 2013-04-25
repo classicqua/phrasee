@@ -26,6 +26,6 @@
   <!-- /div -->
 
   <p>&nbsp;</p>
-  <p><%= link_to "退会はこちらから", resign_path %></p>   
-  <p><%= link_to "トップページへ", root_path %></p>
+  <p><%= link_to "退会はこちらから", resign_path, rel:"nofollow" %></p>   
+  <%= render 'shared/top-page_link' %>
 </div>

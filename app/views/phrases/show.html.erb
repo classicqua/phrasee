@@ -58,20 +58,24 @@
 
   <!-- 投稿者 -->
   <div class="media">
-    <!--div class="page-header"-->
 
       <!-- メンバー画像 -->
-      <%= link_to user_path(@phrase.user), { class:"pull-left" } do %>
+      <%= link_to user_path(@phrase.user), { class:"pull-left", title:"#{@phrase.user.name}さんのフレーズブックはこちら" } do %>
         <%= render partial: 'devise/shared/profile_image', locals:{ user: @phrase.user, type: :thumb } %>
       <% end %>
 
       <!-- エピソード本文 -->
       <div class="media-body">
-        <h4 class="media-heading"><%= link_to @phrase.user.name, user_path(@phrase.user) %></h4>
+        <h4 class="media-heading"><%= link_to @phrase.user.name, user_path(@phrase.user), title:"#{@phrase.user.name}さんのフレーズブックはこちら" %></h4>
         <p class="muted"><%= @phrase.updated_at.to_s(:db) %></p><%# UTCからJST（日本時間）に変換 %>
-        <%= simple_format(@phrase.story, class:"lead") %>
+        <%= simple_format(show_linkable_source(@phrase.story), class:"lead") %>
       </div>
     </div>
+
+  <p><%= link_to "#{@phrase.user.name}さんの投稿フレーズ一覧を見る", posts_user_path(@phrase.user), title:"#{@phrase.user.name}さんの投稿フレーズ一覧はこちら"  %></p>
+  <p><%= link_to "『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧を見る" , category_path(@phrase.category.id), title:"『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧はこちら" %></p>
+
+
   <!--/div-->
   <hr> 
 
@@ -81,15 +85,13 @@
   <!-- コメント投稿フォーム -->
   <%= render 'comments/comment_form', { url_path: comments_path, http_req: :post } %>
 
+
   <p>&nbsp;</p>
-  <p><%= link_to "#{@phrase.user.name}さんの投稿フレーズ一覧を見る", posts_user_path(@phrase.user) %></p>
-  <p><%= link_to "『#{@phrase.category.category_name}』カテゴリーのフレーズ一覧を見る" , category_path(@phrase.category.id) %></p>
-  <p>&nbsp;</p>
-  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/top-page_link' %>
   <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
 </div>
-  <%#= render "shared/comment"  %>
+
 <script type="text/javascript">
 $(function(){
   $("span.label-important").remove();

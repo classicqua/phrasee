@@ -26,7 +26,7 @@
         <label class="checkbox">
           <%= f.input :agreement, :as => :hidden %><%# エラーメッセージ表示用 %>
           <%= f.check_box :agreement, :as => :boolean, checked:false %>
-          <%= link_to "利用規約", terms_path, { target:"blank" } %>に同意する
+          <%= link_to "利用規約", terms_path, { target:"blank", rel:"nofollow" } %>に同意する
         </label>
         <small class="help-block">※利用規約に同意できない場合は登録をご遠慮ください。</small>
       </div>
@@ -37,6 +37,6 @@
     <%= render "devise/shared/links" if resource.errors.any?  %>
 
     <p>&nbsp;</p>
-    <p><%= link_to "トップページへ", root_path %></p>    
+    <%= render 'shared/top-page_link' %>  
   </div>
 </div>

@@ -12,14 +12,14 @@
       <li class="media">
 
         <%# コメント者画像（リンク付き） %>
-        <%= link_to user_path(comment.user_id), { class:"pull-left" } do %>
+        <%= link_to user_path(comment.user_id), { class:"pull-left", title:"#{commented_user.name}さんのフレーズブックはこちら"  } do %>
           <%= render partial: 'devise/shared/profile_image', locals:{ user: commented_user, type: :thumb } %>
         <% end %>
 
         <div class="media-body">
-          <h4 class="media-heading"><%= link_to commented_user.name, user_path(comment.user_id) %></h4>
+          <h4 class="media-heading"><%= link_to commented_user.name, user_path(comment.user_id), title:"#{commented_user.name}さんのフレーズブックはこちら"  %></h4>
           <p class="muted"><%= comment.created_at.to_s(:db) %><%# UTCからJST（日本時間）に変換 %>
-          <p><%= simple_format(comment.content) %></p>
+          <p><%= simple_format(show_linkable_source(comment.content)) %></p>
         </div>
         <hr>
       </li>

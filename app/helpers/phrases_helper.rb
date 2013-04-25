@@ -9,7 +9,7 @@ module PhrasesHelper
   # 出典ソースの文字列にリンクをはる
   def show_linkable_source(source)
     source = source.include?("href") ? source : url2link_of_string(source) # URLのみ貼り付けだったらオートリンクを施す
-    return sanitize source, tags: %w(a), attributes: %w(id class href)
+    return sanitize source, tags: %w(a), attributes: %w(id class href rel)
   end
 
   private
@@ -17,7 +17,7 @@ module PhrasesHelper
     def url2link_of_string(html_string,options={})
       target=options[:target] || '_blank'
       URI.extract(html_string).uniq.each{|url|
-        html_string.gsub!(url,"<a href='#{url}' target='#{target}'>#{url}</a>")
+        html_string.gsub!(url,"<a href='#{url}' rel='nofollow' target='#{target}' >#{url}</a>")
       }
       html_string
     end

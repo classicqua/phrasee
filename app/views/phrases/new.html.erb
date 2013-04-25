@@ -12,10 +12,10 @@
   <!-- page header -->
   <div class="page-header">
     <h1>新規フレーズ投稿</h1>
-    使える言い回しや好きな映画のセリフなど、あなたが知っているフレーズを教えてください。
+    使える言い回しや好きな映画のセリフなど、あなたが知っている英語フレーズを教えてください。
   </div>
 
   <%= render 'phrase_form', { url_path: phrases_path(@phrase), http_req: :post } %>
 
   <p>&nbsp;</p>
-  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/top-page_link' %>

@@ -17,7 +17,7 @@
   <ul class="ph_caetgories_list">
     <% @categories.each do |category| %>
       <li class="ph_phrase_item">
-        <%= link_to category_path(category) do %>
+        <%= link_to category_path(category), { title:"『#{category.category_name}』関連の英語フレーズはこちら" } do %>
         <%= category.category_name %><small>（<%= category.phrases.count %>件）</small>
         <% end %>
       </li>
@@ -25,5 +25,5 @@
   </ul>
 
 <p>&nbsp;</p>
-<p><%= link_to "トップページへ", root_path %></p>
+<%= render 'shared/top-page_link' %>
 <%= render 'shared/post_phrase_link' %>
