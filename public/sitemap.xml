@@ -5,141 +5,718 @@
 <url>
   <loc>http://www.phrasee.jp/</loc>
   <priority>1.0</priority>
-  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://www.phrasee.jp/guide</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://www.phrasee.jp/help</loc>
-  <priority>0.8</priority>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://www.phrasee.jp/terms</loc>
-  <priority>0.8</priority>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://www.phrasee.jp/disclaimer</loc>
-  <priority>0.8</priority>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://www.phrasee.jp/privacy</loc>
-  <priority>0.8</priority>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://www.phrasee.jp/users/sign_up</loc>
-  <priority>0.8</priority>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>http://www.phrasee.jp/users/sign_in</loc>
-  <priority>0.8</priority>
-  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://www.phrasee.jp/phrases</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/136</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/135</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/134</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/133</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/132</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/categories/1</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/130</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/124</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/122</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/12</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/123</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/110</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/99</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/68</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/4</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/131</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/111</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/59</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/23</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/phrases/11</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/2</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/109</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/93</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/65</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/33</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/3</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.phrasee.jp/phrases/14</loc>
+  <loc>http://www.phrasee.jp/phrases/129</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/83</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/44</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/30</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/9</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/5</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/95</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/87</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/80</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/69</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/51</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/6</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.phrasee.jp/phrases/10</loc>
+  <loc>http://www.phrasee.jp/phrases/114</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/102</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/97</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/43</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/32</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/7</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/29</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/28</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/27</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/8</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/126</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/117</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/112</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/53</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/47</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/9</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/125</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/118</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/100</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/72</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/48</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/10</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/52</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/20</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/3</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/1</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/13</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/108</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/106</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/64</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/54</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/45</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/14</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/128</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/127</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/121</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/94</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/66</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/15</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/55</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/50</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/7</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories/11</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/79</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/75</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/74</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>http://www.phrasee.jp/categories</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.phrasee.jp/users</loc>
+  <loc>http://www.phrasee.jp/phrases/new</loc>
   <priority>0.8</priority>
-  <changefreq>daily</changefreq>
 </url>
+<url>
+  <loc>http://www.phrasee.jp/help</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/terms</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/disclaimer</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/privacy</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=3</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=4</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=5</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=6</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=7</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=8</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=9</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=13</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=14</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/120</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/119</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/116</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/115</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/113</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/categories/1?page=1</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/categories/1?page=2</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/categories/1?page=3</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/categories/1?page=4</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/categories/1?page=5</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/categories/1?page=6</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/39</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/35</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/8</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/14</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/15</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/22</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/5</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/10</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/12</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/34</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/21</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/107</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/105</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/104</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/103</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/101</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/98</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/96</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/92</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/91</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/90</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/89</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/88</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/86</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/85</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/84</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/82</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/81</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/78</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/77</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=10</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/76</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/73</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/71</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/70</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/67</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=11</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases?page=12</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/63</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/60</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/61</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/62</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/4</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/41</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/2</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/17</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/19</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/24</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/36</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/18</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/58</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/57</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/56</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/16</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/13</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/6</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/49</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/46</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/42</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/38</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/37</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/31</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/26</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>http://www.phrasee.jp/phrases/25</loc>
+  <priority>0.6</priority>
+</url>
+
 </urlset>
