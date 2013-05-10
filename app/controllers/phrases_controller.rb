@@ -32,6 +32,22 @@ class PhrasesController < ApplicationController
     # 新規コメント用
     @new_comment = @phrase.comments.new 
 
+    # 同じカテゴリーのフレーズ（次へリンク用）
+    @phrases = Phrase.where( 'category_id = :category_id', { :category_id => @phrase.category.id } )
+    current_flg = FALSE
+    @next = nil
+    @phrase_ids = @phrases.map{|p|p.id} # 同カテゴリーのフレーズのid抽出
+    @phrase_ids.each do |pid|
+      if current_flg
+        @next = Phrase.find(pid) 
+        current_flg = FALSE;
+      else
+        current_flg = TRUE if pid == @phrase.id 
+        # ☆最後まで進んだとき最初に戻るなら⬇をコメントイン
+        @next = Phrase.find(@phrase_ids.first)  if (@phrase_ids.count > 1) && @next == nil
+      end   
+    end    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @phrase }

@@ -72,9 +72,14 @@
       </div>
     </div>
 
+  <!-- 次へ -->
+  <p><%= link_to '次を見る→『'+@next.japanese+'』を英語で言うと？', @next if @next %></p>
+  <%#= @phrases.map{|p|p.japanese} %><%# 同カテゴリフレーズ %>
+
+  <br>
+
   <p><%= link_to "#{@phrase.user.name}さんの投稿フレーズ一覧を見る", posts_user_path(@phrase.user), title:"#{@phrase.user.name}さんの投稿フレーズ一覧はこちら"  %></p>
   <p><%= link_to "『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧を見る" , category_path(@phrase.category.id), title:"『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧はこちら" %></p>
-
 
   <!--/div-->
   <hr> 

@@ -36,6 +36,6 @@
 <%= render 'shared/pagination', object: @users %>
 
   <p>&nbsp;</p>
-  <p><%= link_to "トップページへ", root_path %></p>
+  <%= render 'shared/top-page_link' %>
   <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
