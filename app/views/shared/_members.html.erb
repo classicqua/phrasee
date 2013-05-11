@@ -1,0 +1,26 @@
+<% if object.any? %>
+<ul class="users_list unstyled">
+  <% @users.each do |user| %>
+    <li class="ph_phrase_item">
+      <ol class="inline">
+        <li style="width:70px;">
+          <!-- メンバー画像 -->
+          <%= link_to user_path(user), { class:"" } do %>
+             <%= render partial: 'devise/shared/profile_image', locals:{ user: user, type: :thumb } %>
+          <% end %>
+        </li>
+        <li>
+          <!-- メンバー名 -->
+          <%= link_to user.name, user %>
+        </li>
+        <li>
+          <!-- 自己紹介 -->
+          <small>
+          <%= simple_format(truncate(user.introduction, { :length => 10 })) if user.introduction.present? %>
+          </small>
+        </li>
+      </ol>
+    </li>
+  <% end %>
+</ul>
+<% end %>

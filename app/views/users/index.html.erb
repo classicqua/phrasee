@@ -14,26 +14,9 @@
     <h1><span class="ph_category_name">メンバー一覧</span></h1>
   </div>
 
-<ul class="users_list unstyled">
-  <% @users.each do |user| %>
-    <li class="ph_phrase_item">
-      <ol class="inline">
-        <li style="width:70px;">
-          <!-- メンバー画像 -->
-          <%= link_to user_path(user), { class:"" } do %>
-             <%= render partial: 'devise/shared/profile_image', locals:{ user: user, type: :thumb } %>
-          <% end %>
-        </li>
-        <li>
-          <!-- メンバー名 -->
-          <%= link_to user.name, user %>
-        </li>
-      </ol>
-    </li>
-  <% end %>
-</ul>
+  <%= render 'shared/members', object: @users %>
 
-<%= render 'shared/pagination', object: @users %>
+  <%= render 'shared/pagination', object: @users %>
 
   <p>&nbsp;</p>
   <%= render 'shared/top-page_link' %>

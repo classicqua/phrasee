@@ -52,7 +52,12 @@
     <p>※すべての機能を使うには、<%= link_to "会員登録（無料）", new_user_registration_path %>が必要です。</p>
   </div>
   <p>&nbsp;</p>
-  <%= link_to "現在のメンバー 一覧", users_path %>
+  <div class="well" style="text-align:left;">
+  <h4>【 Phraseeを使っている人たち 】</h4>
+  <%= render 'shared/members', object: @users %>
+  <%= link_to "全てのメンバーを見る", users_path %>
+  </div>
   <p>&nbsp;</p>
   <%= render 'shared/top-page_link' %>
+
 </div>

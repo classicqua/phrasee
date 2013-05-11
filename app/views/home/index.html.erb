@@ -89,6 +89,9 @@
   <% end %>
 
   <%= render 'shared/categories_and_post' %>
+
   <p>&nbsp;</p>
-  <%= link_to "現在のメンバー 一覧", users_path %>
+  <h4>【ご紹介】こんな人たちが使ってますよ⬇</h4>
+  <%= render 'shared/members', object: @users %>
+  <%= link_to "全てのメンバーを見る", users_path %>
 </div>
