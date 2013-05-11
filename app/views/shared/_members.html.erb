@@ -16,7 +16,7 @@
         <li>
           <!-- 自己紹介 -->
           <small>
-          <%= simple_format(truncate(user.introduction, { :length => 10 })) if user.introduction.present? %>
+          <%= simple_format(truncate(user.introduction, { :length => 50 })) if user.introduction.present? %>
           </small>
         </li>
       </ol>
