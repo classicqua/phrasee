@@ -1,27 +1,74 @@
 <%# お気に入り追加/削除フォーム %>
+
+<%# ログイン中か？ %>
 <% if user_signed_in?  %>
+
+<ol class="inline">
+<li>
+ 
+
+<!--############################-->
+<!--  <%# 既に覚えたフレーズか？ %>
+<!--  <% if current_user.favorites.find_by_phrase_id(@phrase.id) %>
+<!--      <%#= form_for(current_user.learned-phrases.find_by_phrase_id(@phrase.id), html:{ method: :delete }, remote:false ) do |f| %>
+<!--        <div><%#= f.hidden_field :phrase_id %></div>
+<!--        <button class="btn btn-mini ph_learned_button active btn-pink" data-toggle="button" type="submit">
+<!--          <i class="icon icon-ok-sign"></i> 覚えた！
+<!--        </button>     
+<!--      <%# end %>
+<!--  <% else %>
+<!--
+<!--    <%# まだ覚えていない %>
+<!--    <%#= form_for(current_user.learned-phrases.build(phrase_id: @phrase.id), remote:false ) do |f| %>
+<!--      <div><%#= f.hidden_field :phrase_id %></div>
+<!--      <button class="btn btn-mini ph_learned_button" data-toggle="button" type="submit">
+<!--        <i class="icon icon-ok-sign"></i> 覚えた！
+<!--      </button>  
+<!--    <%# end %>
+<!--  <% end %>
+<!--############################-->
+
+</li>
+<li>
+
+  <%# お気に入り追加済か？ %>
   <% if current_user.favorites.find_by_phrase_id(@phrase.id) %>
-      <%# お気に入り削除 %>
+      <%# お気に入り追加済 %>
       <%= form_for(current_user.favorites.find_by_phrase_id(@phrase.id), html:{ method: :delete }, remote:false ) do |f| %>
         <div><%= f.hidden_field :phrase_id %></div>
-        <button class="btn btn-small ph_favorite_button active btn-success" data-toggle="button" type="submit">
+        <button class="btn btn-mini ph_favorite_button active btn-success" data-toggle="button" type="submit">
           <i class="icon icon-star-empty"></i> お気に入り追加済
         </button>     
       <% end %>
   <% else %>
 
-    <%# お気に入り追加 %>
+    <%# お気に入り未追加 %>
     <%= form_for(current_user.favorites.build(phrase_id: @phrase.id), remote:false ) do |f| %>
       <div><%= f.hidden_field :phrase_id %></div>
-      <button class="btn btn-small ph_favorite_button" data-toggle="button" type="submit">
+      <button class="btn btn-mini ph_favorite_button" data-toggle="button" type="submit">
         <i class="icon icon-star-empty"></i> お気に入りに追加
       </button>  
     <% end %>
   <% end %>
 
+
+</li>
+</ol>
+
+
+<%# 未ログイン時 %>
 <% else %>
-  <%= link_to new_user_session_path, class:"btn btn-small ph_favorite_button", notice:"ログインしてください。" do %>
+  
+<!--############################-->
+<!--  <%= link_to new_user_session_path, class:"btn btn-mini ph_learned_button", notice:"ログインしてください。" do %>-->
+<!--    <i class="icon icon-ok-sign"></i> 覚えた！-->
+<!--  <% end %>-->
+<!--############################-->
+
+  <%= link_to new_user_session_path, class:"btn btn-mini ph_favorite_button", notice:"ログインしてください。" do %>
     <i class="icon icon-star-empty"></i> お気に入りに追加
   <% end %>
-  <spann class="muted"><small>（ログインすると使えます）</small></span>  
+  <%#  
+  <spann class="muted"><small>（ログインすると使えます）</small></span>
+  %>
 <% end %>

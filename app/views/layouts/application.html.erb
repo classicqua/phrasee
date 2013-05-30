@@ -9,7 +9,10 @@
     <title><%= content_for?(:title) ? yield(:title) : basic_title %></title>
 
     <%# Description  %>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Phraseeはみんなでつくる英語フレーズ集です。" %>">
+    <!--
+    <meta name="description" content="<%#= content_for?(:description) ? yield(:description) : 
+    " Phraseeはみんなでつくる英語フレーズ集です。" %>
+  -->
 
     <%# Keywords %>
     <% plus_words = ["英語", "英会話", "フレーズ"] %>

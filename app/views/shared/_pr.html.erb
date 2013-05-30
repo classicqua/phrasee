@@ -1,10 +1,10 @@
 <%# アカウント登録へのリンク %>
 <% unless signed_in? %> 
 <div class="row-fluid">
-  <div class="alert alert-info span6" >
-    <%= link_to new_user_registration_path, title:"あなたが覚えた英語フレーズをマイページに記録しよう！" do %>
+  <div class="alert alert-info span9" >
+    <%= link_to guide_path, title:"1回1フレーズを書くだけのシンプルなミニ英語ブログ" do %>
     <i class="icon-book "></i>
-    <%= "【無料】日本最大級の英語フレーズ辞典を一緒につくってみませんか? " %>
+    <%= "「1日ワンフレーズ」で始めるシンプル英語日記（ミニブログ）→詳細はこちらをクリック" %>
     <% end %>
   </div>
 </div>

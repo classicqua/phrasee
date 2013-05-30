@@ -1,5 +1,5 @@
-<% provide(:title, "みんなでつくる英語フレーズ集 | 英語の名言・英会話フレーズ集なら『Phrasee』") %>
-
+<% provide(:title, "みんなでつくる英語フレーズ集『Phrasee』 | 【スマホ対応】ワンフレーズで始めるミニ英語ブログ") %>
+<meta name="description" content="【スマホ対応】みんなでつくる英語フレーズ集『Phrasee』は1回1フレーズを書くだけのシンプルなミニ英語ブログです。">
 <div class="container">
   <!-- page header -->
   <div class="page-header">
@@ -35,7 +35,7 @@
             <% @phrases.each do |phrase| %>
               <li class="ph_phrase_item">
                 <% japanese_phrase = phrase.japanese %>
-                <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら" } %>
+                <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
               </li>
             <% end %>
           </ul>
@@ -67,7 +67,7 @@
           <%# このカテゴリーのフレーズ %>
           <% if category.phrases.any? %>
             <ul class="ph_phrase_ul">
-              <% category.phrases[0..4].each do |phrase| %>
+              <% category.phrases[0..2].each do |phrase| %>
                 <li class="ph_phrase_item">
                   <% japanese_phrase = phrase.japanese %>
                   <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase, { title:"『#{japanese_phrase}』の英語フレーズはこちら" } %>
@@ -94,4 +94,6 @@
   <h4>【ご紹介】こんな人たちが使ってますよ⬇</h4>
   <%= render 'shared/members', object: @users %>
   <%= link_to "全てのメンバーを見る", users_path %>
+
+  <%= render 'shared/start-phrasee_link' %>
 </div>

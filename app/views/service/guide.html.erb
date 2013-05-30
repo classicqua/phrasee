@@ -1,4 +1,4 @@
-<% provide(:title, "英語・英会話フレーズ|Phrasee|ご利用ガイド") %>
+<% provide(:title, "ご利用ガイド | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
 
 
 
@@ -15,8 +15,12 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h3>Phraseeはみんなでつくる英語フレーズ集です。</h3>
+    <h3>Phraseeとは？</h3>
   </div>
+
+  <%# メッセージ %>
+  <%= render 'shared/guide-message_1' %>
+  <p>&nbsp;</p>
 
   <p class="can_do_things lead">Phraseeでできる3つのこと</p>
 
@@ -49,14 +53,23 @@
         </div>
       </li>
     </ul>
-    <p>※すべての機能を使うには、<%= link_to "会員登録（無料）", new_user_registration_path %>が必要です。</p>
+    <p></p>
   </div>
   <p>&nbsp;</p>
   <div class="well" style="text-align:left;">
   <h4>【 Phraseeを使っている人たち 】</h4>
+  <p class="">　こんな人たちが使ってます。</p>
   <%= render 'shared/members', object: @users %>
   <%= link_to "全てのメンバーを見る", users_path %>
   </div>
+
+  <p>&nbsp;</p>
+  <%# メッセージ2 %>
+  <%= render 'shared/guide-message_2' %>
+
+  <p>&nbsp;</p>
+  <%= render 'shared/signup_link' %>
+
   <p>&nbsp;</p>
   <%= render 'shared/top-page_link' %>
 

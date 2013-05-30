@@ -1,7 +1,7 @@
 #coding: utf-8
 # 共通
 defaults: &defaults
-  PH_LIMIT_INDEX_PHRASE_NUM: 5 # 一覧表示するフレーズ数のリミット
+  PH_LIMIT_INDEX_PHRASE_NUM: 3 # 一覧表示するフレーズ数のリミット
 
   # pagination
   PH_PAGINATION:

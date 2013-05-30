@@ -1,4 +1,4 @@
-<% provide(:title, "【あなたオリジナルの英語フレーズ集をつくろう】新規会員登録（無料） | みんなでつくる英語フレーズ集『Phrasee』") %>
+<% provide(:title, "新規会員登録（無料） |  ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
 
 <%= render "devise/shared/welcome-message"%>
 
@@ -36,6 +36,8 @@
 
     <%= render "devise/shared/links" if resource.errors.any?  %>
 
+    <p>&nbsp;</p>
+    <%= render 'shared/goiken_link' %>  
     <p>&nbsp;</p>
     <%= render 'shared/top-page_link' %>  
   </div>

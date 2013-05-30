@@ -57,3 +57,9 @@
         //background-color: #fffafb;    
         @include well-box;
       }
+
+      // 取り消し線
+      .learned {
+        text-decoration:line-through;
+        color:#C71585;
+      }

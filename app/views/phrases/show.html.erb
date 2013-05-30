@@ -1,4 +1,4 @@
-<% provide(:title, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』 | 英語・英会話フレーズならPhrasee") %>
+<% provide(:title, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』 | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
 <% provide(:description, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
 
 <!-- main -->
@@ -32,9 +32,9 @@
       <div>
         <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
         <% if user_signed_in? && @phrase.user == current_user %>
-          <%= link_to "編集する", edit_phrase_path(@phrase), class:"btn btn-small" %>
+          <%= link_to "編集する", edit_phrase_path(@phrase), class:"btn btn-mini" %>
           <%= link_to "削除する", phrase_path, method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
-                title:@phrase.japanese, class:"btn btn-small btn-danger" %>
+                title:@phrase.japanese, class:"btn btn-mini btn-danger" %>
         <% else %>
           <!-- お気に入り追加/削除フォーム（ボタン） -->
           <%= render 'favorites/favorite_form' %>
@@ -94,9 +94,14 @@
 
 
   <p>&nbsp;</p>
-  <%= render 'shared/top-page_link' %>
   <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
+
+  <%= render 'shared/start-phrasee_link' %>
+
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <%= render 'shared/top-page_link' %>
 </div>
 
 <script type="text/javascript">
