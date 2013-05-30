@@ -57,7 +57,7 @@
   <div class="media">
 
       <!-- メンバー画像 -->
-      <%= link_to user_path(@phrase.user), { class:"pull-left", title:"#{@phrase.user.name}さんのフレーズブックはこちら" } do %>
+      <%= link_to user_path(@phrase.user), { class:"pull-left", title:"#{@phrase.user.name}さんのフレーズブックはこちら", rel:"author" } do %>
         <%= render partial: 'devise/shared/profile_image', locals:{ user: @phrase.user, type: :thumb } %>
       <% end %>
 
