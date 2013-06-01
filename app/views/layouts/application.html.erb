@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
 
     <%# Title  %>
-    <% basic_title = "[Phrasee]みんなでつくる英語フレーズ集" %>
+    <%# basic_title = "みんなでつくる英語フレーズ集『Phrasee』" %>
+    <%# basic_title = "【スマホ対応】英語ブログ（日記）を書くなら『Phrasee』" %>
+    <%# basic_title = "ワンフレーズで始めるミニ英語ブログ『Phrasee』" %>
+    <% basic_title = "ワンフレーズで書くミニ英語ブログ（日記） | みんなでつくる英語フレーズ集『Phrasee』" %>
+    
     <title><%= content_for?(:title) ? yield(:title) : basic_title %></title>
 
     <%# Description  %>
-    <!--
-    <meta name="description" content="<%#= content_for?(:description) ? yield(:description) : 
-    " Phraseeはみんなでつくる英語フレーズ集です。" %>
-  -->
+    <% basic_description = "【スマホ対応】英語ブログ（日記）を書くなら『Phrasee』がオススメ。1記事1フレーズのシンプルなミニブログだから無理なく続けられます。" %>
+    <meta name="description" content=<%= content_for?(:description) ? yield(:description) + " | " + basic_description : 
+    basic_description %> >
 
     <%# Keywords %>
     <% plus_words = ["英語", "英会話", "フレーズ"] %>
