@@ -1,9 +1,16 @@
-<% provide(:title, "メンバーアカウント設定 | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
+<% provide(:title, "メンバーアカウント設定") %>
+<% provide(:description, "このページからアカウント設定ができます。") %>
+
 <%#= javascript_include_tag "http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js", charset:"UTF-8" %>
 <%#= javascript_include_tag "/plugin/jquery.zip2addr.js", charset:"UTF-8" %>
 
 <div class="container">
   <%= image_tag('signup/signup_step2.jpg', { alt:"step2" } ) %>
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
 
   <!-- page header -->
   <div class="page-header">

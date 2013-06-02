@@ -6,6 +6,9 @@ class PhrasesController < ApplicationController
   # GET /phrases.json
   def index
     @phrases = Phrase.paginate(page:params[:page])
+    
+    # 現在のメンバーの内、最近ログインした人たち
+    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,6 +50,10 @@ class PhrasesController < ApplicationController
         @next = Phrase.find(@phrase_ids.first)  if (@phrase_ids.count > 1) && @next == nil
       end   
     end    
+
+
+    # 現在のメンバーの内、最近ログインした人たち
+    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)
 
     respond_to do |format|
       format.html # show.html.erb

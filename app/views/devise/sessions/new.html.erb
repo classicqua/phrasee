@@ -1,7 +1,13 @@
-<% provide(:title, "ログイン | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
-<% provide(:description, "会員登録済の方はこちらからどうぞ。") %>
+<% provide(:title, "ログイン") %>
+<% provide(:description, "会員登録済の方はこちらのページからログインできます。") %>
 
 <div class="container">
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
+  
   <!-- page header -->
   <div class="page-header">
     <h3>ログイン</h3>

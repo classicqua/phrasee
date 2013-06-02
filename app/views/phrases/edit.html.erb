@@ -1,4 +1,10 @@
-<% provide(:title, "フレーズ編集 | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
+<% provide(:title, "フレーズ編集") %>
+<% provide(:description, "このページから英語フレーズを編集できます。") %>
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -11,7 +17,7 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h1>フレーズ編集</h1>
+    <h2>フレーズ編集</h2>
   </div>
 
   <%= render 'phrase_form', { url_path: phrase_path(@phrase), http_req: :put } %>

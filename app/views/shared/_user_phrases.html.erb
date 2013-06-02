@@ -1,7 +1,12 @@
 <% what = type==:posted ? "投稿フレーズ" : "お気に入りフレーズ" %>
 <% count = type==:posted ? user.phrases.count : user.favorites.count %>
 
-<% provide(:title, "英語・英会話フレーズ|Phrasee|#{what}一覧") %>
+<% provide(:title, "#{user.name}さんの#{what}一覧") %>
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -22,10 +27,10 @@
   
   <!-- page header -->
   <div class="page-header">
-    <h1>
+    <h2>
       <span class="ph_category_name"><%= user.name %>さんの<%= "#{what}" %></span>
       <small><%= "（#{count}件）" %></small>
-    </h1>
+    </h2>
   </div>
 
   <%= render 'shared/phrases_list' %>

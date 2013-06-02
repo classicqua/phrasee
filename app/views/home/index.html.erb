@@ -6,13 +6,8 @@
   <div class="page-header">
     <div class="row-fluid">
 
-      <div class="span6">
-        <h1>
-        <%= link_to guide_path, title:"Phraseeとは？使い方の説明などはこちらから" do %>
-        <%= "みんなでつくる英語フレーズ集『Phrasee』" %>
-        <% end %>
-        </h1>
-      </div>
+      <%# サイトメインタイトル %>
+      <%= render 'shared/main-title' %>
 
       <div class="span6 social-buttons">
       <%# ソーシャルボタン %>
@@ -26,11 +21,11 @@
   <!-- phrases box row：新着 -->
   <div class="row-fluid ph-row">
     <div class="span6 ph_phrase_box well">
-      <h1 class="ph_category">
+      <h2 class="ph_category">
         <%= link_to phrases_path, { class:"ph_new_link" } do %>
           新着順<small>（全<%= Phrase.count %>件）</small>
         <% end %>
-      </h1>
+      </h2>
         <% if @phrases.any? %>
           <ul class="ph_phrase_ul">
             <% @phrases.each do |phrase| %>
@@ -59,11 +54,11 @@
       <!-- phrases box  -->
       <div class="span6 ph_phrase_box well">
           <%# カテゴリー名 %>
-          <h1 class="ph_category">
+          <h2 class="ph_category">
             <%= link_to category_path(category), { class:"ph_category_link", title:"『#{category.category_name}』の英語フレーズ一覧はこちら" } do %>
               <%= category.category_name %><small>（<%= category.phrases.count %>件）</small>
             <% end %>
-          </h1>
+          </h2>
 
           <%# このカテゴリーのフレーズ %>
           <% if category.phrases.any? %>
@@ -92,9 +87,6 @@
   <%= render 'shared/categories_and_post' %>
 
   <p>&nbsp;</p>
-  <h4>【ご紹介】こんな人たちが使ってますよ⬇</h4>
-  <%= render 'shared/members', object: @users %>
-  <%= link_to "全てのメンバーを見る", users_path %>
-
-  <%= render 'shared/start-phrasee_link' %>
+  <%# ユーザー紹介 %>
+  <%= render 'shared/introduce-users' %>
 </div>

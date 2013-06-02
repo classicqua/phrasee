@@ -8,9 +8,9 @@
     <%# basic_title = "みんなでつくる英語フレーズ集『Phrasee』" %>
     <%# basic_title = "【スマホ対応】英語ブログ（日記）を書くなら『Phrasee』" %>
     <%# basic_title = "ワンフレーズで始めるミニ英語ブログ『Phrasee』" %>
-    <% basic_title = "ワンフレーズで書くミニ英語ブログ（日記） | みんなでつくる英語フレーズ集『Phrasee』" %>
+    <% basic_title = "ミニ英語ブログを書くなら『Phrasee』" %>
     
-    <title><%= content_for?(:title) ? yield(:title) : basic_title %></title>
+    <title><%= content_for?(:title) ? yield(:title) + " | "+ basic_title : "みんなでつくる英語フレーズ集『Phrasee』 | ワンフレーズで書くミニ英語ブログ（日記）" %></title>
 
     <%# Description  %>
     <% basic_description = "【スマホ対応】英語ブログ（日記）を書くなら『Phrasee』がオススメ。1記事1フレーズのシンプルなミニブログだから無理なく続けられます。" %>

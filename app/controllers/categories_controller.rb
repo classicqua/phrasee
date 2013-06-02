@@ -2,7 +2,10 @@
 class CategoriesController < ApplicationController
   def index
     @categories = get_category_all
-   
+    
+    # 現在のメンバーの内、最近ログインした人たち
+    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)   
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @categories }
@@ -21,5 +24,8 @@ class CategoriesController < ApplicationController
 
     @phrases = Phrase.where( 'category_id = :category_id', { :category_id => params[:id] } )
                     .paginate( page:params[:page], per_page:10 )
+
+    # 現在のメンバーの内、最近ログインした人たち
+    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)
   end
 end

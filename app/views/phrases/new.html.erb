@@ -1,4 +1,10 @@
-<% provide(:title, "新規フレーズ投稿 | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
+<% provide(:title, "新規フレーズ投稿") %>
+<% provide(:description, "このページから英語フレーズを投稿できます。") %>
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -11,7 +17,7 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h1>新規フレーズ投稿</h1>
+    <h2>新規フレーズ投稿</h2>
     使える言い回しや好きな映画のセリフなど、あなたが知っている英語フレーズを教えてください。
   </div>
 

@@ -17,10 +17,20 @@
       }
 
       // ページヘッダー キャッチコピー
-      .page-header h1 {
+      .page-header h1, .page-header h2 {
         //font-family: 'Courier New', Courier, monospace;
         //font: normal normal normal 12px/16px "Helvetica Neue",Arial,sans-serif!important;
         font-size: 21px;
+      }
+
+      .main-title img {
+        margin-bottom:7px;
+      }
+      h1.main-title {
+        font-size: 21px;
+      }
+      .main-title span {
+        margin-bottom:0px;
       }
 
       // カテゴリー名 リンク文字の色

@@ -1,9 +1,17 @@
-<% provide(:title, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』 | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
-<% provide(:description, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
+<% provide(:title, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
+<% provide(:description, "【スマホでも見やすいサイト】『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
 
 <!-- main -->
 <div class="container">
   
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+    <div class="span6">
+    </div>
+  </div>
+
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
     <li>
@@ -26,8 +34,11 @@
     <div class="well show_phrase_container">
       <%= render 'shared/phrase-social' %>
 
-      <h1 class="title_phrase"><%= link_to @phrase.japanese, @phrase %></h1>
-      <h1 class="title_phrase"><%= link_to @phrase.english, @phrase %></h1>
+      <ul class="unstyled">
+        <li><h2 class="title_phrase"><%= link_to @phrase.japanese, @phrase %></h2></li>
+        <li><h2 class="title_phrase"><%= link_to @phrase.english, @phrase %></h2></li>
+      </ul>
+      
       
       <div>
         <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
@@ -96,10 +107,10 @@
   <p>&nbsp;</p>
   <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
+  
+  <%# ユーザー紹介 %>
+  <%= render 'shared/introduce-users' %>
 
-  <%= render 'shared/start-phrasee_link' %>
-
-  <p>&nbsp;</p>
   <p>&nbsp;</p>
   <%= render 'shared/top-page_link' %>
 </div>

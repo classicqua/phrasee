@@ -1,5 +1,11 @@
-<% provide(:title, "#{@user.name} | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
+<% provide(:title, "#{@user.name}") %>
+<% provide(:description, "#{@user.name}さんの英語・英会話フレーズ集") %>
 
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
+    
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
     <li>

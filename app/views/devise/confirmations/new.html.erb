@@ -1,4 +1,12 @@
-<h2>ご本人確認メール再送信</h2>
+<% provide(:title, "ご本人確認メール再送信") %>
+<% provide(:description, "このページからご本人確認メールを再送信できます。") %>
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
+
+<h3>ご本人確認メール再送信</h3>
 
 <%= simple_form_for(resource, :as => resource_name, 
   :url => confirmation_path(resource_name),

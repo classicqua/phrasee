@@ -1,5 +1,10 @@
-<% provide(:title, "英語・英会話フレーズ カテゴリー一覧 | ワンフレーズで始めるミニ英語ブログ『Phrasee』") %>
-<% provide(:description, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
+<% provide(:title, "英語・英会話フレーズ カテゴリー一覧") %>
+<% provide(:description, "英語・英会話フレーズ カテゴリー一覧") %>
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -12,7 +17,7 @@
   
   <!-- page header -->
   <div class="page-header">
-    <h1><span class="ph_category_name">カテゴリー 一覧</span></h1>
+    <h2><span class="ph_category_name">カテゴリー 一覧</span></h2>
   </div>
 
   <ul class="ph_caetgories_list">
@@ -26,5 +31,10 @@
   </ul>
 
 <p>&nbsp;</p>
-<%= render 'shared/top-page_link' %>
 <%= render 'shared/post_phrase_link' %>
+
+<%# ユーザー紹介 %>
+<%= render 'shared/introduce-users' %>
+
+<p>&nbsp;</p>
+<%= render 'shared/top-page_link' %>
