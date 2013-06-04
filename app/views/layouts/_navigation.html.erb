@@ -32,7 +32,16 @@
           <% if signed_in? %>   
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class='icon-user'></i>&nbsp;<%= truncate(current_user.name, { :length => 12 }) %>&nbsp;<b class="caret"></b>
+
+                <%# ユーザーアイコン画像 %>
+                <% if current_user.profile_image.present? %>
+                  <%= cl_image_tag( current_user.profile_image_url, width:14, height:14, crop: :fill, alt:"user-profile-image", class:"img-polaroid") %>
+                <% else %> 
+                  <%= image_tag("icons/phrasee-kai-16px.png", { alt:"user-icon", width:14, height:14, class:"img-polaroid" }) %>
+                <% end %>
+
+                <%# ユーザー名 %>
+                <%= truncate(current_user.name, { :length => 12 }) %>&nbsp;<b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li>
