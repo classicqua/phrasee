@@ -2,11 +2,12 @@
 <% unless signed_in? %> 
 <div class="row-fluid">
 <!--  <div class="alert alert-info span9" > -->
-    <%= link_to guide_path, title:"1回1フレーズを書くだけのシンプルなミニ英語ブログ" do %>
-    &nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <%= link_to guide_path, { title:"1回1フレーズを書くだけのシンプルなミニ英語ブログ", class:"underline" } do %>
     <i class="icon-book "></i>
     <%= "「1日ワンフレーズ」で始めるシンプルなミニ英語ブログ（日記）" %>
     <% end %>
+    <p>&nbsp;</p>
 <!--  </div>-->
 </div>
 <% end %>

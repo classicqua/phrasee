@@ -33,6 +33,12 @@
         margin-bottom:0px;
       }
 
+      // リンク下線
+      a.underline {
+        text-decoration:underline;
+        //color:#555;
+      }
+
       // カテゴリー名 リンク文字の色
       @mixin category-name-color {
         color: #8B4513;

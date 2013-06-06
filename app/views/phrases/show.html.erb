@@ -35,10 +35,10 @@
       <%= render 'shared/phrase-social' %>
 
       <ul class="unstyled">
-        <li><h2 class="title_phrase"><%= link_to @phrase.japanese, @phrase %></h2></li>
-        <li><h2 class="title_phrase"><%= link_to @phrase.english, @phrase %></h2></li>
+        <li><h2 class="title_phrase"><%= link_to @phrase.japanese, @phrase, { title:"日本語フレーズ『#{@phrase.japanese}』" } %></h2></li>
+        <li><h2 class="title_phrase"><%= link_to @phrase.english, @phrase, { title:"英語フレーズ『#{@phrase.english}』" } %></h2></li>
       </ul>
-      
+     
       
       <div>
         <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
@@ -88,10 +88,6 @@
 
   <p><%= link_to "#{@phrase.user.name}さんの投稿フレーズ一覧を見る", posts_user_path(@phrase.user), title:"#{@phrase.user.name}さんの投稿フレーズ一覧はこちら" %></p>
   <p><%= link_to "『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧を見る" , category_path(@phrase.category.id), title:"『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧はこちら" %></p>
-
-
-  <%# アカウント登録へのリンク %>
-  <%= render 'shared/pr' %>
 
 
   <!--/div-->
