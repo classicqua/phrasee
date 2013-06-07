@@ -9,13 +9,19 @@
       <%= f.input :japanese, placeholder:"短く簡潔に。", input_html: { class:"input-xxlarge" }, label:"<b>日本語フレーズ</b><small>（100字以内）</small>" %>
       <%= f.input :english, placeholder:"Keep it short and simple.", input_html: { class:"input-xxlarge" }, label:"<b>英語フレーズ</b><small>（100字以内）</small>" %>
       <%= f.input :source, input_html: { class:"input-xxlarge" }, placeholder:"例）映画『○○』より", 
-                  label:"出典<small>（250字以内）</small><small>（映画や本のタイトルなど、引用元・参考情報があれば記入してください）</small>" %>
-      <%= f.input :story, as: :text,  input_html: { rows:"3", class:"input-xxlarge" },  
+                  label:"出典<small>（500字以内）</small><small>（映画や本のタイトルなど、引用元・参考情報があれば記入してください）</small>" %>
+
+      <%= f.input :story, as: :text,  input_html: { rows:"10", class:"input-xxlarge" },  
                   placeholder:"例）カナダを旅行中にレストランで・・・",
-                  label:"<b>エピソード・ひとくちメモなど</b><small>（250字以内）</small><small>（このフレーズを知ったとき/使ったときの状況や、使い方についての説明など）</small>" %>
+                  label:"<b>エピソード・ひとくちメモなど</b><small>（1000字以内）</small><small>（このフレーズを知ったとき/使ったときの状況や、使い方についての説明など）</small>" %>
+
+     <small>文字数を見ながら書きたい場合はKenji Sugimoto様の<a href="http://www.kenjisugimoto.com/nummoji/" rel="nofollow,noindex" target="_blank">numMoji（なんもじ）</a>が便利です。</small>
+     <p>&nbsp;</p>   
+
       <%= f.association :category, as: :radio_buttons, collection:get_category_all, label_method: :category_name, value_method: :id, include_blank: false, label:"<b>カテゴリー</b>" %>
     </div>
 
+    
     <%# 利用規約 %>
     <p>
       <label class="checkbox">

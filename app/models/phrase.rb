@@ -31,9 +31,9 @@ class Phrase < ActiveRecord::Base
             
   validates :user_id, presence:true
   validates :category_id, presence:true
-  validates :source, length:{ maximum:250 }
+  validates :source, length:{ maximum:500 }
   validates :story, presence:true, 
-            length:{ minimum:1, maximum:250 }
+            length:{ minimum:1, maximum:1200 }
 
   ## 正規表現 ##
   validates_format_of :japanese, :with => /[\p{Han}\p{Hiragana}\p{Katakana}]/i, :message => "日本語は全角文字で入力してください。"
