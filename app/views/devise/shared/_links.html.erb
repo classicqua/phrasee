@@ -7,7 +7,10 @@
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
 ※会員登録がお済みでない方はこちら⬇
 <p class="">
-  <%= link_to "#{t "Sign up"}", new_registration_path(resource_name), { class:"btn" }  %>
+  <%#= link_to "#{t "Sign up"}", new_registration_path(resource_name), { class:"btn btn-pink" }  %>
+  <%= link_to new_registration_path(resource_name), { class:"btn btn-pink" } do %>
+    <span><%= "#{t "Sign up"}" %></span>
+  <% end %>
 </p>
 <p>&nbsp;</p>
 <% end -%>
