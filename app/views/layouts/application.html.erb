@@ -14,7 +14,7 @@
 
     <%# Description  %>
     <% basic_description = "【スマホ対応】英語ブログ（日記）を書くなら『Phrasee』がオススメ。1記事1フレーズのシンプルなミニブログだから無理なく続けられます。" %>
-    <meta name="description" content=<%= content_for?(:description) ? yield(:description) + " | " + basic_description : 
+    <meta name="description" content=<%= content_for?(:description) ? yield(:description) + "。" + basic_description : 
     basic_description %> >
 
     <%# Keywords %>
