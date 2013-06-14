@@ -106,12 +106,12 @@
     <section id="account">
       <legend>会員登録・ログインに関すること</legend>
       <dl>
-        <dt>以下のような場合には、<%= link_to 'ログイン画面', new_user_session_path %>のボタンの下にあるリンクをご覧ください。</dt>
+        <dt></dt>
         <dd>
           <ul>
-            <li>パスワードを忘れた</li>
-            <li>本人確認メールが届かない</li>
-          </ul>     
+            <li>パスワードを忘れた→<a href="/users/password/new">パスワード再設定</a>へ</li>
+            <li>本人確認メールが届かない→<a href="/users/confirmation/new">ご本人確認メール再送信</a>へ</li>
+          </ul>  
         </dd>
       </dl>
     </section>

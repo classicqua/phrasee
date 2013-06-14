@@ -5,17 +5,30 @@
 
     <% if @user.present? %>
       <legend>
-        <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_071_book.png', { alt:"phrase-book-icon", size:"16x16" } ) %>&nbsp;<strong><%= @user.name %></strong>さんのフレーズブック</legend>
-      
+        <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_071_book.png', { alt:"phrase-book-icon", size:"16x16" } ) %>&nbsp;<strong><%= @user.name %></strong>さんのフレーズブック
+      </legend>
+
+      <%# アカウント設定へのリンク %>
+      <div class="ph_pr_account">
+        <% if signed_in? && ( @user.id == current_user.id ) %>
+          <%= link_to edit_user_registration_path(current_user), { rel:"noindex,nofollow" } do %>
+            <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_044_keys.png', { alt:"private-icon", size:"14x14" } ) %>
+            アカウント設定
+          <% end %>
+        <% end %>
+      </div>
+
       <%# プロフィール画像 %>
       <div class="well ph_well-cancel-color ph_pr_img">
         <%= render partial: 'devise/shared/profile_image', locals:{ user:@user } %>
       </div>
 
       <%# 自己紹介 %>
+      <% if @user.introduction.present? %>
       <div class="well ph_well-cancel-color ph_pr_msg">
-        <p><%= simple_format(@user.introduction) if @user.introduction.present? %></p>
+        <p><%= simple_format(@user.introduction) %></p>
       </div>
+      <% end %>
 
       <%# 状況 %>
       <div class="lead well ph_well-cancel-color ph_status">
