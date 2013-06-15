@@ -1,4 +1,21 @@
+
+<%# ツイートボタン編集用js %>
+<script type="text/javascript">
+$(function() {
+    // ツイートURL設定
+    link_for_tweet = "http://www.phrasee.jp" + $(".japanese-phrase").attr("href");
+    $("#kobetsu-phrase").attr("data-url",link_for_tweet);
+
+    // ツイート文設定
+    prmsg = "【英語フレーズを投稿するならPhrasee】" // PRメッセージ
+    text_for_tweet = "『" + $(".japanese-phrase").text() + "』→『" + $(".english-phrase").text() + "』" + prmsg;
+    $("#kobetsu-phrase").attr("data-text",text_for_tweet);
+});
+</script>
+
+<%# ツイートボタン（個別フレーズ用） %>
 <div class="social-buttons-phrase">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-via="phraseejp" data-lang="ja">ツイートする</a>
+  <a href="https://twitter.com/share" id="kobetsu-phrase" class="twitter-share-button" data-via="" data-lang="ja">ツイートする</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </div>
+

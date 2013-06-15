@@ -24,7 +24,10 @@
 
   <%= render 'shared/pagination', object: @users %>
 
+  <% unless signed_in? %>
+    <%= render 'shared/start-phrasee_link' %>
+  <% end %>
+
   <p>&nbsp;</p>
-  <%= render 'shared/top-page_link' %>
-  <%= render 'shared/categories_link' %>
   <%= render 'shared/post_phrase_link' %>
+  <%= render 'shared/top-page_link' %>

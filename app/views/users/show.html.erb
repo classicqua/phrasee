@@ -21,6 +21,12 @@
 
   <%= render 'shared/public_user_profile' %>
 
+  <%# フレーズ投稿 %>
+  <% if signed_in? && ( @user.id == current_user.id ) %>
+    <p>&nbsp;</p>
+    <%= render 'shared/post_phrase_link' %>
+  <% end %>
+
   <p>&nbsp;</p>
   <%# ユーザー紹介 %>
   <%= render 'shared/introduce-users' %>

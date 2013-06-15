@@ -36,4 +36,8 @@ class ServiceController < ApplicationController
   # 運営者情報
   def about
   end
+
+  # お知らせ
+  def info
+  end
 end

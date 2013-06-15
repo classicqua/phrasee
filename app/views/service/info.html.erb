@@ -1,0 +1,51 @@
+<% provide(:title, "お知らせ") %>
+<% provide(:description, "Phraseeからのお知らせはこちらのページに記載しています。") %>
+
+<div class="container">
+
+  <div class="row-fluid">
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title' %>
+  </div>
+  
+  <!-- パンくずリスト -->
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to 'トップ', root_path %>
+      <span class="divider">/</span>
+    </li>
+    <li class="active">お知らせ</li>
+  </ol>
+
+  <!-- page header -->
+  <div class="page-header">
+    <h3>お知らせ</h3>
+  </div>
+
+  <div class="container">
+    <section id="info">
+      <legend>一般ユーザーの方へ</legend>
+      <dl>
+        <dt>2013/2/19</dt>
+        <dd>みんなでつくる英語フレーズ集<%= link_to "『Phrasee』", guide_path, { rel:"nofollow" }  %>を開始しました。</dd>
+      </dl>
+
+      <dl>
+        <dt>2013/5/30</dt>
+        <dd>当サイトの運営を<a href="http://www.yukarien.com" rel="nofollow">株式会社YUKARI</a>に移管しました。</dd>
+      </dl>
+    </section>
+
+    <section id="howtouse_basic">
+      <legend>デベロッパー（開発者）向け情報</legend>
+      <dl>
+        <dt>APIについて</dt>
+        <dd>PhraseeはAPIを提供する予定です。仕様が決まり次第、改めてお知らせします。</dd>
+      </dl>
+      </dl>
+    </section>
+
+  </div>
+  <p>&nbsp;</p>
+  <%= render 'shared/top-page_link' %>
+</div>

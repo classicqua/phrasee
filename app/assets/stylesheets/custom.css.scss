@@ -23,6 +23,7 @@
         font-size: 21px;
       }
 
+      // サイトロゴ
       .main-title img {
         margin-bottom:7px;
       }
@@ -38,6 +39,12 @@
         text-decoration:underline;
         //color:#555;
       }
+
+      // 各フレーズの先頭に付くアイコン画像
+      ol.ph_user_icon {
+        margin:2px 0px 5px -30px;
+      }
+
 
       // ボタン色
       .btn-pink  {

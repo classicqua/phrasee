@@ -16,6 +16,11 @@
     //min-height: 280px; // 各カテゴリーのboxの高さを統一するため
     li{ font-size: 16px; }
   }
+
+  // レスポンシブ対応
+  @media (max-width: 767px) {
+    li{ font-size: 16px; }
+  }  
 }
 
 .ph_category {
@@ -37,4 +42,43 @@
 .ph_last_item {
   font-size: 15px;
   margin: 9px 0;
+}
+
+
+// ピックアップフレーズのコンテナ
+div.pikup-phrase {
+  margin:5px 0px 5px 0px;
+  
+  div {
+    //background-color: #FFFFF0;
+  }
+
+  // タイトル
+  h1 span{
+    font-size:24px;
+    color:#F08080;
+  }
+}
+
+// well-cancel
+.ph_phrase_box_cancel { 
+  @include well-cancel-color; // 背景色を白に＋枠線取り去る
+  /***/
+  height:auto;
+
+  // レスポンシブ対応
+  @media (min-width: 768px) and (max-width: 920px) {
+    //min-height: 280px; // 各カテゴリーのboxの高さを統一するため
+    li{ font-size: 16px; }
+  }
+
+  // レスポンシブ対応
+  @media (max-width: 767px) {
+    li{ font-size: 16px; }
+  }  
+}
+
+// NEWマーク
+img.new-mark {
+  margin-bottom: 10px;
 }

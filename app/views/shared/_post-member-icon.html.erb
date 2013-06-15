@@ -1,0 +1,9 @@
+<%# 投稿メンバーアイコン画像 ＋ メンバーのフレーズブックへリンク %>
+
+  <%= link_to user_path(user), { class:"", rel:"noindex,nofollow" } do %>
+    <% if user.profile_image.present? %>
+      <%= cl_image_tag( user.profile_image_url, width:24, height:24, crop: :fill, alt:"user-profile-image", class:"img-polaroid", alt:"この英語フレーズを投稿したメンバー") %>
+    <% else %> 
+      <%= image_tag("icons/phrasee-kai-16px.png", { alt:"user-icon", width:24, height:24, class:"img-polaroid", alt:"この英語フレーズを投稿したメンバー" }) %>
+    <% end %>
+  <% end %>

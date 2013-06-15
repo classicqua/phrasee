@@ -64,4 +64,5 @@ Phrasee::Application.routes.draw do
   match '/privacy',     to: 'service#privacy', via: :get
   match '/about',       to: 'service#about', via: :get
   match '/contact',     to: 'service#contact', via: :get
+  match '/info',        to: 'service#info', via: :get
 end

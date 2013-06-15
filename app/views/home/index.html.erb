@@ -1,6 +1,6 @@
 <%# provide(:title, "みんなでつくる英語フレーズ集") %>
 <% provide(:description, "これまでに投稿された英語・英会話フレーズ一覧") %>
-
+    
 <div class="container">
   <!-- page header -->
   <div class="page-header">
@@ -14,25 +14,55 @@
       <%= render 'shared/social-buttons' %>
       </div>
     </div>
-    <%# アカウント登録へのリンク %>
-    <%#= render 'shared/pr' %>
   </div>
 
-  <!-- phrases box row：新着 -->
+  <!-- ピックアップフレーズ -->
+  <div class="row-fluid pikup-phrase">
+    <div class="span12 ph_phrase_box_cancel well">
+
+      <h1>
+      <%= link_to @pikup_phrase do %>
+        <%= image_tag('marks/ecbzns010_018.png', { alt:"ピックアップ英語フレーズ", size:"44x44" } ) %><span>今日のピックアップ・英語フレーズ</span>
+      <% end %>
+      </h1>
+
+      <%= render partial: 'shared/show-phrase', locals:{ phrase: @pikup_phrase } %>
+      <%= render partial: 'shared/post-member-icon', locals:{ user: @pikup_phrase.user } %>
+      <%= link_to @pikup_phrase.user.name, user_path(@pikup_phrase.user), title:"#{@pikup_phrase.user.name}さんのフレーズブックはこちら" %>
+      <span class="muted"><%= @pikup_phrase.updated_at.to_s(:db) %></span><%# UTCからJST（日本時間）に変換 %>
+      <p>
+      <%= simple_format( truncate(@pikup_phrase.story, { :length => 36 }) ) %>
+      <%= link_to "詳細を見る", @pikup_phrase %>
+      </p>
+    </div>
+  </div>    
+  <!-- // -->  
+
   <div class="row-fluid ph-row">
     <div class="span6 ph_phrase_box well">
       <h2 class="ph_category">
         <%= link_to phrases_path, { class:"ph_new_link" } do %>
-          新着順<small>（全<%= Phrase.count %>件）</small>
+          <span>新着順</span>
+          <%= image_tag('marks/new017_01.png', { alt:"新着英語フレーズ", size:"33x33", class:"new-mark" } ) %>
+          <small>（全<%= Phrase.count %>件）</small>
         <% end %>
       </h2>
         <% if @phrases.any? %>
           <ul class="ph_phrase_ul">
             <% @phrases.each do |phrase| %>
+            <ol class="inline ph_user_icon">
+
+              <!-- メンバー画像 -->
+              <li>
+                <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
+              </li>
+
+              <!-- フレーズ（日本語） -->
               <li class="ph_phrase_item">
                 <% japanese_phrase = phrase.japanese %>
-                <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+                <%= link_to truncate(japanese_phrase, { :length => 18 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
               </li>
+            </ol>
             <% end %>
           </ul>
           <p class="ph_last_item">
@@ -64,10 +94,16 @@
           <% if category.phrases.any? %>
             <ul class="ph_phrase_ul">
               <% category.phrases[0..2].each do |phrase| %>
+              <ol class="inline ph_user_icon">
+                <!-- メンバー画像 -->
+                <li>
+                  <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
+                </li>
                 <li class="ph_phrase_item">
                   <% japanese_phrase = phrase.japanese %>
                   <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase, { title:"『#{japanese_phrase}』の英語フレーズはこちら" } %>
                 </li>
+              </ol>
               <% end %>
             </ul>
             <p class="ph_last_item">
