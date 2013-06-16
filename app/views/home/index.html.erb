@@ -18,7 +18,7 @@
 
   <!-- ピックアップフレーズ -->
   <div class="row-fluid pikup-phrase">
-    <div class="span12 ph_phrase_box_cancel well">
+    <div class="span12 ph_phrase_box_cancel ">
 
       <h1>
       <%= link_to @pikup_phrase do %>
@@ -60,7 +60,7 @@
               <!-- フレーズ（日本語） -->
               <li class="ph_phrase_item">
                 <% japanese_phrase = phrase.japanese %>
-                <%= link_to truncate(japanese_phrase, { :length => 18 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+                <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
               </li>
             </ol>
             <% end %>

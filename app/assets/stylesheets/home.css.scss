@@ -11,6 +11,12 @@
   /***/
   height:auto;
 
+
+  // レスポンシブ対応
+  @media (min-width: 921px) {
+    li{ font-size: 18px; }
+  }
+
   // レスポンシブ対応
   @media (min-width: 768px) and (max-width: 920px) {
     //min-height: 280px; // 各カテゴリーのboxの高さを統一するため
@@ -47,11 +53,7 @@
 
 // ピックアップフレーズのコンテナ
 div.pikup-phrase {
-  margin:5px 0px 5px 0px;
-  
-  div {
-    //background-color: #FFFFF0;
-  }
+  margin:5px 0px 25px 0px;
 
   // タイトル
   h1 span{
@@ -62,7 +64,7 @@ div.pikup-phrase {
 
 // well-cancel
 .ph_phrase_box_cancel { 
-  @include well-cancel-color; // 背景色を白に＋枠線取り去る
+  //@include well-cancel-color; // 背景色を白に＋枠線取り去る
   /***/
   height:auto;
 
