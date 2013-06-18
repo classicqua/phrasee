@@ -1,5 +1,7 @@
 <% provide(:title, "英語・英会話フレーズ カテゴリー一覧") %>
-<% provide(:description, "英語・英会話フレーズ カテゴリー一覧") %>
+<% sb = @categories.map { |x| x.category_name }.join("、") %>
+<% provide(:subtitle, "【英語・英会話フレーズカテゴリー一覧】#{sb}") %>
+<% provide(:description, "#{sb}など、Phraseeに投稿されている英語・英会話フレーズのカテゴリー一覧です。" ) %>
 
   <div class="row-fluid">
     <%# サイトメインタイトル %>
@@ -24,8 +26,8 @@
     <% @categories.each do |category| %>
       <li class="ph_phrase_item">
         <%= link_to category_path(category), { title:"『#{category.category_name}』関連の英語フレーズはこちら" } do %>
-        <%= category.category_name %><small>（<%= category.phrases.count %>件）</small>
-        <% end %>
+        <%= "『#{category.category_name}』" %><small>の英語フレーズ</small>
+        <% end %><small class="muted">（<%= category.phrases.count %>件）</small>
       </li>
     <% end %>
   </ul>

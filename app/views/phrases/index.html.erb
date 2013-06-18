@@ -1,8 +1,9 @@
 <% provide(:title, "新着英語・英会話フレーズ") %>
+<% provide(:subtitle, "【新着順】これまでに投稿された全ての英語・英会話フレーズ") %>
 <% provide(:description, "新着英語・英会話フレーズ") %>
 
   <%# サイトメインタイトル %>
-  <%= render 'shared/main-title', tag:"h1" %>
+  <%= render 'shared/main-title' %>
   
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -15,7 +16,7 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h1><span class="ph_category_name">新着順・英語フレーズ一覧（全<%= Phrase.count %>件）</span></h1>
+    <h2><span class="ph_category_name">新着順・英語フレーズ一覧（全<%= Phrase.count %>件）</span></h2>
   </div>
 
   <%= render 'shared/phrases_list' %>

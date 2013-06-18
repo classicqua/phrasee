@@ -1,6 +1,6 @@
 
 <%# タイトルタグ（トップページはh1） %>
-<% logo_tag = content_for?(:logo_tag) ? yield(:logo_tag) : "h1" %>
+<% logo_tag = content_for?(:subtitle) ? "div" : "h1" %>
 
 <%# メインタイトル（キャッチコピー） %>
 <% main_title = "みんなでつくる英語フレーズ集『Phrasee』" %>
