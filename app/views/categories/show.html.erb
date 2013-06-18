@@ -1,10 +1,8 @@
 <% provide(:title, "『#{@category.category_name}』の英語・英会話フレーズ") %>
 <% provide(:description, "『#{@category.category_name}』の英語・英会話フレーズ") %>
 
-  <div class="row-fluid">
-    <%# サイトメインタイトル %>
-    <%= render 'shared/main-title' %>
-  </div>
+  <%# サイトメインタイトル %>
+  <%= render 'shared/main-title', tag:"div" %>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -23,7 +21,7 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h2><span class="ph_category_name"><%= @category.category_name %>（<%= @category.phrases.count %>件）</span></h2>
+    <h1><span class="ph_category_name"><%= @category.category_name %>の英語フレーズ（<%= @category.phrases.count %>件）</span></h1>
   </div>
 
 

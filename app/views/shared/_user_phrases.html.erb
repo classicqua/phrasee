@@ -3,10 +3,8 @@
 
 <% provide(:title, "#{user.name}さんの#{what}一覧") %>
 
-  <div class="row-fluid">
-    <%# サイトメインタイトル %>
-    <%= render 'shared/main-title' %>
-  </div>
+  <%# サイトメインタイトル %>
+  <%= render 'shared/main-title' %>
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -28,6 +26,7 @@
   <!-- page header -->
   <div class="page-header">
     <h2>
+      <%= cl_image_tag( user.profile_image_url, width:24, height:24, crop: :fill, alt:"user-profile-image", class:"img-polaroid", alt:"#{user.name}さん") %>
       <span class="ph_category_name"><%= user.name %>さんの<%= "#{what}" %></span>
       <small><%= "（#{count}件）" %></small>
     </h2>

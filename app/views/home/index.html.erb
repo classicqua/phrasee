@@ -2,29 +2,26 @@
 <% provide(:description, "これまでに投稿された英語・英会話フレーズ一覧") %>
     
 <div class="container">
+
+
   <!-- page header -->
   <div class="page-header">
-    <div class="row-fluid">
-
-      <%# サイトメインタイトル %>
-      <%= render 'shared/main-title' %>
-
-      <div class="span6 social-buttons">
-      <%# ソーシャルボタン %>
-      <%= render 'shared/social-buttons' %>
-      </div>
-    </div>
+    <%# サイトメインタイトル %>
+    <%= render 'shared/main-title'%>
   </div>
+
+  <%# 【PR】 アカウント登録へのリンク %>
+  <%= render 'shared/pr' %>
 
   <!-- ピックアップフレーズ -->
   <div class="row-fluid pikup-phrase">
     <div class="span12 ph_phrase_box_cancel ">
 
-      <h1>
+      <h2>
       <%= link_to @pikup_phrase do %>
         <%= image_tag('marks/ecbzns010_018.png', { alt:"ピックアップ英語フレーズ", size:"44x44" } ) %><span>今日のピックアップ・英語フレーズ</span>
       <% end %>
-      </h1>
+      </h2>
 
       <%= render partial: 'shared/show-phrase', locals:{ phrase: @pikup_phrase } %>
       <%= render partial: 'shared/post-member-icon', locals:{ user: @pikup_phrase.user } %>

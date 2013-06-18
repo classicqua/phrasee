@@ -23,7 +23,11 @@
         font-size: 21px;
       }
 
-      // サイトロゴ
+      // メインタイトル
+      div.main-title {
+        font-size: 21px;
+        font-weight:bold;
+      }
       .main-title img {
         margin-bottom:7px;
       }
@@ -32,6 +36,11 @@
       }
       .main-title span {
         margin-bottom:0px;
+      }
+
+      //サブタイトル
+      .sub_title {
+        font-size:14px;
       }
 
       // リンク下線

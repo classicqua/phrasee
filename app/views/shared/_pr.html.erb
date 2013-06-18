@@ -1,13 +1,12 @@
 <%# アカウント登録へのリンク %>
 <% unless signed_in? %> 
 <div class="row-fluid">
-<!--  <div class="alert alert-info span9" > -->
+  <div class="alert alert-info span6" >
     &nbsp;&nbsp;&nbsp;
     <%= link_to guide_path, { title:"1回1フレーズを書くだけのシンプルなミニ英語ブログ", class:"underline" } do %>
     <i class="icon-book "></i>
-    <%= "「1日ワンフレーズ」で始めるシンプルな" %><strong>ミニ英語ブログ</strong>（日記）
+    <%= "「1日ワンフレーズ」で始める" %><strong>ミニ英語ブログ</strong>（日記）
     <% end %>
-    <p>&nbsp;</p>
-<!--  </div>-->
+  </div>
 </div>
 <% end %>

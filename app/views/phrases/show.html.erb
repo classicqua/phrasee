@@ -1,16 +1,13 @@
 <% provide(:title, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
-<% provide(:description, "【スマホでも見やすいサイト】『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
+<% provide(:subtitle, "投稿フレーズNo.#{@phrase.id}「#{@phrase.japanese}」を英語で言うと？") %>
+<% provide(:description, "【スマホ対応サイト】『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
 
 <!-- main -->
-<div class="container">
-  
 
-  <div class="row-fluid">
-    <%# サイトメインタイトル %>
-    <%= render 'shared/main-title' %>
-    <div class="span6">
-    </div>
-  </div>
+<%# サイトメインタイトル %>
+<%= render 'shared/main-title', tag:"div" %>
+
+<div class="row-fluid">
 
   <!-- パンくずリスト -->
   <ol class="breadcrumb">
@@ -37,26 +34,27 @@
     <!-- 出典・引用元 -->
     <% unless @phrase.source.blank?  %>
     <p class="muted">
-      <small>出典・参考：</small><%= show_linkable_source(@phrase.source) %>
+      <small>出典・参考：<cite title=""><%= show_linkable_source(@phrase.source) %></cite></small>
     </p>
+
     <% end %>  
   </div>
 
   <!-- 投稿者 -->
   <div class="media">
 
-      <!-- メンバー画像 -->
-      <%= link_to user_path(@phrase.user), { class:"pull-left", title:"#{@phrase.user.name}さんのフレーズブックはこちら", rel:"author" } do %>
-        <%= render partial: 'devise/shared/profile_image', locals:{ user: @phrase.user, type: :thumb } %>
-      <% end %>
+    <!-- メンバー画像 -->
+    <%= link_to user_path(@phrase.user), { class:"pull-left", title:"#{@phrase.user.name}さんのフレーズブックはこちら", rel:"author" } do %>
+      <%= render partial: 'devise/shared/profile_image', locals:{ user: @phrase.user, type: :thumb } %>
+    <% end %>
 
-      <!-- エピソード本文 -->
-      <div class="media-body">
-        <h4 class="media-heading"><%= link_to @phrase.user.name, user_path(@phrase.user), title:"#{@phrase.user.name}さんのフレーズブックはこちら" %></h4>
-        <p class="muted"><%= @phrase.updated_at.to_s(:db) %></p><%# UTCからJST（日本時間）に変換 %>
-        <%= simple_format(show_linkable_source(@phrase.story), class:"lead") %>
-      </div>
+    <!-- エピソード本文 -->
+    <div class="media-body">
+      <h4 class="media-heading"><%= link_to @phrase.user.name, user_path(@phrase.user), title:"#{@phrase.user.name}さんのフレーズブックはこちら" %></h4>
+      <p class="muted"><%= @phrase.updated_at.to_s(:db) %></p><%# UTCからJST（日本時間）に変換 %>
+      <%= simple_format(show_linkable_source(@phrase.story), class:"lead") %>
     </div>
+  </div>
 
   <!-- 次へ -->
   <% if @next %>
@@ -74,8 +72,6 @@
   <p><%= link_to "#{@phrase.user.name}さんが投稿した英語フレーズ一覧を見る", posts_user_path(@phrase.user), title:"#{@phrase.user.name}さんが投稿した英語フレーズ一覧はこちら" %></p>
   <p><%= link_to "『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧を見る" , category_path(@phrase.category.id), title:"『#{@phrase.category.category_name}』カテゴリーの英語フレーズ一覧はこちら" %></p>
 
-
-  <!--/div-->
   <hr> 
 
   <!-- コメント一覧 -->

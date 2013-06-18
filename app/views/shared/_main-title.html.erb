@@ -1,11 +1,38 @@
 
-      <div class="span6">
-        <h1 class="main-title">
-        <%= link_to root_path, { title:"みんなでつくる英語フレーズ集『Phrasee』 | ワンフレーズで書くミニ英語ブログ", rel:"home" } do %>
+<%# タイトルタグ（トップページはh1） %>
+<% logo_tag = content_for?(:logo_tag) ? yield(:logo_tag) : "h1" %>
+
+<%# メインタイトル（キャッチコピー） %>
+<% main_title = "みんなでつくる英語フレーズ集『Phrasee』" %>
+
+<%# サブタイトル %>
+<% base_sub_title = "〜 英語フレーズ投稿・共有サイト 〜" %>
+<% sub_title = content_for?(:subtitle) ? yield(:subtitle) : base_sub_title %>
+<% sub_title_tag = sub_title.include?(base_sub_title) ? "em": "h1" %>  
+
+<%# メインタイトルの幅 %>
+<% main_title_width = logo_tag.include?("h1") ? "span6": "span12" %>  
+
+<%# メインタイトル文言 %>
+<div class="row-fluid">
+  <div class=<%= main_title_width %>>
+    <<%= logo_tag %> class="main-title">
+      <%= link_to root_path, { title:"みんなでつくる英語フレーズ集『Phrasee』 | ワンフレーズで書くミニ英語ブログ", rel:"home" } do %>
         <%= image_tag("icons/apple-touch-icon-precomposed.png", { alt:"英語フレーズ投稿サイト『Phrasee』", class:"logo-icon", size:"36x36" }) %>
-        <span>みんなでつくる英語フレーズ集『Phrasee』</span>
-        <% end %>
-        </h1>
-  <%# アカウント登録へのリンク %>
-  <%= render 'shared/pr' %>
-      </div>
+        <span><%= main_title %></span>
+      <% end %>
+  </div>
+
+  <%# ソーシャルボタン %>
+  <% if sub_title == base_sub_title %>
+    <div class="span6 social-buttons">
+      <%= render 'shared/social-buttons' %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">  
+  <<%= sub_title_tag %> class="muted sub_title">&nbsp;<%= sub_title %></<%= sub_title_tag %>>
+  </div>
+</div>
