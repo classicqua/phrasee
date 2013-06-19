@@ -2,11 +2,13 @@
 class UsersController < ApplicationController
   #before_filter :authenticate_user!
 
+  # メンバー一覧
   def index
     # 本人確認済の人だけ一覧表示
     @users = User.where("confirmed_at is NOT NULL").paginate(page:params[:page], per_page:10)
   end
 
+  # メンバーページ
   def show
 
     # 既存会員
@@ -35,6 +37,7 @@ class UsersController < ApplicationController
     @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)
   end
 
+  # 投稿フレーズ
   def posts
     begin
       @user = User.find(params[:id])

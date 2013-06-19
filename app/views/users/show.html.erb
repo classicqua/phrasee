@@ -27,7 +27,7 @@
     <div class="span4 ph_book_right">
       <%# 【右側】 %>
 
-      <!-- 投稿したフレーズ -->
+      <!-- ①投稿したフレーズ -->
       <h5>
         <%= link_to posts_user_path(@user), { class:"ph_new_link" } do %>
           <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon", width:"18" } ) %> 投稿したフレーズ
@@ -60,7 +60,7 @@
         <% end %>
     <%# フレーズboxここまで %>
     <hr>
-    <!-- お気に入りフレーズ -->
+    <!-- ②お気に入りフレーズ -->
      <h5>
         <%= link_to favorites_path(@user), { class:"" } do %>
           <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"favorite-icon", width:"18" } ) %> お気に入りフレーズ
@@ -94,7 +94,7 @@
     <%# フレーズboxここまで %>
 
     <hr>
-    <!-- お気に入りされたフレーズ-->
+    <!-- ③お気に入りされたフレーズ-->
      <h5>
         <%#= link_to favorites_path(@user), { class:"" } do %>
 

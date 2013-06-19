@@ -1,5 +1,11 @@
+<%# 「投稿フレーズ」or「お気に入りフレーズ」振り分け %>
 <% what = type==:posted ? "投稿フレーズ" : "お気に入りフレーズ" %>
-<% count = type==:posted ? user.phrases.count : user.favorites.count %>
+
+<%# フレーズ件数 %>
+<% count = 0 %>
+<% unless user.phrases.blank? %>
+  <% count = type==:posted ? user.phrases.count : user.favorites.count %>  
+<% end %>
 
 <% provide(:title, "#{user.name}さんの#{what}一覧") %>
 
