@@ -8,6 +8,11 @@ class UsersController < ApplicationController
   end
 
   def show
+
+    # 既存会員
+    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(5)  
+
+    # フレーズブックのメンバー
     begin
       @user = User.find(params[:id]) # 該当ユーザー
     rescue Exception => e
@@ -17,8 +22,14 @@ class UsersController < ApplicationController
       return
     end
 
+    # 投稿したフレーズ
+    @phrases = @user.phrases.paginate(page:params[:page], per_page:3)
+
     # お気に入りされたフレーズ
-    @favoriteds = Favorite.where(phrase_id: @user.phrase_ids)
+    @favoriteds = Favorite.where(phrase_id: @user.phrase_ids).uniq
+
+    # お気に入りした人
+    #@fav_users = User.where(phrase_id: @user.phrase_ids)
 
     # 現在のメンバーの内、最近ログインした人たち
     @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)
@@ -41,4 +52,5 @@ class UsersController < ApplicationController
       format.json { render json: @phrases }
     end
   end
+
 end

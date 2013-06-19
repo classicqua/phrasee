@@ -23,20 +23,47 @@
         font-size: 21px;
       }
 
-      // メインタイトル
-      div.main-title {
-        font-size: 21px;
-        font-weight:bold;
+
+      /* メインタイトル */
+      @media (min-width: 1150px) {
+        .main-title {
+          img {
+            margin-bottom:7px;
+          }
+          span {
+            font-size: 21px;
+            font-weight:bold;
+          }
+        }
       }
-      .main-title img {
-        margin-bottom:7px;
+
+      @media (min-width: 481px) and (max-width: 1149px) {
+
+        .main-title {
+          img {
+            margin-bottom:7px;
+          }
+          span {
+            font-size: 18px;
+            font-weight:bold;
+          }
+        }
       }
-      h1.main-title {
-        font-size: 21px;
+       
+      /* Landscape phones and down */
+      @media (max-width: 480px) {
+
+        .main-title {
+          img {
+            margin-bottom:7px;
+          }
+          span {
+            font-size: 14px;
+            font-weight:bold;
+          }
+        }
       }
-      .main-title span {
-        margin-bottom:0px;
-      }
+
 
       //サブタイトル
       .sub_title {

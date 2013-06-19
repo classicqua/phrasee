@@ -19,7 +19,7 @@
 
   <!-- page header -->
   <div class="page-header">
-    <h3>Phraseeとは？</h3>
+    <h3><%= image_tag('characters/t9lion_trans.png', { alt:"lion-icon", width:"55" } ) %>Phraseeとは？</h3>
     <p class="">ミニ英語ブログ × みんな ＝ ひとつの英語フレーズ集</p>
   </div>
 
@@ -27,39 +27,9 @@
   <%= render 'shared/guide-message_1' %>
   <p>&nbsp;</p>
 
-  <p class="can_do_things lead">Phraseeでできる3つのこと</p>
-
-  <div class="row-fluid">
-    <ul class="thumbnails">
-      <li class="span4">
-        <div class="lead">のせる</div>
-        <div class="thumbnail ">
-          <%= image_tag('service/c8qkh32fimB.jpg', { alt:"post_it", size:"300x200" } )   %>
-          <h3>Post it !</h3>
-          <p>好きなフレーズを投稿する。</p>
-        </div>
-      </li>
-
-      <li class="span4">
-        <div class="lead">さがす</div>
-        <div class="thumbnail ">
-          <%= image_tag('service/8566716_aa614fe042_image.jpg', { alt:"_it", size:"300x200" } )   %>
-          <h3>Find it !</h3>
-          <p>役立つフレーズを見つける。</p>
-        </div>
-      </li>
-
-      <li class="span4">
-        <div class="lead">あつめる</div>
-        <div class="thumbnail ">  
-          <%= image_tag('service/gargle.png', { alt:"get_it", width:"300" } )   %>
-          <h3>Get it !</h3>
-          <p>お気に入りフレーズをストック。</p>
-        </div>
-      </li>
-    </ul>
-    <p></p>
-  </div>
+    <%= render "shared/can-do-what"%>
+  
+  
   <p>&nbsp;</p>
   <div class="well" style="text-align:left;">
   <h4>【 Phraseeを使っている人たち 】</h4>

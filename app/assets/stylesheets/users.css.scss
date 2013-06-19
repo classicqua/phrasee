@@ -4,7 +4,7 @@
 /* プロフィール（公開情報） */
 .ph_profile_wrapper {
   //text-align:left;
-  margin: 0 auto;
+  //margin: 0 auto;
 
   .ph_profile_container {
 
@@ -17,8 +17,8 @@
     }
 
     // メイン
-    margin-top: 30px;
-    max-width: 600px;
+    //margin-top: 30px;
+    
     
     legend {
       text-align: center;
@@ -36,6 +36,7 @@
     // レスポンシブ対応：ある程度横幅がある画面のときは余白多めに
     /* Portrait tablet to landscape and desktop */
     @media (min-width: 710px) {
+      max-width: 600px;
 
       .ph_pr_img {
         margin: 0 30px;
@@ -67,6 +68,23 @@
     }
   }
 }
+
+/* 右側 */
+.ph_book_right {
+
+}
+
+// お気に入りした人の数
+.fav-users-num {
+  color : red;
+  font-size : 12px;
+  background-color:#FFE4E1;
+  border-style : solid ;
+  border-color : red;
+  border-width : 1px;
+  padding:1px 5px;
+}
+
 /* アカウント設定（非公開） */
 .form_container {
   max-width: 600px;

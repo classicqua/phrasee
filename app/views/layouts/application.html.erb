@@ -18,9 +18,10 @@
     basic_description %> >
 
     <%# Keywords %>
-    <% plus_words = ["英語", "英会話", "フレーズ"] %>
-    <% keywords = plus_words.push(Category.all.map{|c|c.category_name}).join(", ") %>
-    <% set_meta_tags :keywords => keywords %>
+    <%# plus_words = ["英語", "英会話", "フレーズ"] %>
+    <%# keywords = plus_words.push(Category.all.map{|c|c.category_name}).join(", ") %>
+
+    <% set_meta_tags :keywords => ["英語", "英会話", "フレーズ"] %><%# カテゴリ名はカット %>
 
     <%# og %>
     <% 

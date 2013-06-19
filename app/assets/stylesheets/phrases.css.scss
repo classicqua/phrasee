@@ -26,18 +26,12 @@ div.social-buttons-phrase {
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-  h1 {
-      font-size: 28px;
-      margin: 3px auto;
-  }
+
 }
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-  h1 {
-      font-size: 21px;
-      margin: 1px auto;
-  }
+
 }
  
 /* Landscape phones and down */

@@ -17,9 +17,127 @@
     <li class="active"><%= @user.name %></li>
   </ol>
 
-  <%= render 'shared/public_user_profile' %>
 
-  <%# フレーズ投稿 %>
+  <!-- メンバープロフィール（フレーズブック） -->  
+  <div class="row-fluid">
+    <div class="span8">
+      <%# 【左側】 %>
+      <%= render 'shared/public_user_profile' %>
+    </div> 
+    <div class="span4 ph_book_right">
+      <%# 【右側】 %>
+
+      <!-- 投稿したフレーズ -->
+      <h5>
+        <%= link_to posts_user_path(@user), { class:"ph_new_link" } do %>
+          <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon", width:"18" } ) %> 投稿したフレーズ
+          <small>（全<%= @user.phrases.count %>件）</small>
+        <% end %>
+      </h5>
+        <% if @user.phrases.any? %>
+          <ul class="ph_phrase_ul">
+            <% @user.phrases[0..2].each do |phrase| %>
+            <ol class="inline ph_user_icon">
+
+              <!-- メンバー画像 -->
+              <li>
+                <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
+              </li>
+
+              <!-- フレーズ（日本語） -->
+              <li class="">
+                <% japanese_phrase = phrase.japanese %>
+                <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+              </li>
+            </ol>
+            <% end %>
+          </ul>
+          <p class="ph_last_item">
+            <small><%= link_to "投稿した英語フレーズをすべて見る", posts_user_path(@user) %></small>
+          </p>            
+        <% else %>
+          投稿したフレーズはありません。
+        <% end %>
+    <%# フレーズboxここまで %>
+    <hr>
+    <!-- お気に入りフレーズ -->
+     <h5>
+        <%= link_to favorites_path(@user), { class:"" } do %>
+          <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"favorite-icon", width:"18" } ) %> お気に入りフレーズ
+          <small>（全<%= @user.favorites.count %>件）</small>
+        <% end %>
+      </h5>
+        <% if @user.favorites.any? %>
+          <ul class="ph_phrase_ul">
+            <% @user.favorites[0..2].each do |favorite| %>
+            <ol class="inline ph_user_icon">
+
+              <!-- メンバー画像 -->
+              <li>
+                <%= render partial: 'shared/post-member-icon', locals:{ user: favorite.phrase.user } %>
+              </li>
+
+              <!-- フレーズ（日本語） -->
+              <li class="">
+                <% japanese_phrase = favorite.phrase.japanese %>
+                <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(favorite.phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+              </li>
+            </ol>
+            <% end %>
+          </ul>
+          <p class="ph_last_item">
+            <small><%= link_to "お気に入り英語フレーズをすべて見る", favorites_path(@user) %></small>
+          </p>            
+        <% else %>
+          お気に入りフレーズはありません。
+        <% end %>
+    <%# フレーズboxここまで %>
+
+    <hr>
+    <!-- お気に入りされたフレーズ-->
+     <h5>
+        <%#= link_to favorites_path(@user), { class:"" } do %>
+
+          <%# 複数人がお気に入りしててもそれぞれ「1回」でカウントしたものを抽出 %>
+          <% @favoriteds_uniq = @favoriteds.map{|f|f}.uniq{|fd|fd.phrase_id} %>
+
+          <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"love-icon", width:"18" } ) %> お気に入りされたフレーズ
+          <small>（全<%= @favoriteds_uniq.count %>件）</small>
+        <%# end %>
+      </h5>
+        <% if @favoriteds.any? %>
+          <ul class="ph_phrase_ul">
+            <% @favoriteds_uniq[0..2].each do |favorited| %>
+            <ol class="inline ph_user_icon">
+
+              <!-- お気に入りuser数 -->
+              <li>
+                <%# お気に入りされているフレーズ × お気に入りしている人数 %>
+                <span class="fav-users-num">
+                  <%= @favoriteds.map{|f|f.phrase_id}.count(favorited.phrase_id) %>users
+                </span>
+              </li>
+
+              <!-- フレーズ（日本語） -->
+              <li class="">
+                <% japanese_phrase = favorited.phrase.japanese %>
+                <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(favorited.phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+              </li>
+            </ol>
+            <% end %>
+          </ul>
+          <p class="ph_last_item">
+            <small><%#= link_to "お気に入りされた英語フレーズをすべて見る", favorites_path(@user) %></small>
+          </p>            
+        <% else %>
+          お気に入りされたフレーズはありません。
+        <% end %>
+    <%# フレーズboxここまで %>
+    </div> 
+  </div> 
+
+
+  <%# フレーズ投稿ボタン（自分のフレーズブック表示時のみ） %>
   <% if signed_in? && ( @user.id == current_user.id ) %>
     <p>&nbsp;</p>
     <%= render 'shared/post_phrase_link' %>

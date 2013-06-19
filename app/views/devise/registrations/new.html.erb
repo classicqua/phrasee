@@ -6,6 +6,7 @@
     <%= render 'shared/main-title' %>
   </div>
 
+<%# ようこそメッセージ %>
 <%= render "devise/shared/welcome-message"%>
 
 <div class="container">
@@ -16,32 +17,66 @@
   <span class="lead"><small>登録完了後、あなた用のページが作成されます。</small></span>
   </div> 
 
-  <%= image_tag('signup/signup_step1.jpg', { alt:"step1" } ) %>
- 
-  <div class="form_container"> 
-    <!-- フォーム -->
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-    	<%= f.error_notification %>
-    	<%= display_base_errors resource %>
-    	<%= f.input :name, :autofocus => true, :required => true %>
-    	<%= f.input :email, :required => true %>
-    	<%= f.input :password, :required => true, hint:"<small>※6文字以上</small>" %>
-    	<%= f.input :password_confirmation, :required => true %>
+  <!-- 登録ステップ -->  
+  <div class="row-fluid">
+    <div class="span12">
+      <%= image_tag('signup/signup_step1.jpg', { alt:"step1" } ) %>
+    </div> 
+  </div> 
 
-      <%# 利用規約 %>
-      <div class="agreement">
-        <label class="checkbox">
-          <%= f.input :agreement, :as => :hidden %><%# エラーメッセージ表示用 %>
-          <%= f.check_box :agreement, :as => :boolean, checked:false %>
-          <%= link_to "利用規約", terms_path, { target:"blank", rel:"nofollow" } %>に同意する
-        </label>
-        <small class="help-block">※利用規約に同意できない場合は登録をご遠慮ください。</small>
+  <!-- 登録フォーム ＋ PR -->
+  <div class="row-fluid">
+
+    <!-- 左側 -->
+    <div class="span6">
+      <div class="form_container well"> 
+        <!-- 登録フォーム -->
+        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+        	<%= f.error_notification %>
+        	<%= display_base_errors resource %>
+        	<%= f.input :name, :autofocus => true, :required => true %>
+        	<%= f.input :email, :required => true %>
+        	<%= f.input :password, :required => true, hint:"<small>※6文字以上</small>" %>
+        	<%= f.input :password_confirmation, :required => true %>
+
+          <%# 利用規約 %>
+          <div class="agreement">
+            <label class="checkbox">
+              <%= f.input :agreement, :as => :hidden %><%# エラーメッセージ表示用 %>
+              <%= f.check_box :agreement, :as => :boolean, checked:false %>
+              利用規約に同意する（<%= link_to "利用規約を見る", terms_path, { target:"blank", rel:"nofollow" } %>）
+            </label>
+            <%# <small class="help-block">※利用規約に同意できない場合は登録をご遠慮ください。</small>  %>
+          </div>
+
+          <p>&nbsp;</p>
+          <%= f.button :submit, '規約に同意して登録する', :class => 'btn-primary' %>
+        <% end %>
+
+        <%= render "devise/shared/links" if resource.errors.any?  %>
       </div>
+    </div>
 
-      <%= f.button :submit, '規約に同意して登録する', :class => 'btn-primary' %>
-    <% end %>
+    <!-- 右側 -->
+    <div class="span6">
+      <%# ユーザー紹介 %>
+      <div  style="text-align:left;">
+      <h4>Come join us!</h4>
+      <p class=""> - あなたの参加を待っています！ - </p>
+      <%= render 'shared/members', object: @users %>
+      </div>
+    </div>
+  </div>
 
-    <%= render "devise/shared/links" if resource.errors.any?  %>
+
+  <%# phraseeでできること %>
+  <div class="row-fluid" style="text-align:center;">
+    <div class="span6">
+      <%= render "shared/can-do-what"%>
+    </div> 
+    <div class="span6">
+    </div>
+  </div> 
 
     <p>&nbsp;</p>
     <%= render 'shared/goiken_link' %>  
