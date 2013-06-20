@@ -5,18 +5,26 @@
   <%= render 'shared/main-title' %>
 
   <!-- パンくずリスト -->
-  <ol class="breadcrumb">
-    <li>
-      <%= link_to 'トップ', root_path %>
+  <ol class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <!-- トップページ -->
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="home">
+      <%= link_to root_path, itemprop:"url" do %>
+      <span itemprop="title">トップ</span>
+      <% end %>
       <span class="divider">/</span>
     </li>
-    <li>
-      <%= link_to "メンバー", users_path %>
+    <!-- 子ページ -->
+     <li itemprop="child"  itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <%= link_to users_path, itemprop:"url" do %>
+      <span itemprop="title">メンバー</span>
+      <% end %>
       <span class="divider">/</span>
     </li>
-    <li class="active"><%= @user.name %></li>
+    <!-- 現在ページ -->
+    <li class="active" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <span itemprop="title"><%= @user.name %></span>
+    </li>
   </ol>
-
 
   <!-- メンバープロフィール（フレーズブック） -->  
   <div class="row-fluid">

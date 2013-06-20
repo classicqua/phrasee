@@ -9,12 +9,18 @@
   </div>
 
   <!-- パンくずリスト -->
-  <ol class="breadcrumb">
-    <li>
-      <%= link_to 'トップ', root_path %>
+  <ol class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <!-- トップページ -->
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="home">
+      <%= link_to root_path, itemprop:"url" do %>
+      <span itemprop="title">トップ</span>
+      <% end %>
       <span class="divider">/</span>
     </li>
-    <li class="active">カテゴリー</li>
+    <!-- 現在ページ -->
+    <li class="active" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <span itemprop="title">カテゴリー</span>
+    </li>
   </ol>
   
   <!-- page header -->

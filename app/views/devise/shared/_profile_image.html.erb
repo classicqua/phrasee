@@ -3,11 +3,11 @@
 
 <% if user.profile_image.present? %>
   <%# cloudinaryで画像管理 %>
-  <%= cl_image_tag( user.profile_image_url(type).to_s, width:200, height:200, crop: :fit, alt:"user-profile-image", class:"img-polaroid") %>
+  <%= cl_image_tag( user.profile_image_url(type).to_s, width:200, height:200, crop: :fit, alt:"#{user.name}", class:"img-polaroid photo", itemprop:"photo") %>
 <% else %> 
   <% if(type==:thumb) %>
-    <%= image_tag("icons/64x64.gif", { alt:"user-icon", class:"img-polaroid" }) %> 
+    <%= image_tag("icons/64x64.gif", { alt:"#{user.name}", class:"img-polaroid photo", itemprop:"photo" }) %> 
   <% else %>
-    <%= image_tag("icons/200x200.gif", { alt:"user-icon", class:"img-polaroid" }) %> 
+    <%= image_tag("icons/200x200.gif", { alt:"#{user.name}", class:"img-polaroid photo", itemprop:"photo" }) %> 
   <% end %>
 <% end %>

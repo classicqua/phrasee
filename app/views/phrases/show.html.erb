@@ -10,20 +10,32 @@
 <div class="row-fluid">
 
   <!-- パンくずリスト -->
-  <ol class="breadcrumb">
-    <li>
-      <%= link_to 'トップ', root_path %>
+  <ol class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <!-- トップページ -->
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="home">
+      <%= link_to root_path, itemprop:"url" do %>
+      <span itemprop="title">トップ</span>
+      <% end %>
       <span class="divider">/</span>
     </li>
-     <li>
-      <%= link_to 'カテゴリー', categories_path %>
-      <span class="divider">/</span>
-    </li>   
-    <li>
-      <%= link_to @phrase.category.category_name, category_path(@phrase.category.id) %>
+    <!-- 子ページ -->
+     <li itemprop="child"  itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <%= link_to categories_path, itemprop:"url" do %>
+      <span itemprop="title">カテゴリー</span>
+      <% end %>
       <span class="divider">/</span>
     </li>
-    <li class="active"><%= @phrase.japanese %></li>
+    <!-- 孫ページ -->
+    <li itemprop="child"  itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <%= link_to category_path(@phrase.category.id), itemprop:"url" do %>
+      <span itemprop="title"><%= @phrase.category.category_name %></span>
+      <% end %>
+      <span class="divider">/</span>
+    </li>
+    <!-- 現在ページ -->
+    <li class="active" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <span itemprop="title"><%= @phrase.japanese %></span>
+    </li>
   </ol>
 
   <!-- 投稿フレーズ -->
@@ -41,18 +53,32 @@
   </div>
 
   <!-- 投稿者 -->
-  <div class="media">
+  <div class="media" itemscope itemtype="http://data-vocabulary.org/Person">
 
-    <!-- メンバー画像 -->
-    <%= link_to user_path(@phrase.user), { class:"pull-left", title:"#{@phrase.user.name}さんのフレーズブックはこちら", rel:"author" } do %>
+    <!-- 投稿者メンバー画像 -->
+    <%= link_to user_path(@phrase.user), { class:"pull-left", title:"#{@phrase.user.name}さんのフレーズブックはこちら", rel:"author", itemprop:"url" } do %>
       <%= render partial: 'devise/shared/profile_image', locals:{ user: @phrase.user, type: :thumb } %>
     <% end %>
 
     <!-- エピソード本文 -->
     <div class="media-body">
-      <h4 class="media-heading"><%= link_to @phrase.user.name, user_path(@phrase.user), title:"#{@phrase.user.name}さんのフレーズブックはこちら" %></h4>
-      <p class="muted"><%= @phrase.updated_at.to_s(:db) %></p><%# UTCからJST（日本時間）に変換 %>
+      <!-- 投稿者メンバー名 -->
+      <h4 class="media-heading">
+        <%= link_to user_path(@phrase.user), title:"#{@phrase.user.name}さんのフレーズブックはこちら", rel:"author", itemprop:"url" do %>
+        <span itemprop="name"><%= @phrase.user.name %></span>
+        <% end %>
+      </h4>
+      <!-- 投稿日時 -->
+      <p class="muted">
+        <%# UTCからJST（日本時間）に変換 %>
+        <time itemprop="" datetime=<%= @phrase.updated_at.to_s(:db) %>>
+        <%= @phrase.updated_at.to_s(:db) %>
+        </time>
+      </p>
+      <!-- エピソード・ひとくちメモ -->
+      <span itemprop="description">
       <%= simple_format(show_linkable_source(@phrase.story), class:"lead") %>
+      </span>
     </div>
   </div>
 

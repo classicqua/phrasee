@@ -4,64 +4,68 @@
     <div class="well ph_well-box"><%# 白囲み表示or囲み無し切り替え用 %>
 
     <% if @user.present? %>
-      <legend>
-        <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_071_book.png', { alt:"phrase-book-icon", size:"16x16" } ) %>&nbsp;<strong><%= @user.name %></strong>さんのフレーズブック
-      </legend>
 
-      <%# アカウント設定へのリンク %>
-      <div class="ph_pr_account">
-        <% if signed_in? && ( @user.id == current_user.id ) %>
-          <%= link_to edit_user_registration_path(current_user), { rel:"noindex,nofollow" } do %>
-            <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_044_keys.png', { alt:"private-icon", size:"14x14" } ) %>
-            アカウント設定
+      <div itemscope itemtype="http://data-vocabulary.org/Person">
+
+        <legend>
+          <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_071_book.png', { alt:"#{@user.name}", size:"16x16" } ) %>&nbsp;<strong itemprop:"name" class="fn"><%= @user.name %></strong>さんのフレーズブック
+        </legend>
+
+        <%# アカウント設定へのリンク %>
+        <div class="ph_pr_account">
+          <% if signed_in? && ( @user.id == current_user.id ) %>
+            <%= link_to edit_user_registration_path(current_user), { rel:"noindex,nofollow" } do %>
+              <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_044_keys.png', { alt:"private-icon", size:"14x14" } ) %>
+              アカウント設定
+            <% end %>
           <% end %>
+        </div>
+
+        <%# プロフィール画像 %>
+        <div class="well ph_well-cancel-color ph_pr_img">
+          <%= render partial: 'devise/shared/profile_image', locals:{ user:@user } %>
+        </div>
+
+        <%# 自己紹介 %>
+        <% if @user.introduction.present? %>
+        <div class="well ph_well-cancel-color ph_pr_msg">
+          <p><%= simple_format(@user.introduction) %></p>
+        </div>
         <% end %>
-      </div>
 
-      <%# プロフィール画像 %>
-      <div class="well ph_well-cancel-color ph_pr_img">
-        <%= render partial: 'devise/shared/profile_image', locals:{ user:@user } %>
-      </div>
+        <%# 状況 %>
+        <div class="lead well ph_well-cancel-color ph_status">
+          <ul class="unstyled inline ">
+            <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"投稿したフレーズ" } ) %> 投稿したフレーズ</li>
+            <li>
+              <% if @user.phrases.present? %>
+                <%= link_to "#{@user.phrases.count}件", posts_user_path(@user) %>
+              <% else %>
+                <%= "#{@user.phrases.count}件" %>
+              <% end %>
+            </li>
+          </ul>
 
-      <%# 自己紹介 %>
-      <% if @user.introduction.present? %>
-      <div class="well ph_well-cancel-color ph_pr_msg">
-        <p><%= simple_format(@user.introduction) %></p>
-      </div>
+          <ul class="unstyled inline">
+            <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"お気に入りフレーズ" } ) %> お気に入りフレーズ</li>
+            <li>
+              <% if @user.favorites.present? %>
+                <%= link_to "#{@user.favorites.count}件", favorites_path(@user) %>
+              <% else %>
+                <%= "#{@user.favorites.count}件" %>
+              <% end %>
+            </li>
+          </ul>
+
+          <ul class="unstyled inline">
+            <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"お気に入りに追加された回数" } ) %> お気に入りに追加された回数</li>
+            <li><b><%= "#{@favoriteds.count}回" %></b></li>
+          </ul>
+        </div>
+      <% else %>
+        <p>該当ユーザーが見つかりませんでした。</p>
       <% end %>
-
-      <%# 状況 %>
-      <div class="lead well ph_well-cancel-color ph_status">
-        <ul class="unstyled inline ">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"post-icon" } ) %> 投稿したフレーズ</li>
-          <li>
-            <% if @user.phrases.present? %>
-              <%= link_to "#{@user.phrases.count}件", posts_user_path(@user) %>
-            <% else %>
-              <%= "#{@user.phrases.count}件" %>
-            <% end %>
-          </li>
-        </ul>
-
-        <ul class="unstyled inline">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"favorite-icon" } ) %> お気に入りフレーズ</li>
-          <li>
-            <% if @user.favorites.present? %>
-              <%= link_to "#{@user.favorites.count}件", favorites_path(@user) %>
-            <% else %>
-              <%= "#{@user.favorites.count}件" %>
-            <% end %>
-          </li>
-        </ul>
-
-        <ul class="unstyled inline">
-          <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"love-icon" } ) %> お気に入りに追加された回数</li>
-          <li><b><%= "#{@favoriteds.count}回" %></b></li>
-        </ul>
       </div>
-    <% else %>
-      <p>該当ユーザーが見つかりませんでした。</p>
-    <% end %>
     </div>
   </div>
 </div>
