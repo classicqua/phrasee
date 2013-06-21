@@ -44,11 +44,13 @@
                 <%= truncate(current_user.name, { :length => 12 }) %>&nbsp;<b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
+                <!-- 2013.6.21
                 <li>
-                  <%= link_to favorites_path(current_user) do %>
+                  <%#= link_to favorites_path(current_user) do %>
                     <i class='icon-star'></i>&nbsp;お気に入り
-                  <% end %>
+                  <%# end %>
                 </li>
+              -->
                 <li>
                   <%= link_to current_user do %>
                     <%#= image_tag('glyphicons_free/glyphicons/png/glyphicons_352_nameplate.png', { alt:"profile-icon", size:"14x14" } ) %>
