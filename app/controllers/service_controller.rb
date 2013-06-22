@@ -5,7 +5,7 @@ class ServiceController < ApplicationController
   def guide
     
     # 現在のメンバーの内、最近ログインした人たち
-    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)
+    recent_users
   end
 
   # ヘルプ

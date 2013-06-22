@@ -163,7 +163,7 @@
 
   <p>&nbsp;</p>
   <%# ユーザー紹介 %>
-  <%= render 'shared/introduce-users' %>
+  <%= render 'shared/introduce-users', locals: { object: @recent_users } %>
 
   <p>&nbsp;</p>
   <%= render 'shared/top-page_link' %>

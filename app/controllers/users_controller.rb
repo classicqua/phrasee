@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
 
     # 既存会員
-    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(5)  
+    #@users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(5)  
 
     # フレーズブックのメンバー
     begin
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     #@fav_users = User.where(phrase_id: @user.phrase_ids)
 
     # 現在のメンバーの内、最近ログインした人たち
-    @users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(3)
+    recent_users
   end
 
   # 投稿フレーズ
