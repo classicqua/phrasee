@@ -49,12 +49,6 @@ class UsersController < ApplicationController
       redirect_to root_url
       return
     end
-
-    #render :posts;
-    respond_to do |format|
-      format.html { render :posts }
-      format.json { render json: @phrases }
-    end
   end
 
 end

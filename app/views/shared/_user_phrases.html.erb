@@ -30,17 +30,17 @@
     </li>
     <!-- 現在ページ -->
     <li class="active" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-      <span itemprop="title"><%= "#{what}" %><</span>
+      <span itemprop="title"><%= "#{what}" %></span>
     </li>
   </ol>
   
   <!-- page header -->
   <div class="page-header">
     <h2>
-      <%= link_to user_path(user), { class:"pull-left", title:"#{user.name}さんのフレーズブックはこちら", rel:"author", itemprop:"url" } do %>
-        <%= cl_image_tag( user.profile_image_url, width:24, height:24, crop: :fill, class:"img-polaroid", alt:"#{user.name}さん") %>
-      <% end %>
-      <span class="ph_category_name"><%= user.name %>さんの<%= "#{what}" %></span>
+      <%#= link_to user_path(user), { class:"pull-left", title:"#{user.name}さんのフレーズブックはこちら", rel:"author", itemprop:"url" } do %>
+        <%#= cl_image_tag( user.profile_image_url, width:24, height:24, crop: :fill, class:"img-polaroid", alt:"#{user.name}さん") %>
+      <%# end %>
+      <span class="ph_category_name"><%= "#{user.name}" %>さんの<%= "#{what}" %></span>
       <small><%= "（#{count}件）" %></small>
     </h2>
   </div>

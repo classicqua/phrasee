@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
     #render :favorites;
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @phrases }
+      format.json { render json: @target_phrases }
     end
   end
 
