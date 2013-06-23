@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def posts
     begin
       @post_user = User.find(params[:id])
-      @phrases = Phrase.where( 'user_id = :user_id', { :user_id => params[:id] } )
+      @target_phrases = Phrase.where( 'user_id = :user_id', { :user_id => params[:id] } )
                         .paginate(page:params[:page])
     rescue Exception => e
       flash[:error] = 'データが見つかりませんでした。' 

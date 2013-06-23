@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
     end
 
     # このユーザーのお気に入りフレーズ
-    @phrases = Phrase.where(id:@fav_user.favorites.map{|fav| fav.phrase_id}).paginate(page:params[:page])
+    @target_phrases = Phrase.where(id:@fav_user.favorites.map{|fav| fav.phrase_id}).paginate(page:params[:page])
 
     #render :favorites;
     respond_to do |format|

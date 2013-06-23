@@ -1,11 +1,11 @@
 
-<div class="container ph_profile_wrapper"><%# プロフィール全体用 %>
+
   <div class=" ph_profile_container"><%# 左右margin/padding調整用 %>
     <div class="well ph_well-box"><%# 白囲み表示or囲み無し切り替え用 %>
 
     <% if @user.present? %>
 
-      <div itemscope itemtype="http://data-vocabulary.org/Person">
+      <div itemscope itemtype="http://data-vocabulary.org/Person" class="">
 
         <legend>
           <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_071_book.png', { alt:"#{@user.name}", size:"16x16" } ) %>&nbsp;<strong><span itemprop:"name" class="fn"><%= @user.name %></span></strong>さんのフレーズブック
@@ -34,7 +34,8 @@
         <% end %>
 
         <%# 状況 %>
-        <div class="lead well ph_well-cancel-color ph_status">
+        <div class="lead  ph_status">
+          <%# 投稿したフレーズ %>
           <ul class="unstyled inline ">
             <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_009_magic.png', { alt:"投稿したフレーズ" } ) %> 投稿したフレーズ</li>
             <li>
@@ -45,7 +46,7 @@
               <% end %>
             </li>
           </ul>
-
+          <%# お気に入りフレーズ %>
           <ul class="unstyled inline">
             <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"お気に入りフレーズ" } ) %> お気に入りフレーズ</li>
             <li>
@@ -56,7 +57,7 @@
               <% end %>
             </li>
           </ul>
-
+          <%# お気に入りに追加された回数 %>
           <ul class="unstyled inline">
             <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"お気に入りに追加された回数" } ) %> お気に入りに追加された回数</li>
             <li><b><%= "#{@favoriteds.count}回" %></b></li>
@@ -68,4 +69,3 @@
       </div>
     </div>
   </div>
-</div>

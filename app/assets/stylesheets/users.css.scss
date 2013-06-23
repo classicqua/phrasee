@@ -2,10 +2,6 @@
 
 
 /* プロフィール（公開情報） */
-.ph_profile_wrapper {
-  //text-align:left;
-  //margin: 0 auto;
-
   .ph_profile_container {
 
     // well調整用
@@ -15,11 +11,15 @@
     .ph_well-cancel-color { 
       @include well-cancel-color;
     }
+    
 
-    // メイン
-    //margin-top: 30px;
-    
-    
+    max-width: 100%;
+    margin:auto 0;
+
+   .ph_status {
+      text-align:center;
+    }
+
     legend {
       text-align: center;
     }
@@ -32,28 +32,39 @@
     .ph_pr_msg {
       text-align: center;
     }
+    .ph_status {
+      text-align: center;
+    }
 
     // レスポンシブ対応：ある程度横幅がある画面のときは余白多めに
-    /* Portrait tablet to landscape and desktop */
-    @media (min-width: 710px) {
-      max-width: 600px;
 
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 970px) {
+
+      .ph_pr_img {
+        //margin: 0 30px;
+      }
+      .ph_pr_msg {
+        //margin: 0 35px;
+      }
+     .ph_status {
+        //margin: 0 30px;
+      }
+    }
+
+    @media (min-width: 540px) and (max-width: 709px) {
+
+    }
+
+    @media (min-width: 481px) {
       .ph_pr_img {
         margin: 0 30px;
       }
       .ph_pr_msg {
-        //text-align: left;
         margin: 0 35px;
       }
      .ph_status {
         margin: 0 30px;
-      }
-    }
-
-    @media (min-width: 540px) {
-     .ph_status {
-        margin-left:65px;
-        //margin: 0 30px;
       }
     }
 
@@ -67,7 +78,7 @@
       }
     }
   }
-}
+
 
 /* 右側 */
 .ph_book_right {
