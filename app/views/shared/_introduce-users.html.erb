@@ -1,6 +1,5 @@
-
+<% if @recent_users.any? %>
   <p>&nbsp;</p>
-
   <div class="well" style="text-align:left;">
   <h4>【 Phraseeを使っている人たち 】</h4>
   <p class="">　当サイトで英語フレーズを書いたり（投稿したり）、お気に入りしたり、コメントしたりしている人たち。</p>
@@ -8,3 +7,4 @@
   <%= link_to "全てのメンバーを見る", users_path %>
   <%= render 'shared/start-phrasee_link' %>
   </div>
+<% end %>
