@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
   # GET    /users/:id/favorites(.:format) 
   def index
     begin
-      @user = User.find(params[:id])
+      @fav_user = User.find(params[:id])
     rescue Exception => e
       flash[:error] = 'データが見つかりませんでした。' 
       redirect_to root_url
@@ -14,7 +14,13 @@ class FavoritesController < ApplicationController
     end
 
     # このユーザーのお気に入りフレーズ
-    @phrases = Phrase.where(id:@user.favorites.map{|fav| fav.phrase_id}).paginate(page:params[:page])
+    @phrases = Phrase.where(id:@fav_user.favorites.map{|fav| fav.phrase_id}).paginate(page:params[:page])
+
+    #render :favorites;
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @phrases }
+    end
   end
 
   # お気に入りへ追加

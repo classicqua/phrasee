@@ -13,26 +13,33 @@
   <%= render 'shared/main-title' %>
 
   <!-- パンくずリスト -->
-  <ol class="breadcrumb">
-    <li>
-      <%= link_to 'トップ', root_path %>
+  <ol class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+    <!-- トップページ -->
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="home">
+      <%= link_to root_path, itemprop:"url" do %>
+      <span itemprop="title">トップ</span>
+      <% end %>
       <span class="divider">/</span>
     </li>
-    <li>
-      <%= link_to "メンバー", users_path %>
+    <!-- 子ページ -->
+     <li itemprop="child"  itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <%= link_to users_path, itemprop:"url" do %>
+      <span itemprop="title">メンバー</span>
+      <% end %>
       <span class="divider">/</span>
     </li>
-    <li>
-      <%= link_to user.name, user_path(@user) %>
-      <span class="divider">/</span>
+    <!-- 現在ページ -->
+    <li class="active" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <span itemprop="title"><%= "#{what}" %><</span>
     </li>
-    <li class="active"><%= "#{what}" %></li>
   </ol>
   
   <!-- page header -->
   <div class="page-header">
     <h2>
-      <%= cl_image_tag( user.profile_image_url, width:24, height:24, crop: :fill, alt:"user-profile-image", class:"img-polaroid", alt:"#{user.name}さん") %>
+      <%= link_to user_path(user), { class:"pull-left", title:"#{user.name}さんのフレーズブックはこちら", rel:"author", itemprop:"url" } do %>
+        <%= cl_image_tag( user.profile_image_url, width:24, height:24, crop: :fill, class:"img-polaroid", alt:"#{user.name}さん") %>
+      <% end %>
       <span class="ph_category_name"><%= user.name %>さんの<%= "#{what}" %></span>
       <small><%= "（#{count}件）" %></small>
     </h2>

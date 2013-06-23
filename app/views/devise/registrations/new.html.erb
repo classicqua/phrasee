@@ -10,11 +10,10 @@
 <%= render "devise/shared/welcome-message"%>
 
 <div class="container">
+
    <!-- page header -->
   <div class="page-header">
-
-  <h3>新規会員登録（無料）</h3>
-  <span class="lead"><small>登録完了後、あなた用のページが作成されます。</small></span>
+    <h3>新規会員登録（無料）</h3>
   </div> 
 
   <!-- 登録ステップ -->  
@@ -23,6 +22,12 @@
       <%= image_tag('signup/signup_step1.jpg', { alt:"step1" } ) %>
     </div> 
   </div> 
+  <div class="row-fluid">
+    <div class="span12">
+      <%= image_tag('characters/t9dog1_trans.png', { alt:"案内犬", width:"55", style:"vertical-align:bottom;"  } ) %>
+      <span class="lead"><small>⬇あなたのアカウントをつくります。</small></span>
+    </div> 
+   </div> 
 
   <!-- 登録フォーム ＋ PR -->
   <div class="row-fluid">
@@ -63,7 +68,7 @@
       <div  style="text-align:left;">
       <h4>Come join us!</h4>
       <p class=""> - あなたの参加を待っています！ - </p>
-      <%= render 'shared/members', object: @users %>
+      <%= render 'shared/members', object: @pr_users %>
       </div>
     </div>
   </div>

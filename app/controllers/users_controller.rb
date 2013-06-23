@@ -11,9 +11,6 @@ class UsersController < ApplicationController
   # メンバーページ
   def show
 
-    # 既存会員
-    #@users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(5)  
-
     # フレーズブックのメンバー
     begin
       @user = User.find(params[:id]) # 該当ユーザー
@@ -28,7 +25,11 @@ class UsersController < ApplicationController
     @phrases = @user.phrases.paginate(page:params[:page], per_page:3)
 
     # お気に入りされたフレーズ
-    @favoriteds = Favorite.where(phrase_id: @user.phrase_ids).uniq
+    @favoriteds = Favorite.where(phrase_id: @user.phrase_ids)
+    #@favoriteds = Favorite.where(phrase_id: @user.phrase_ids).group(:phrase_id).order('count_phrase_id DESC').count(:phrase_id)
+    
+    # 複数人がお気に入りしててもそれぞれ「1回」でカウントしたものを抽出
+    @favoriteds_uniq = @favoriteds.map{|f|f}.uniq{|fu|fu.phrase_id}
 
     # お気に入りした人
     #@fav_users = User.where(phrase_id: @user.phrase_ids)
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
   # 投稿フレーズ
   def posts
     begin
-      @user = User.find(params[:id])
+      @post_user = User.find(params[:id])
       @phrases = Phrase.where( 'user_id = :user_id', { :user_id => params[:id] } )
                         .paginate(page:params[:page])
     rescue Exception => e

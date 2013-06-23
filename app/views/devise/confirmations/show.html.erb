@@ -5,17 +5,29 @@
 <%#= javascript_include_tag "/plugin/jquery.zip2addr.js", charset:"UTF-8" %>
 
 <div class="container">
-  <%= image_tag('signup/signup_step2.jpg', { alt:"step2" } ) %>
 
-  <div class="row-fluid">
-    <%# サイトメインタイトル %>
-    <%= render 'shared/main-title' %>
-  </div>
+  <%# サイトメインタイトル %>
+  <%= render 'shared/main-title' %>
 
   <!-- page header -->
   <div class="page-header">
     <h3>アカウント設定</h3>
   </div>
+
+  <!-- 登録ステップ -->  
+  <div class="row-fluid">
+    <div class="span12">
+      <%= image_tag('signup/signup_step2.jpg', { alt:"step2" } ) %>
+    </div> 
+  </div> 
+  <div class="row-fluid">
+    <div class="span12">
+      <%= image_tag('characters/t9kitty_trans.png', { alt:"確認猫", width:"55", style:"vertical-align:bottom;"  } ) %>
+      <span class="lead"><small>⬇あなたのプロフィールを設定しましょう</small></span>（後で変更できます）
+    </div> 
+  </div> 
+
+  <p>&nbsp;</p>
 
   <%= simple_form_for(resource, :as => resource_name, :url => confirm_path,
       :html => { :method => :put, :multipart => true, :class => 'form-vertical' }) do |f| %>

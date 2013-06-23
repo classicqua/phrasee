@@ -116,9 +116,6 @@
      <h5>
         <%#= link_to favorites_path(@user), { class:"" } do %>
 
-          <%# 複数人がお気に入りしててもそれぞれ「1回」でカウントしたものを抽出 %>
-          <% @favoriteds_uniq = @favoriteds.map{|f|f}.uniq{|fd|fd.phrase_id} %>
-
           <%= image_tag('glyphicons_free/glyphicons/png/glyphicons_019_heart_empty.png', { alt:"love-icon", width:"18" } ) %> お気に入りされたフレーズ
           <small>（全<%= @favoriteds_uniq.count %>件）</small>
         <%# end %>
