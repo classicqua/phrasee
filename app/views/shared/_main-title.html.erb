@@ -11,7 +11,7 @@
 <% sub_title_tag = sub_title.include?(base_sub_title) ? "em": "h1" %>  
 
 <%# メインタイトルの幅 %>
-<% main_title_width = logo_tag.include?("h1") ? "span6": "span12" %>  
+<% main_title_width = logo_tag.include?("h1") ? "span7": "span12" %>  
 
 <%# メインタイトル文言 %>
 <div class="row-fluid">
@@ -21,11 +21,12 @@
         <%= image_tag("icons/apple-touch-icon-precomposed.png", { alt:"英語フレーズ投稿サイト『Phrasee』", class:"logo-icon", size:"36x36" }) %>
         <span><%= main_title %></span>
       <% end %>
+    </<%= logo_tag %>>
   </div>
 
   <%# ソーシャルボタン %>
   <% if sub_title == base_sub_title %>
-    <div class="span6 social-buttons">
+    <div class="span5 social-buttons">
       <%= render 'shared/social-buttons' %>
     </div>
   <% end %>
@@ -33,6 +34,6 @@
 
 <div class="row-fluid">
   <div class="span12">  
-  <<%= sub_title_tag %> class="muted sub_title">&nbsp;<%= sub_title %></<%= sub_title_tag %>>
+  <<%= sub_title_tag %> class="muted sub_title">&nbsp;<%= truncate( sub_title, { length:110 }) %></<%= sub_title_tag %>>
   </div>
 </div>
