@@ -7,8 +7,8 @@ $(function() {
     $("#kobetsu-phrase").attr("data-url",link_for_tweet);
 
     // ツイート文設定
-    prmsg = "【英語フレーズを投稿するならPhrasee】" // PRメッセージ
-    text_for_tweet = "『" + $(".japanese-phrase").text() + "』→『" + $(".english-phrase").text() + "』" + prmsg;
+    prmsg = "" // PRメッセージ
+    text_for_tweet = "「" + $(".japanese-phrase").text() + "」を英語で言うと？\n→『" + $(".english-phrase").text() + "』\n" + prmsg;
     $("#kobetsu-phrase").attr("data-text",text_for_tweet);
 });
 </script>
