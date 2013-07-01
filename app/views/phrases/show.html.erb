@@ -1,5 +1,5 @@
 <% provide(:title, "『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
-<% provide(:subtitle, "投稿フレーズNo.#{@phrase.id}「#{@phrase.japanese}」を英語で言うと？") %>
+<% provide(:subtitle, "投稿英語フレーズNo.#{@phrase.id}「#{@phrase.japanese}」を英語で言うと？") %>
 <% provide(:description, "【スマホ対応サイト】『#{@phrase.japanese}』を英語で言うと『#{@phrase.english}』") %>
 
 <!-- main -->
@@ -70,10 +70,17 @@
       </h4>
       <!-- 投稿日時 -->
       <p class="muted">
-        <%# UTCからJST（日本時間）に変換 %>
+      <% if Rails.env.production? %>
+        <%# 本番環境はそのまま %>
+        <time itemprop="" datetime=<%= @phrase.updated_at.strftime "%Y-%m-%d %H:%M:%S" %>>
+        <%= @phrase.updated_at.strftime "%Y-%m-%d %H:%M:%S" %>
+        </time>
+      <% else %>
+        <%# ローカル環境はUTCからJST（日本時間）に変換→＋9時間 %>
         <time itemprop="" datetime=<%= @phrase.updated_at.to_s(:db) %>>
         <%= @phrase.updated_at.to_s(:db) %>
         </time>
+      <% end %>
       </p>
       <!-- エピソード・ひとくちメモ -->
       <span itemprop="description">
