@@ -26,7 +26,21 @@
       <%= render partial: 'shared/show-phrase', locals:{ phrase: @pikup_phrase } %>
       <%= render partial: 'shared/post-member-icon', locals:{ user: @pikup_phrase.user } %>
       <%= link_to @pikup_phrase.user.name, user_path(@pikup_phrase.user), title:"#{@pikup_phrase.user.name}さんのフレーズブックはこちら" %>
-      <span class="muted"><%= @pikup_phrase.updated_at.to_s(:db) %></span><%# UTCからJST（日本時間）に変換 %>
+
+      <span class="muted">
+      <% if Rails.env.production? %>
+        <%# 本番環境はそのまま %>
+        <time itemprop="" datetime=<%= @pikup_phrase.updated_at.strftime "%Y-%m-%d %H:%M:%S" %>>
+        <%= @pikup_phrase.updated_at.strftime "%Y-%m-%d %H:%M:%S" %>
+        </time>
+      <% else %>
+        <%# ローカル環境はUTCからJST（日本時間）に変換→＋9時間 %>
+        <time itemprop="" datetime=<%= @pikup_phrase.updated_at.to_s(:db) %>>
+        <%= @pikup_phrase.updated_at.to_s(:db) %>
+        </time>
+      <% end %>
+      </span>
+
       <p>
       <%= simple_format( truncate(@pikup_phrase.story, { :length => 36 }) ) %>
       <%= link_to "詳細を見る", @pikup_phrase %>
