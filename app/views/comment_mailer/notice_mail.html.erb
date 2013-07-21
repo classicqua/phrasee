@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+ </head>
+ <body>
+  <h3>あなたの投稿フレーズに新しいコメントがつきました。</h3>
+ 
+  <p style="font-size:big;">【 投稿フレーズ 】</p> 
+  <div style="padding:10px; background-color: #fefefe; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important; -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important; -ms-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important; -o-box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important; box-shadow: 0 1px 3px rgba(0,0,0,0.30)!important; border-radius: 3px; border: 1px;">
+    <h3><%= "#{@phrase.japanese}" %></h3>
+    <h3><%= "#{@phrase.english}" %></h3>
+  </div>
+  
+  <p>&nbsp;</p>
+
+  <div style="padding:10px;">
+    <%= render partial: 'devise/shared/profile_image', locals:{ user: @commenter, type: :thumb } %>
+  
+    <h4><%= @commenter.name %>さんより</h4>
+    <div style="font-size:18px;padding:5px 1px;">
+      <%= simple_format(@new_comment.content) %>
+    </div>
+  </div>
+  <hr>
+
+  <p>&nbsp;</p>
+  <%= link_to "コメントされた投稿フレーズのページを見る", @url %>
+  <p>&nbsp;</p>
+  <p style="font-size:small; color:gray;">※この通知メールを受け取りたくない場合は、アカウント設定の「知らせメールを受け取る」のチェックを外してください。</p>
+
+  <footer>
+    <p>&nbsp;</p>
+    <p>みんなでつくる英語フレーズ集『Phrasee』</p>
+    <p><a href="http://www.phrasee.jp/">http://www.phrasee.jp/</a></p>
+  </footer>
+ </body>
+</html>

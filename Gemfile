@@ -69,6 +69,9 @@ gem 'sitemap_generator' # 2/25追加
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+# コメント書き込み通知用
+#gem 'rails-observers' # Rails4.0以上じゃないと動かない？
+
 group :production do
   gem 'pg' # heroku用
   # gem 'mysql2' # sqale用

@@ -6,7 +6,7 @@
   <div class="form-inputs ">
     <%= f.input :content, as: :text,  input_html: { rows:"3", class:"input-large comment_for_phrase" },  
                 placeholder:"",
-                label:"<small class='muted'>ひとことどうぞ</small>" %>
+                label:"<small class='muted'>ひとことどうぞ（250文字以内）</small>" %>
     <p><%= f.button :submit, :class => 'btn post_comment_button' %></p><%#= value値はja.ymlに記載 %>                 
     <% if !user_signed_in? %>
     <p class="muted">コメントを送るには<%= link_to "ログイン", new_user_session_path, rel:"nofollow" %>が必要です。 </p>   

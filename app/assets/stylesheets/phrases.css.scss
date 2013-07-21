@@ -21,6 +21,11 @@ div.social-buttons-phrase {
   padding-bottom:9px;
 }
 
+// コメント欄
+.comment_for_phrase {
+  width: 500px;
+}
+
 /* Large desktop */
 @media (min-width: 1200px) {  }
  
@@ -37,4 +42,9 @@ div.social-buttons-phrase {
 /* Landscape phones and down */
 @media (max-width: 480px) {
 
+
+  // コメント欄
+  .comment_for_phrase {
+    width: 100%;
+  }
 }
