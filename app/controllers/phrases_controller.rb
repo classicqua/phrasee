@@ -35,7 +35,7 @@ class PhrasesController < ApplicationController
     # 新規コメント用
     @new_comment = @phrase.comments.new 
 
-    # 同じカテゴリーのフレーズ（次へリンク用）
+    ### 同じカテゴリーのフレーズ（次へリンク用） ###
     @phrases = Phrase.where( 'category_id = :category_id', { :category_id => @phrase.category.id } )
     current_flg = FALSE
     @next = nil
@@ -50,7 +50,11 @@ class PhrasesController < ApplicationController
         @next = Phrase.find(@phrase_ids.first)  if (@phrase_ids.count > 1) && @next == nil
       end   
     end    
+    ### 次へリンク用/ココまで ###
 
+    # pv数インクリメント
+    pv_count = @phrase.pv + 1
+    @phrase.update_attribute(:pv, pv_count)
 
     # 現在のメンバーの内、最近ログインした人たち
     recent_users

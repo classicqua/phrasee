@@ -17,7 +17,7 @@
 
 #coding: utf-8
 class Phrase < ActiveRecord::Base
-  attr_accessible :japanese, :english, :source, :story, :launch_flg, :category_id, :source, :story, :launch_flg, :agreement
+  attr_accessible :japanese, :english, :source, :story, :launch_flg, :category_id, :source, :story, :launch_flg, :agreement, :pv
   belongs_to :user
   belongs_to :category
   has_many :comments, dependent: :destroy

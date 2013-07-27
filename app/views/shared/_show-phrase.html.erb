@@ -1,26 +1,39 @@
-<%# フレーズ %>
+<%# 投稿フレーズ %>
+<div class="well show_phrase_container">
 
-    <div class="well show_phrase_container">
+  <!-- フレーズ上部 -->
+  <div class="row-fluid"> 
+    <!-- 左側 -->
+    <div class="span12">
       <%= render 'shared/phrase-social' %>
+    </div>
+    <!-- 右側 -->
+  </div>
 
-      <ul class="unstyled">
-        <li><h2 class="title_phrase"><%= link_to phrase.japanese, phrase, { title:"日本語フレーズ『#{phrase.japanese}』", class:"japanese-phrase" } %></h2></li>
-        <li><h2 class="title_phrase"><%= link_to phrase.english, phrase, { title:"英語フレーズ『#{phrase.english}』", class:"english-phrase"  } %></h2></li>
-      </ul>
-     
-      
-      <div>
-        <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
-        <% if user_signed_in? && phrase.user == current_user %>
-          <%= link_to "編集する", edit_phrase_path(phrase), class:"btn btn-mini" %>
-          <%= link_to "削除する", phrase_path(phrase), method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
-                title:phrase.japanese, class:"btn btn-mini btn-danger" %>
-        <% else %>
-          <!-- お気に入り追加/削除フォーム（ボタン） -->
-          <%= render 'favorites/favorite_form' %>
-          <%#= render partial: 'favorites/favorite_form', locals:{ @phrase: phrase } %>
+  <ul class="unstyled">
+    <li><h2 class="title_phrase"><%= link_to phrase.japanese, phrase, { title:"日本語フレーズ『#{phrase.japanese}』", class:"japanese-phrase" } %></h2></li>
+    <li><h2 class="title_phrase"><%= link_to phrase.english, phrase, { title:"英語フレーズ『#{phrase.english}』", class:"english-phrase"  } %></h2></li>
+  </ul>
+ 
+ 
+  <!-- フレーズ下部 -->
 
-        <% end %>
-
+    <!-- view数 -->
+    <div class="row-fluid">
+      <div class="span12">
+          <i class="icon-eye-open"></i>
+          <span class="muted"><%= @phrase.pv.to_s %> views</span>
       </div>
     </div>
+
+    <!-- お気に入り追加/削除、フレーズ編集/削除ボタン -->
+    <% if user_signed_in? && phrase.user == current_user %>
+      <%= link_to "編集する", edit_phrase_path(phrase), class:"btn btn-mini" %>
+      <%= link_to "削除する", phrase_path(phrase), method: :delete, data:{ confirm:"このフレーズを削除しますか?" }, 
+            title:phrase.japanese, class:"btn btn-mini btn-danger" %>
+    <% else %>
+      <!-- お気に入り追加/削除フォーム（ボタン） -->
+      <%= render 'favorites/favorite_form' %>
+      <%#= render partial: 'favorites/favorite_form', locals:{ @phrase: phrase } %>
+    <% end %>
+</div>
