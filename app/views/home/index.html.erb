@@ -14,6 +14,8 @@
   <%= render 'shared/pr' %>
 
   <!-- ピックアップフレーズ -->
+  <% unless @pikup_phrase.blank? %>
+
   <div class="row-fluid pikup-phrase">
     <div class="span12 ph_phrase_box_cancel ">
 
@@ -46,7 +48,9 @@
       <%= link_to "詳細を見る", @pikup_phrase %>
       </p>
     </div>
-  </div>    
+  </div>
+
+  <% end %> 
   <!-- // -->  
 
   <div class="row-fluid ph-row">

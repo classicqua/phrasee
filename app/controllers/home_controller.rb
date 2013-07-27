@@ -10,6 +10,6 @@ class HomeController < ApplicationController
 
     # ピックアップフレーズ
     @pikup_phrase = Phrase.first
-    @phrase = @pikup_phrase.dup
+    @phrase = @pikup_phrase.dup unless @pikup_phrase.blank?
   end
 end
