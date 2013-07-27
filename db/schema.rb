@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219115415) do
+ActiveRecord::Schema.define(:version => 20130727050556) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",               :default => "", :null => false
@@ -60,15 +60,16 @@ ActiveRecord::Schema.define(:version => 20130219115415) do
   end
 
   create_table "phrases", :force => true do |t|
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "japanese"
     t.string   "english"
     t.integer  "user_id"
     t.integer  "category_id"
-    t.string   "source"
+    t.string   "source",      :limit => 500
     t.text     "story"
-    t.boolean  "launch_flg",  :default => true
+    t.boolean  "launch_flg",                 :default => true
+    t.integer  "pv",                         :default => 0
   end
 
   create_table "rails_admin_histories", :force => true do |t|
