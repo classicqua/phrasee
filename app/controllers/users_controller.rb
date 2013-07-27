@@ -34,6 +34,9 @@ class UsersController < ApplicationController
     # お気に入りした人
     #@fav_users = User.where(phrase_id: @user.phrase_ids)
 
+    # 投稿フレーズの合計pv数
+    @pv_count = @user.phrases.map{|p|p.pv}.inject(0){ |sum, pv| sum += pv }
+
     # 現在のメンバーの内、最近ログインした人たち
     recent_users
   end

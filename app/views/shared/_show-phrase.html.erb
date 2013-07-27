@@ -15,14 +15,13 @@
     <li><h2 class="title_phrase"><%= link_to phrase.english, phrase, { title:"英語フレーズ『#{phrase.english}』", class:"english-phrase"  } %></h2></li>
   </ul>
  
- 
+
   <!-- フレーズ下部 -->
 
     <!-- view数 -->
     <div class="row-fluid">
       <div class="span12">
-          <i class="icon-eye-open"></i>
-          <span class="muted"><%= @phrase.pv.to_s %> views</span>
+        <%= render 'shared/pv', pv_count: @phrase.pv %>
       </div>
     </div>
 

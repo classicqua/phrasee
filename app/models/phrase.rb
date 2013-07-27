@@ -45,5 +45,5 @@ class Phrase < ActiveRecord::Base
 
   ## クエリ関連 ##
   self.per_page = Constants.PH_PAGINATION.PER_PAGE || 10
-  default_scope order: 'phrases.updated_at DESC'
+  default_scope order: 'phrases.created_at DESC'
 end

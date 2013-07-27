@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     recent_users
 
     # ピックアップフレーズ
-    @pikup_phrase = Phrase.order('updated_at DESC').first
+    @pikup_phrase = Phrase.first
     @phrase = @pikup_phrase.dup
   end
 end

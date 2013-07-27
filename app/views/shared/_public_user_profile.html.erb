@@ -46,6 +46,15 @@
               <% end %>
             </li>
           </ul>
+
+          <!-- view数（全投稿フレーズ合計） -->
+          <ul class="unstyled">
+             <li style="font-size:14px;">
+              <%= render 'shared/pv', pv_count: @pv_count %>
+            </li>
+          </ul>
+
+
           <%# お気に入りフレーズ %>
           <ul class="unstyled inline">
             <li><%= image_tag('glyphicons_free/glyphicons/png/glyphicons_049_star.png', { alt:"お気に入りフレーズ" } ) %> お気に入りフレーズ</li>
