@@ -110,9 +110,9 @@
   <!-- コメント一覧 -->
   <%= render 'comments/comments_list', { comments: @comments } %>
   <p>&nbsp;</p>
+
   <!-- コメント投稿フォーム -->
   <%= render 'comments/comment_form', { url_path: comments_path, http_req: :post } %>
-
 
   <p>&nbsp;</p>
   <%= render 'shared/categories_link' %>

@@ -33,7 +33,7 @@ class PhrasesController < ApplicationController
     @comments = Comment.where( 'phrase_id = :phrase_id', { :phrase_id => @phrase } ) 
 
     # 新規コメント用
-    @new_comment = @phrase.comments.new 
+    @new_comment = @phrase.comments.new
 
     ### 同じカテゴリーのフレーズ（次へリンク用） ###
     @phrases = Phrase.where( 'category_id = :category_id', { :category_id => @phrase.category.id } )
@@ -52,10 +52,6 @@ class PhrasesController < ApplicationController
     end    
     ### 次へリンク用/ココまで ###
 
-    # pv数インクリメント
-    pv_count = @phrase.pv + 1
-    @phrase.update_attribute(:pv, pv_count)
-
     # 現在のメンバーの内、最近ログインした人たち
     recent_users
 
@@ -63,6 +59,10 @@ class PhrasesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @phrase }
     end
+
+    # pv数インクリメント
+    pv_count = @phrase.pv + 1
+    @phrase.update_attribute(:pv, pv_count)
   end
 
   # GET /phrases/new
