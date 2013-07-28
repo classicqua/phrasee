@@ -28,7 +28,7 @@ puts "How many admin_users exist? : #{AdminUser.count.to_s}"
 
 # フレーズカテゴリー
 categories = [
- "あいさつ",
+ "あいさつ・日常会話",
  "旅行",
  "ホテル",
  "空港",
