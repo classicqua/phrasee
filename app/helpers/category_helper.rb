@@ -4,7 +4,7 @@ module CategoryHelper
   # 以下のmy_categoriesで指定した順にカテゴリーを並べ替えたレコードを返す
   def get_category_all
 
-=begin
+
     ct = [] # 並び替えたカテゴリーレコード一覧
     my_categories = [
      "あいさつ・日常会話",
@@ -26,8 +26,8 @@ module CategoryHelper
       ct.push(Category.find_by_category_name(c))
     end
     return ct
-=end
-
+=begin
     Category.all
+=end
   end
 end
