@@ -60,9 +60,11 @@ class PhrasesController < ApplicationController
       format.json { render json: @phrase }
     end
 
-    # pv数インクリメント
-    pv_count = @phrase.pv + 1
-    @phrase.update_attribute(:pv, pv_count)
+    # pv数インクリメント（自分の投稿フレーズはカウント対象外）
+    unless @phrase.user == current_user
+      pv_count = @phrase.pv + 1
+      @phrase.update_attribute(:pv, pv_count)      
+    end
   end
 
   # GET /phrases/new
