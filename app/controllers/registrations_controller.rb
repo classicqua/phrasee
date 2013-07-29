@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
   # GET users/sign_up(.:format) 
   # 会員登録手続き画面表示
   def new
-    @pr_users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(5)
+    #@pr_users = User.where("confirmed_at is NOT NULL").order('last_sign_in_at DESC').limit(5)
 
     super
   end

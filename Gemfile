@@ -1,3 +1,5 @@
+path "vendor/bundle"
+
 source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 
@@ -40,7 +42,8 @@ gem "email_spec", ">= 1.4.0", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 gem "bootstrap-sass", ">= 2.2.2.0"
 gem "hominid", ">= 3.0.5"
-gem "devise", ">= 2.2.3"
+#gem "devise", ">= 2.2.3"
+gem "devise", ">= 2.2.4" # 2013.7.29 変更
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.4"
