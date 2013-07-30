@@ -1,7 +1,3 @@
-PATH
-  remote: vendor/bundle
-  specs:
-
 GEM
   remote: https://rubygems.org/
   specs:
