@@ -9,9 +9,10 @@
 #  english     :string(255)
 #  user_id     :integer
 #  category_id :integer
-#  source      :string(255)
+#  source      :string(500)
 #  story       :text
 #  launch_flg  :boolean          default(TRUE)
+#  pv          :integer          default(0)
 #
 
 require 'spec_helper'

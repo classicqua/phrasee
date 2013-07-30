@@ -1,4 +1,5 @@
 #coding: utf-8
+
 # == Schema Information
 #
 # Table name: phrases
@@ -10,12 +11,12 @@
 #  english     :string(255)
 #  user_id     :integer
 #  category_id :integer
-#  source      :string(255)
+#  source      :string(500)
 #  story       :text
 #  launch_flg  :boolean          default(TRUE)
+#  pv          :integer          default(0)
 #
 
-#coding: utf-8
 class Phrase < ActiveRecord::Base
   attr_accessible :japanese, :english, :source, :story, :launch_flg, :category_id, :source, :story, :launch_flg, :agreement, :pv
   belongs_to :user
