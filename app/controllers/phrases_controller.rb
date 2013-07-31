@@ -101,7 +101,10 @@ class PhrasesController < ApplicationController
       @phrase = Phrase.new(params[:phrase]) # modelオブジェクトを作り直して値をつめる
       render action: "new" and return
     else 
-    # 新規フレーズ登録へ
+      # pv
+      params[:phrase][:pv] = 0;
+
+      # 新規フレーズ登録へ
       @phrase = current_user.phrases.build(params[:phrase])
 
       respond_to do |format|
