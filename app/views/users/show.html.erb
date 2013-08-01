@@ -122,14 +122,15 @@
       </h5>
         <% if @favoriteds.any? %>
           <ul class="ph_phrase_ul">
-            <% @favoriteds_uniq.each do |favorited| %>
+            <% @favoriteds_uniq[0..5].each do |favorited| %>
             <ol class="inline ph_user_icon">
 
               <!-- お気に入りuser数 -->
               <li>
                 <%# お気に入りされているフレーズ × お気に入りしている人数 %>
                 <span class="fav-users-num">
-                  <%= @favoriteds.map{|f|f.phrase_id}.count(favorited.phrase_id) %>users
+                  <%= user_count = @favoriteds.map{|f|f.phrase_id}.count(favorited.phrase_id) %>
+                  <%= user_count == 1 ? "user" : "users" %>
                 </span>
               </li>
 

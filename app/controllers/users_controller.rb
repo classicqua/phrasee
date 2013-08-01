@@ -26,10 +26,13 @@ class UsersController < ApplicationController
 
     # お気に入りされたフレーズ
     @favoriteds = Favorite.where(phrase_id: @user.phrase_ids)
-    #@favoriteds = Favorite.where(phrase_id: @user.phrase_ids).group(:phrase_id).order('count_phrase_id DESC').count(:phrase_id)
     
-    # 複数人がお気に入りしててもそれぞれ「1回」でカウントしたものを抽出
-    @favoriteds_uniq = @favoriteds.map{|f|f}.uniq{|fu|fu.phrase_id}
+    # 【ボツ】複数人がお気に入りしててもそれぞれ「1回」でカウントしたものを抽出
+    #@favoriteds_uniq = @favoriteds.map{|f|f}.uniq{|fu|fu.phrase_id} # 以下改良版に差し替え
+
+    # 【改良版】お気に入り数でグループ化してuser数順かつ新しいもの順にソートしたもの
+    #@favoriteds_uniq = @favoriteds.group('phrase_id').order('count_phrase_id DESC, created_at ASC').count('phrase_id').keys.map{|f|Favorite.where(phrase_id: f)[0]}
+    @favoriteds_uniq = @favoriteds.group('phrase_id').order('count_phrase_id DESC, created_at ASC').count('phrase_id').map{|k,v|Favorite.where(phrase_id:k).uniq(k)[0]}
 
     # お気に入りした人
     #@fav_users = User.where(phrase_id: @user.phrase_ids)
