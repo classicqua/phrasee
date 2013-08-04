@@ -1,3 +1,4 @@
+#coding: utf-8
 class CommentMailer < ActionMailer::Base
 
   # 送信者アドレス
@@ -16,7 +17,7 @@ class CommentMailer < ActionMailer::Base
     # notice_mail.html.erbに出力（render）
     mail(
       :to => phrase.user.email, 
-      :subject => "[Phrasee] You've Got A New Comment!"
+      :subject => "【Phrasee】新着コメントがあります。"
     )
   end
 end

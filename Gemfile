@@ -75,6 +75,12 @@ gem 'omniauth-twitter'
 # コメント書き込み通知用
 #gem 'rails-observers' # Rails4.0以上じゃないと動かない？
 
+# cron job 2013.8.3 追加
+gem 'whenever', :require => false
+
+# tweet 2013.8.4 追加
+gem 'twitter'
+
 group :production do
   gem 'pg' # heroku用
   # gem 'mysql2' # sqale用
