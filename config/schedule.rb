@@ -36,7 +36,7 @@ set :output, {:standard => log_path, :error => error_log_path }
 ### task ###
 
 # tweet bot
-every 20.minutes do
+every 60.minutes do
   rake "twitter:tweet"
 end
 
