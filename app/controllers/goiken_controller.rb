@@ -4,7 +4,7 @@ class GoikenController < ApplicationController
   def create
 
     @goiken = Goiken.new
-    @goiken.body = params[:body]
+    @goiken.body = ActionView::Base.full_sanitizer.sanitize(params[:body]) # タグは除去
 
     if @goiken.save
       render :result
