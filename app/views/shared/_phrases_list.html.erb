@@ -1,25 +1,5 @@
 <% if phrases.any? %>
-
-  <ul class="ph_phrase_ul">
-    <% phrases.each do |phrase| %>
-    <ol class="inline ph_user_icon">
-
-      <!-- メンバー画像 -->
-      <li>
-        <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
-      </li>
-
-      <!-- フレーズ（日本語） -->
-      <li class="ph_phrase_item">
-        <% japanese_phrase = phrase.japanese %>
-        <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
-      </li>
-    </ol>
-    <% end %>
-  </ul>
-
-
-
+  <%= render 'shared/phrases_list_items', phrases: phrases %>
   <%= render 'shared/pagination', object: phrases %>
 <% else %>
   <p>フレーズはありません。</p>

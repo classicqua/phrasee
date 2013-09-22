@@ -1,0 +1,70 @@
+  <ul class="ph_phrase_ul">
+    <% phrases.each do |phrase| %>
+
+
+    <!-- pv数 -->
+    <div class="pv_container">
+      <%= "#{phrase.pv}views" %>
+      <%#= render 'shared/pv', pv_count: phrase.pv %>
+    </div>
+
+    <ul class="inline ph_user_icon searched_phrase">
+
+      <!-- メンバー画像 -->
+      <li>
+        <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
+      </li>
+
+      <!-- フレーズ（日本語） -->
+      <li class="ph_phrase_item">
+        <% japanese_phrase = phrase.japanese %>
+        <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+      </li>
+
+      <!-- フレーズ（英語） -->
+      <li class="ph_phrase_item">
+        <% english_phrase = phrase.english %>
+        <%= link_to truncate(english_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+      </li>      
+    </ul>
+
+    <p>
+      <!-- 投稿者 -->
+      <small>
+        <span class="muted">投稿者:</span>
+        <%= link_to user_path(phrase.user) { title:"#{phrase.user.name}さんのフレーズブックはこちら" } do %>
+          <%= phrase.user.name %>
+        <% end %>
+      </small>
+
+      <!-- 日時 -->
+      <small class="muted">
+      <% if Rails.env.production? %>
+        <%# 本番環境はそのまま %>
+        <time itemprop="" datetime=<%= phrase.updated_at.strftime "%Y-%m-%d %H:%M:%S" %>>
+        &nbsp;&nbsp;<%= phrase.updated_at.strftime "%Y-%m-%d %H:%M:%S" %>
+        </time>
+      <% else %>
+        <%# ローカル環境はUTCからJST（日本時間）に変換→＋9時間 %>
+        <time itemprop="" datetime=<%= phrase.updated_at.to_s(:db) %>>
+        &nbsp;&nbsp;<%= phrase.updated_at.to_s(:db) %>
+        </time>
+      <% end %>
+      </small>
+    </p>
+
+    <!-- 詳細リンク -->
+    <p>
+      <%= truncate(phrase.story, { :length => 36 }) %>
+      <small class=""><%= link_to "詳細を見る", phrase_path(phrase), class:"" %></small>
+    </p>
+    
+    <!-- カテゴリー -->
+    <p>
+      <%= link_to category_path(phrase.category) do %>
+        <small class="gray_color">カテゴリー：<%= phrase.category.category_name %></small>
+      <% end %>
+    </p>
+    <hr>
+    <% end %>
+  </ul>

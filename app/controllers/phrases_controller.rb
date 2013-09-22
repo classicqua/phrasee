@@ -8,7 +8,7 @@ class PhrasesController < ApplicationController
     #@q = Phrase.search(params[:q])
     @result = @q.result(distinct: true)
     @phrases = @result.paginate(page:params[:page])
-    @keyword = params[:q][:japanese_or_english_cont] || ""
+    @keyword = params[:q] ? params[:q][:japanese_or_english_cont] : ""
     
     # 現在のメンバーの内、最近ログインした人たち
     recent_users
