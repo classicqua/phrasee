@@ -1,11 +1,13 @@
 #coding: utf-8
 # 共通
 defaults: &defaults
-  PH_LIMIT_INDEX_PHRASE_NUM: 3 # 一覧表示するフレーズ数のリミット
+  PH_LIMIT_INDEX_PHRASES_NUM: 25 # 一覧表示するフレーズ数のリミット
 
   # pagination
   PH_PAGINATION:
     PER_PAGE: 10 # 1ページあたりのフレーズ数
+
+  PH_TOP_MEMBERS_NUM: 3 # 注目メンバー表示人数（TOP○人）
 
 # example)
 #  hoge_number:

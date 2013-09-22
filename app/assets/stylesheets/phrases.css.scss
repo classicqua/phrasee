@@ -49,6 +49,7 @@ div.social-buttons-phrase {
   }
 }
 
+// pv数ボックス
 .pv_container {
   margin:0 0 10px 5px;
   color : red;
@@ -60,6 +61,11 @@ div.social-buttons-phrase {
   border-color : #FFE4E0;
   border-width : 1px;
   padding:1px 5px;
+}
+
+// pv数ボックス（トップページ用）
+.pv_container_at_toppage {
+  @pv_container
 }
 
 .gray_color {

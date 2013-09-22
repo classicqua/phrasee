@@ -1,7 +1,9 @@
 <% if object.any? %>
 <ul class="users_list unstyled">
   <% object.each do |user| %>
-    <li class="ph_phrase_item">
+
+    <li class="user_item">
+
       <ol class="inline">
         <li style="width:70px;">
           <!-- メンバー画像 -->
@@ -11,7 +13,7 @@
         </li>
         <li>
           <!-- メンバー名 -->
-          <%= link_to user.name, user %>
+          <%= link_to user.name, user, class:"user_name" %>
         </li>
         <li>
           <!-- 自己紹介 -->
@@ -20,6 +22,7 @@
           </small>
         </li>
       </ol>
+
     </li>
   <% end %>
 </ul>

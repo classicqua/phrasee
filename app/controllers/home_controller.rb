@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   
   def index
     @categories = get_category_all
-    @phrases = Phrase.limit(Constants.PH_LIMIT_INDEX_PHRASE_NUM)
+    @phrases = Phrase.paginate(page:params[:page]).limit(Constants.PH_LIMIT_INDEX_PHRASES_NUM)
 
     # 現在のメンバーの内、最近ログインした人たち
     recent_users
@@ -12,5 +12,10 @@ class HomeController < ApplicationController
     # ピックアップフレーズ
     @pikup_phrase = Phrase.first
     @phrase = @pikup_phrase.dup unless @pikup_phrase.blank?
+
+    # アクセス数TOP3
+    @users = User.all.sort_by{|user| -user.phrases.map{|p|p.pv}.sum}
+    #@users = User.all.sort_by{|user|user.phrases.map{|p|p.pv}.inject(0){ |sum, pv| sum += pv }}[1..3]
+
   end
 end

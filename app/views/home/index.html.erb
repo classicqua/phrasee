@@ -53,88 +53,70 @@
   <% end %> 
   <!-- // -->  
 
-  <div class="row-fluid ph-row">
-    <div class="span6 ph_phrase_box well">
-      <h2 class="ph_category">
-        <%= link_to phrases_path, { class:"ph_new_link" } do %>
-          <span>新着順</span>
-          <%= image_tag('marks/new017_01.png', { alt:"新着英語フレーズ", size:"33x33", class:"new-mark" } ) %>
-          <small>（全<%= Phrase.count %>件）</small>
-        <% end %>
-      </h2>
-        <% if @phrases.any? %>
-          <ul class="ph_phrase_ul">
-            <% @phrases.each do |phrase| %>
-            <ol class="inline ph_user_icon">
+  <div class="row-fluid top-page-phrases">
 
-              <!-- メンバー画像 -->
-              <li>
-                <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
+    <!-- 左側 -->  
+    <div class="span8 ">
+      <%= render 'shared/phrases_list', phrases: @phrases %>
+    </div>
+     
+    <!-- 右側 -->  
+     <div class="span4 top-page-right-container">
+
+      <legend>注目メンバー</legend>
+      <%#= render 'shared/members', object: @users %>
+
+      <ul class="users_list unstyled">
+        <% @users[0..Constants.PH_TOP_MEMBERS_NUM-1].each do |user| %>
+
+          <!-- pv数 -->
+          <div class="pv_container_at_toppage">
+            &nbsp;<%= render 'shared/pv', pv_count: user.phrases.map{|p|p.pv}.sum %>
+          </div>
+
+          <li class="user_item">
+            <ol class="inline">
+              <li style="width:70px;">
+                <!-- メンバー画像 -->
+                <%= link_to user_path(user), { class:"" } do %>
+                   <%= render partial: 'devise/shared/profile_image', locals:{ user: user, type: :thumb } %>
+                <% end %>
               </li>
-
-              <!-- フレーズ（日本語） -->
-              <li class="ph_phrase_item">
-                <% japanese_phrase = phrase.japanese %>
-                <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+              <li>
+                <!-- メンバー名 -->
+                <%= link_to user.name, user, class:"user_name" %>
+              </li>
+              <li>
+                <!-- 自己紹介 -->
+                <small>
+                <%= simple_format(truncate(user.introduction, { :length => 50 })) if user.introduction.present? %>
+                </small>
               </li>
             </ol>
-            <% end %>
-          </ul>
-          <p class="ph_last_item">
-            <small><%= link_to "英語フレーズをすべて見る", phrases_path %></small>
-          </p>            
-        <% else %>
-          新着フレーズはありません。
+
+          </li>
         <% end %>
-    </div><%# 新着フレーズboxここまで %>
-  <%# </div> # 下記で自動的に付与  %>
+      </ul>
 
-  <% @categories.each_with_index do |category, index| %>
 
-    <!-- phrases box row：カテゴリー別 -->
-    <% if index.odd? %>
-    <div class="row-fluid ph-row"><%# ループ初回と偶数回はスルー %>
-    <% end %>
-    
-      <!-- phrases box  -->
-      <div class="span6 ph_phrase_box well">
-        
-          <%# カテゴリー名 %>
-          <h2 class="ph_category">
-            <%= link_to category_path(category), { class:"ph_category_link", title:"『#{category.category_name}』の英語フレーズ一覧はこちら" } do %>
-              <%= category.category_name %><small>（<%= category.phrases.count %>件）</small>
-            <% end %>
-          </h2>
+      <p>&nbsp;</p>
 
-          <%# このカテゴリーのフレーズ %>
-          <% if category.phrases.any? %>
-            <ul class="ph_phrase_ul">
-              <% category.phrases[0..2].each do |phrase| %>
-              <ol class="inline ph_user_icon">
-                <!-- メンバー画像 -->
-                <li>
-                  <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
-                </li>
-                <li class="ph_phrase_item">
-                  <% japanese_phrase = phrase.japanese %>
-                  <%= link_to truncate(japanese_phrase, { :length => 20 }), phrase, { title:"『#{japanese_phrase}』の英語フレーズはこちら" } %>
-                </li>
-              </ol>
-              <% end %>
-            </ul>
-            <p class="ph_last_item">
-              <small><%= link_to "『#{category.category_name}』の英語フレーズをすべて見る", category_path(category), { title:"『#{category.category_name}』の英語フレーズ一覧はこちら" } %></small>
-            </p>            
-          <% else %>
-            このカテゴリーに該当するフレーズはまだありません。
-          <% end %>
-      </div><%# カテゴリー別フレーズboxここまで %>
+      <legend><%= link_to "カテゴリー別", categories_path %></legend>
+      <ul class="unstyled">
+        <% @categories.each do |category| %>
+          <li class="">
+            <%= link_to category_path(category), { title:"『#{category.category_name}』関連の英語フレーズはこちら" } do %>
+            <%= "『#{category.category_name}』" %>
+            <% end %><small class="muted">（<%= category.phrases.count %>件）</small>
+          </li>
+        <% end %>
+      </ul>
 
-    <% if index.even? or ( index.odd? and Category.count-1 == index ) # 偶数or最後の要素 %>
-    </div>
-    <% end %>
-   
-  <% end %>
+     </div> 
+  </div>
+
+  <!-- 元のファイルがあったところ ココから -->  
+  <!-- ココまで// -->  
 
   <%= render 'shared/categories_and_post' %>
 

@@ -4,6 +4,15 @@
 
 @import "custom";
 
+.top-page-phrases {
+  margin-left: -30px;
+}
+
+.top-page-right-container {
+  padding: 0 5px 0 30px;
+}
+
+
 .ph_phrase_box { 
   /* 以下いずれかをコメントインして使う */
   @include well-box; // wellの背景色を変える（デフォルト白）＋立体っぽく表示
@@ -42,6 +51,7 @@
 }
 
 .ph_phrase_item {
+  font-weight: bold;
   font-size: 20px;
   padding: 3px 0;
   vertical-align:middle;
