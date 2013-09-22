@@ -1,4 +1,4 @@
-<div class="navbar navbar-static-top">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
 
@@ -20,12 +20,13 @@
             <% if !Rails.env.production? %><%# 検索システムが完成するまでproduction環境では非表示にしておく %>
             <!-- 検索フォーム -->
             <li>
-              <form class="navbar-form">
-                <div class="input-append">
-                  <input type="text" class="span3" placeholder="コレ英語で何て言う？">
-                  <button type="submit" class="btn search-phrase"><i class="icon-search"></i></button>
-                </div>
-              </form>
+            <%= search_form_for @q, url: search_phrases_path, class:"navbar-form", html: { method: :post } do |f| %>
+              <div class="input-append">
+                <%= f.text_field :japanese_or_english_cont, placeholder:"コレ英語で何て言う？" %>
+                <%#= f.submit class:"btn search-phrase" %>
+                <button type="submit" class="btn search-phrase"><i class="icon-search"></i></button>
+              </div>
+            <% end %>
             </li>  
             <% end %>
 

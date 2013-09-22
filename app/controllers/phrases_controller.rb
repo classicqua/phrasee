@@ -5,15 +5,25 @@ class PhrasesController < ApplicationController
   # GET /phrases
   # GET /phrases.json
   def index
-    @phrases = Phrase.paginate(page:params[:page])
+    #@q = Phrase.search(params[:q])
+    @result = @q.result(distinct: true)
+    @phrases = @result.paginate(page:params[:page])
+    @keyword = params[:q][:japanese_or_english_cont] || ""
     
     # 現在のメンバーの内、最近ログインした人たち
     recent_users
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html  # index.html.erb
       format.json { render json: @phrases }
     end
+  end
+
+  # GET /phrases/search
+  def search
+    index
+    #render :index
+    #render :search
   end
 
   # GET /phrases/1

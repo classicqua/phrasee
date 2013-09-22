@@ -1,6 +1,7 @@
 #coding: utf-8
 class HomeController < ApplicationController
-
+  #before_filter :set_search_form
+  
   def index
     @categories = get_category_all
     @phrases = Phrase.limit(Constants.PH_LIMIT_INDEX_PHRASE_NUM)

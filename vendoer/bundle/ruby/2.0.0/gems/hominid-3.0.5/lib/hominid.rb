@@ -1,0 +1,11 @@
+require 'net/http'
+require 'net/https'
+require 'openssl'
+require 'xmlrpc/client'
+
+require 'hominid/campaign'
+require 'hominid/list'
+require 'hominid/security'
+require 'hominid/api'
+require 'hominid/export'
+require 'hominid/sts'

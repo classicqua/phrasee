@@ -2,12 +2,19 @@
 class ApplicationController < ActionController::Base
   include CategoryHelper
 
+  before_filter :set_search_form # 検索欄用
+
+
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
 
+  # 検索欄
+  def set_search_form
+    @q = Phrase.search(params[:q])
+  end
 
   # ログイン後、デフォルトはマイブック表示（deviseのヘルパーをオーバーライド）
   def after_sign_in_path_for(resource_or_scope)

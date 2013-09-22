@@ -13,7 +13,13 @@
       /** body **/
 
       .body_container {
-        padding-top: 20px; // navbarからの距離
+        // navbarからの距離
+        @media (min-width: 481px) {
+          padding-top: 60px; 
+        }
+        @media (max-width: 480px) {
+          padding-top: 20px; 
+        }
       }
 
       // ページヘッダー キャッチコピー

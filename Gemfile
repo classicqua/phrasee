@@ -15,7 +15,10 @@ gem 'settingslogic'
 # ダミーデータ
 gem 'faker', '>= 1.0.1'
 gem 'faker-japanese'
-  
+
+# 検索
+gem "ransack"
+
 group :development, :test do
   gem 'sqlite3', '1.3.7'
   gem 'guard-rspec', '1.2.1'

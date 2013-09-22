@@ -45,6 +45,9 @@ Phrasee::Application.routes.draw do
     member do
       resources :comments, only: [:create]
     end
+    collection do
+      match 'search' => 'phrases#search', via: [:get, :post], as: :search # フレーズ検索
+    end
   end
 
   # フレーズのカテゴリー　

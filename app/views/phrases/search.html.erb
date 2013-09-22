@@ -1,0 +1,49 @@
+<% @message = @keyword.blank? ? "検索したい日本語または英語を入力してください。": "「#{@keyword}」のフレーズ検索結果" %>
+<% provide(:title, @message) %>
+<% provide(:subtitle, @message) %>
+<% provide(:description, "フレーズ検索結果") %>
+
+  <%# サイトメインタイトル %>
+  <%= render 'shared/main-title' %>
+  
+  <!-- パンくずリスト -->
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to 'トップ', root_path %>
+      <span class="divider">/</span>
+    </li>
+    <li class="active"><%= @message %></li>
+  </ol>
+
+  <!-- page header -->
+  <div class="page-header">
+    <h2><span class="ph_category_name"><%= @message %><%= "（#{@result.count}件）" unless @keyword.blank? %></span></h2>
+  </div>
+
+  <%= render 'shared/phrases_list_searched', phrases: @phrases %>
+  
+  <p>&nbsp;</p>
+
+  <% if (@result.count==0 && @keyword.present?) %>
+    <div class="alert alert-info ">
+      <%= link_to guide_path, { title:"1回1フレーズを書くだけのシンプルなミニ英語ブログ", class:"underline" } do %>
+      <i class="icon-info-sign "></i>
+      <strong><%= "「#{@keyword}」" %></strong>についてのフレーズ投稿者第一号になりませんか？
+      <% end %>
+    </div>
+  <% end %>
+
+  <p>&nbsp;</p>
+  <%= render 'shared/categories_link' %>
+  <%= render 'shared/post_phrase_link' %>
+
+  <%# ユーザー紹介 %>
+  <%= render 'shared/introduce-users' %>
+
+  <p>&nbsp;</p>
+  <%= render 'shared/top-page_link' %>
+
+<%# if admin? %>
+  <%#= link_to 'Edit', edit_phrase_path(phrase) %>
+  <%#= link_to 'Destroy', phrase, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%# end %>

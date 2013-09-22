@@ -1,0 +1,36 @@
+<% if phrases.any? %>
+
+  <ul class="ph_phrase_ul">
+    <% phrases.each do |phrase| %>
+    <ul class="inline ph_user_icon searched_phrase">
+
+      <!-- メンバー画像 -->
+      <li>
+        <%= render partial: 'shared/post-member-icon', locals:{ user: phrase.user } %>
+      </li>
+
+      <!-- フレーズ（日本語） -->
+      <li class="ph_phrase_item">
+        <% japanese_phrase = phrase.japanese %>
+        <%= link_to truncate(japanese_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+      </li>
+
+      <!-- フレーズ（英語） -->
+      <li class="ph_phrase_item">
+        <% english_phrase = phrase.english %>
+        <%= link_to truncate(english_phrase, { :length => 16 }), phrase_path(phrase), { title:"『#{japanese_phrase}』の英語フレーズはこちら", class:"learned2" } %>
+      </li>      
+    </ul>
+    <%= render 'shared/pv', pv_count: phrase.pv %>
+    <p><small class=""><%= truncate(phrase.story, { :length => 36 }) %> <%= link_to "詳細を見る", phrase_path(phrase), class:"" %></small></p>
+
+    <hr>
+    <% end %>
+  </ul>
+  
+
+
+  <%= render 'shared/pagination', object: phrases %>
+<% else %>
+  <p>フレーズはありません。</p>
+<% end %>
